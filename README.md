@@ -5,10 +5,6 @@
 
 ---
 
-## 📅 Información del Curso
-
-En este curso, compartiré pantalla para que todos puedan seguir los contenidos de **eLearnSecurity**. Este evento fue creado para quienes no pueden costear los cursos y desean aprender sin limitaciones. Tengo acceso a **todos los cursos de la plataforma INE** y me enfocaré en compartir específicamente el curso eJPT, que cubre conceptos esenciales de pruebas de penetración.
-
 ### 🔗 Acceso a las Clases
 Las clases se realizan en nuestro servidor de **Discord**. ¡Únete y participa en tiempo real!
 
