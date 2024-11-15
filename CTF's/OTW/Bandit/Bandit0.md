@@ -23,4 +23,5 @@ y visualizaremos el contenido del fichero
 ## Explicaciones de los comandos
 
 **ls -l** Listar el contenido del directorio utilizando un formato de listado largo
+
 **cat** Concatenar archivos e imprimir en la salida estándar
