@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## ¿Qué es DNSRecon?
 
 **DNSRecon** es una herramienta de código abierto utilizada para realizar pruebas de seguridad y auditoría de servidores DNS. Su propósito principal es la recolección de información detallada sobre los registros DNS de un dominio. DNSRecon es especialmente útil en el contexto de pruebas de penetración y análisis de seguridad, ya que permite realizar consultas detalladas de varios tipos de registros DNS para identificar posibles vulnerabilidades en la infraestructura de un dominio.

@@ -4,6 +4,8 @@
 
 ## Módulo 1: Fundamentos de Redes
 
+[Palabras Personasles] En estos primeros cursos  
+
 En este módulo, abordaremos los conceptos esenciales de redes que sirven como base para comprender cómo se estructuran y operan las redes de computadoras. Este conocimiento es fundamental para realizar pruebas de penetración, ya que la mayoría de los ataques y defensas en ciberseguridad están directamente relacionados con las redes. 
 
 ### 1. Conceptos Básicos de Redes y Terminología
