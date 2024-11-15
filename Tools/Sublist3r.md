@@ -1,33 +1,39 @@
-# Sublist3r en Kali Linux
+# 🛠 Herramienta Sublist3r en Redes y Ciberseguridad
+
+**Sublist3r** es una herramienta ampliamente utilizada en redes y ciberseguridad para realizar **enumeración de subdominios** de manera efectiva. A continuación, se describe su funcionamiento, características principales y algunas herramientas complementarias para enriquecer su uso en la investigación de dominios.
+
+---
 
 ## ¿Qué es Sublist3r?
-Sublist3r es una herramienta de **reconocimiento** en **ciberseguridad** que permite enumerar **subdominios** de un dominio objetivo. Esta herramienta facilita la recolección de subdominios, un paso importante en el proceso de **reconocimiento** en pruebas de penetración y auditorías de seguridad.
+Sublist3r es una herramienta de **reconocimiento de subdominios** que ayuda a obtener una lista completa de subdominios asociados a un dominio objetivo. Es muy útil en **pruebas de penetración** y **auditorías de seguridad** para identificar subdominios expuestos, los cuales podrían representar puntos vulnerables en la infraestructura de una organización.
 
-Sublist3r realiza la enumeración de subdominios consultando múltiples motores de búsqueda y servicios API, como **Google**, **Bing**, **Yahoo**, **Baidu**, y **VirusTotal**.
+La herramienta consulta varios motores de búsqueda y servicios API, como **Google**, **Bing**, **Yahoo**, **Baidu**, y **VirusTotal**, para recolectar información de subdominios de manera rápida y automatizada.
 
-## Instalación
-Sublist3r viene preinstalado en **Kali Linux**. Para verificar que está instalado, abre una terminal y ejecuta:
+### ¿Por qué es importante?
+La enumeración de subdominios es un paso esencial en el proceso de reconocimiento. Al identificar subdominios, se puede construir un mapa más detallado de la infraestructura de una organización, revelando posibles puntos de entrada y servicios no documentados o expuestos accidentalmente.
 
-# Comandos de Sublist3r
+---
 
-A continuación, se presentan los comandos más utilizados de la herramienta **Sublist3r**:
+## Funcionamiento Básico de Sublist3r
+Sublist3r realiza solicitudes a través de diferentes motores de búsqueda y servicios, recolectando datos sobre subdominios registrados para el dominio especificado. Es una herramienta de **recolección pasiva**, lo que significa que se basa en información pública y no interactúa directamente con los servidores del objetivo.
 
-## Comandos Básicos
+### Ejemplo Básico de Uso
+Para obtener una lista de subdominios de un dominio específico, se usa el siguiente comando:
 
-### Escaneo de un dominio y a ciertos puertos
 ```bash
-sublist3r -d dominio.com -p80,443
+sublist3r -d example.com
 ```
-### Escaneo de un dominio con un motor de búsqueda
-```bash
-sublist3r -d dominio.com --engine google
-```
-# Ejemplos
-```bash
-  sublister -d google.com
-  sublister -d example.com -p80,443
-  sublist3r -v -d example.com
-  sublist3r -b -d example.com
-  sublist3r -e google,yahoo,virustotal -d example.com
-```
-  
+Este comando devolverá una lista de subdominios asociados a `example.com`, tales como `sub.example.com`, `mail.example.com`, entre otros.
+
+--------
+
+## Opciones Principales en Sublist3r
+
+Sublist3r ofrece diversas opciones para personalizar y optimizar el proceso de búsqueda:
+
+- **-d**: Especifica el dominio objetivo.
+- **-o**: Guarda los resultados en un archivo de salida.
+- **-v**: Habilita el modo verboso, mostrando información adicional sobre el progreso de la búsqueda.
+- **-b**: Utiliza **Baidu** como motor de búsqueda para obtener subdominios adicionales.
+
+
