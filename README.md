@@ -1,5 +1,5 @@
 
-# 📚 Notas del Curso eLearnSecurity: eJPT (Junior Penetration Tester)
+# 📚 Notas del eJPT (Junior Penetration Tester)
 
 ¡Bienvenidos a las notas del curso **eJPT** (Junior Penetration Tester) de eLearnSecurity! Este curso está diseñado para quienes deseen obtener conocimientos en pruebas de penetración y ciberseguridad. A continuación, encontrarás toda la información relevante del curso, los temas, enlaces y detalles de nuestras clases.
 
