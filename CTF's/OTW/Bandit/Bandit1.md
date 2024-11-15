@@ -1,6 +1,6 @@
 ### Read file 1 → 2
 
-En este nivel, debemos capturar la contraseña para el siguiente nivel almacenada en un archivo llamado (-) ubicado en el directorio de inicio. Pero no es simplemente como antes, no podemos leer el (-) con comando de gato común. Cuando cat ve la cuerda - como nombre de archivo, lo trata como sinónimo de stdin. 
+En este nivel, debemos capturar la contraseña para el siguiente nivel almacenada en un archivo llamado (-) ubicado en el directorio de inicio. Pero no es simplemente como antes, no podemos leer el (-) con comando de cat. Porque Cuando cat ve el (-) como nombre de archivo, lo trata como sinónimo de stdin. 
 
     bandit1@bandit:~$ ls 
     -
