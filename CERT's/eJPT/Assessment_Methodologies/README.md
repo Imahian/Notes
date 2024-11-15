@@ -1,90 +1,61 @@
-# 📚 Notas del Curso eLearnSecurity: eJPT (Junior Penetration Tester)
 
----
+# Assessment Methodologies en Hacking y Descubrimiento de Servicios
 
-## Módulo 1: Fundamentos de Redes
+El proceso de realizar evaluaciones de seguridad (o *security assessments*) es fundamental en el hacking ético y la ciberseguridad. Estas metodologías se utilizan para evaluar la seguridad de un sistema, identificar vulnerabilidades y garantizar que las redes y los servicios estén protegidos de amenazas. A continuación, exploraremos las metodologías relacionadas con el descubrimiento de servicios y el análisis de dominios, como el uso de herramientas como DNSRecon.
 
-[Palabras Personasles] En estos primeros cursos  
+## ¿Qué son las Assessment Methodologies?
 
-En este módulo, abordaremos los conceptos esenciales de redes que sirven como base para comprender cómo se estructuran y operan las redes de computadoras. Este conocimiento es fundamental para realizar pruebas de penetración, ya que la mayoría de los ataques y defensas en ciberseguridad están directamente relacionados con las redes. 
+Las *Assessment Methodologies* son enfoques estructurados que los profesionales de la seguridad utilizan para evaluar y probar las infraestructuras tecnológicas. Estas metodologías suelen implicar la identificación de vulnerabilidades, el mapeo de redes, la recopilación de información y la ejecución de pruebas para evaluar la seguridad de sistemas, redes y aplicaciones. 
 
-### 1. Conceptos Básicos de Redes y Terminología
+## Introducción al Descubrimiento de Servicios
 
-Las redes permiten la comunicación y transferencia de datos entre dispositivos. Entender los términos básicos es crucial para comprender el resto de los temas en ciberseguridad y redes.
+Una parte esencial del proceso de evaluación de seguridad es el descubrimiento de servicios. Esto incluye la identificación de servicios activos, la recopilación de información sobre sus configuraciones y el análisis de las posibles vulnerabilidades. Herramientas como DNSRecon, nmap y otras se utilizan para obtener información sobre dominios y redes, lo que permite mapear la infraestructura y planificar ataques simulados de manera controlada.
 
-- **Red**: Conjunto de dispositivos conectados entre sí para compartir información y recursos. Puede ser una red local (LAN) o una red extendida (WAN).
-  
-- **Nodo**: Cada dispositivo o punto que se conecta a la red, como computadoras, routers y switches.
+### 1. **Recolección de Información Pasiva** 
 
-- **Protocolo**: Conjunto de reglas que determina cómo se deben enviar y recibir los datos a través de una red. Ejemplos de protocolos incluyen TCP/IP, HTTP y FTP.
+La *recolección de información pasiva* es una técnica utilizada para obtener detalles sobre un objetivo sin interactuar directamente con el sistema objetivo. Las herramientas que se utilizan en este proceso buscan información disponible públicamente, como registros DNS, Whois y otros metadatos que proporcionan datos valiosos sobre un dominio o dirección IP.
 
-- **Ancho de Banda**: La cantidad máxima de datos que se puede transmitir en una red en un tiempo determinado, generalmente medido en bits por segundo (bps).
+#### Herramientas Comunes:
+- **DNSRecon**: Herramienta de recopilación de información sobre DNS que permite obtener detalles sobre servidores DNS, registros de dominios y sus configuraciones.
+- **Whois**: Se utiliza para obtener información sobre el propietario de un dominio, fechas de creación, registrador y otros detalles importantes.
+- **Shodan**: Motor de búsqueda de dispositivos conectados a Internet, útil para identificar servicios expuestos y dispositivos vulnerables.
 
-- **Latencia**: El tiempo que tarda un paquete de datos en viajar desde el origen hasta el destino. Una latencia baja es ideal para una comunicación rápida.
+### 2. **Reconocimiento de Servicios (Service Discovery)**
 
-- **Paquete**: Unidad básica de datos que se transmite por la red. Contiene una carga útil de datos y encabezados que especifican la dirección de origen y destino.
+El reconocimiento de servicios es una fase crucial en las evaluaciones de seguridad. Implica la identificación de puertos abiertos y servicios activos en un sistema objetivo. Con esta información, los atacantes o evaluadores pueden identificar posibles puntos de entrada o servicios vulnerables.
 
-- **Firewall**: Dispositivo o software que protege una red al controlar el tráfico entrante y saliente según reglas de seguridad.
+#### Herramientas Comunes:
+- **Nmap**: Esta herramienta escanea redes y puertos para identificar servicios activos y sus versiones, lo que permite detectar vulnerabilidades específicas asociadas a esos servicios.
+- **Netcat**: Utilizada para explorar puertos y establecer conexiones en la red para probar servicios y obtener información adicional sobre el sistema objetivo.
 
-Comprender estos términos es esencial para trabajar con redes, ya que constituyen los elementos básicos con los que se estructura la conectividad y seguridad en sistemas interconectados.
+### 3. **Enumeración de Servicios y Puertos**
 
----
+La enumeración de servicios es el proceso de identificar y listar todos los servicios disponibles en un sistema objetivo. Esta fase es vital para realizar un análisis de seguridad exhaustivo.
 
-### 2. Modelos OSI y TCP/IP
+#### Herramientas Comunes:
+- **Nmap**: Permite enumerar puertos y servicios de forma precisa, brindando información sobre las versiones de los servicios detectados.
+- **Dnsmasq**: Un servidor que puede ser usado para propósitos de pruebas y análisis de DNS, en especial cuando se investiga sobre servicios relacionados con DNS.
+- **Nikto**: Herramienta que escanea servidores web en busca de vulnerabilidades conocidas y configuraciones inseguras.
 
-Los modelos OSI y TCP/IP son arquitecturas de referencia que describen cómo los datos se comunican a través de una red. Conocer estos modelos es fundamental para entender el flujo de datos y la estructura de las comunicaciones en una red.
+### 4. **Escaneo de Vulnerabilidades**
 
-#### Modelo OSI (Open Systems Interconnection)
+Una vez que se han identificado los servicios, es importante realizar un escaneo de vulnerabilidades para detectar posibles fallos de seguridad. Las herramientas de escaneo buscan errores comunes de configuración o vulnerabilidades que podrían ser explotadas por atacantes.
 
-El **Modelo OSI** es una referencia en siete capas que estandariza las funciones de un sistema de comunicación. Cada capa tiene funciones específicas y se encarga de una parte del proceso de transmisión de datos:
+#### Herramientas Comunes:
+- **OpenVAS**: Herramienta de escaneo de vulnerabilidades de código abierto que analiza redes y servicios en busca de fallos de seguridad.
+- **Nessus**: Solución comercial ampliamente utilizada para realizar escaneos de vulnerabilidades en servicios y sistemas de red.
 
-1. **Capa Física**: Define las conexiones físicas de los dispositivos (cables, señales, voltajes). Ejemplos: Ethernet, USB.
-2. **Capa de Enlace de Datos**: Gestiona la comunicación directa entre dos nodos en una misma red. Ejemplo: MAC (Control de Acceso al Medio).
-3. **Capa de Red**: Se encarga de dirigir los datos entre redes distintas. Ejemplo: IP (Protocolo de Internet).
-4. **Capa de Transporte**: Proporciona entrega confiable de datos entre dispositivos finales. Ejemplo: TCP (Protocolo de Control de Transmisión).
-5. **Capa de Sesión**: Controla las conexiones y sesiones entre aplicaciones. Ejemplo: RPC (Remote Procedure Call).
-6. **Capa de Presentación**: Se encarga de la traducción de datos entre la red y el formato que la aplicación necesita. Ejemplo: SSL/TLS para cifrado.
-7. **Capa de Aplicación**: Es la capa más cercana al usuario y maneja las aplicaciones y servicios de red. Ejemplo: HTTP, FTP, SMTP.
+## Aplicación Práctica de las Assessment Methodologies
 
-#### Modelo TCP/IP
+El uso adecuado de las *Assessment Methodologies* implica seguir un conjunto de pasos sistemáticos, desde la recopilación de información inicial hasta el análisis de resultados. Un ejemplo práctico de estas metodologías es la aplicación de *DNSRecon* para realizar un reconocimiento de servicios en una red:
 
-El **Modelo TCP/IP** es más simplificado y se utiliza ampliamente en Internet. Este modelo tiene cuatro capas:
+1. Realizar una consulta Whois para obtener detalles del dominio.
+2. Usar herramientas como *DNSRecon* para descubrir registros DNS, incluidos subdominios y servidores asociados.
+3. Ejecutar escaneos con herramientas como *Nmap* para identificar puertos y servicios activos.
+4. Evaluar la configuración de los servicios y realizar un análisis de vulnerabilidades utilizando herramientas como *Nessus* o *OpenVAS*.
 
-1. **Capa de Acceso a la Red**: Equivalente a las capas física y de enlace de datos del modelo OSI. Define cómo los datos se transmiten físicamente en la red.
-2. **Capa de Internet**: Equivalente a la capa de red del OSI. Se encarga de la direccionamiento y enrutamiento de paquetes. Ejemplo: IP.
-3. **Capa de Transporte**: Similar a la capa de transporte del OSI, permite la comunicación confiable entre los dispositivos. Ejemplo: TCP, UDP.
-4. **Capa de Aplicación**: Equivale a las capas de aplicación, presentación y sesión del modelo OSI. Maneja los protocolos de comunicación directa entre aplicaciones. Ejemplo: HTTP, FTP, DNS.
+Al emplear estas metodologías, los profesionales de la seguridad pueden identificar puntos débiles en la infraestructura y aplicar medidas de mitigación para proteger los sistemas y servicios contra ataques.
 
----
+## Conclusión
 
-### 3. Subneteo y Máscaras de Red
-
-El **subneteo** es una técnica para dividir una red más grande en subredes más pequeñas, permitiendo un uso más eficiente del espacio de direcciones IP y mejorando la seguridad y el rendimiento.
-
-#### Conceptos Clave
-
-- **Dirección IP**: Identificador único de un dispositivo en una red. Puede ser IPv4 (ej. 192.168.1.1) o IPv6 (ej. 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
-
-- **Máscara de Subred**: Una combinación de bits que separa la parte de red y la parte de host en una dirección IP. Ejemplo común: 255.255.255.0.
-
-- **CIDR (Classless Inter-Domain Routing)**: Un método para asignar y especificar direcciones IP que incluye la máscara de subred, como en `192.168.1.0/24`.
-
-#### ¿Cómo Funciona el Subneteo?
-
-Al aplicar una máscara de subred a una dirección IP, se pueden separar la **parte de la red** y la **parte del host**. Esto ayuda a definir subredes, permitiendo que varios segmentos de red funcionen de manera independiente dentro de una misma red más amplia.
-
-#### Ejemplo de Subneteo
-
-Consideremos la dirección IP `192.168.1.0/24`:
-- **/24** indica que los primeros 24 bits se usan para la identificación de la red y los 8 bits restantes para los hosts.
-- Esto permite **256 direcciones IP** (192.168.1.0 - 192.168.1.255), donde la primera y la última dirección son reservadas, dejando **254 direcciones utilizables** para dispositivos.
-
-#### Ventajas del Subneteo
-
-- **Seguridad**: Permite aislar segmentos de red para limitar el acceso y mejorar la protección.
-- **Eficiencia**: Mejora la administración de IPs y evita desperdicios en redes grandes.
-- **Reducción de Tráfico**: Cada subred puede manejar tráfico localmente, disminuyendo el tráfico total en la red principal.
-
----
-
-Con estos conocimientos fundamentales, estarás mejor preparado para comprender cómo se estructuran y se protegen las redes de computadoras, lo que te permitirá avanzar en el estudio de técnicas de ciberseguridad en redes.
+Las metodologías de evaluación de seguridad son fundamentales para comprender cómo los servicios y sistemas pueden ser vulnerables a los ataques. El descubrimiento de servicios y la recolección de información sobre dominios, junto con herramientas como *DNSRecon*, son pasos clave para asegurar redes y sistemas. A medida que las amenazas cibernéticas evolucionan, es esencial mantenerse actualizado sobre las últimas herramientas y enfoques para proteger las infraestructuras tecnológicas.
