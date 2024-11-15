@@ -1,4 +1,4 @@
-### Hidden files 3 -> 4
+### Hidden files 2 -> 3
 
 En este nivel, tenemos información de que la contraseña para el siguiente nivel almacenado en un archivo llamado espacios en este nombre de archivo ubicado en el directorio home. Como el comando cat lee el nombre del archivo sólo hasta el espacio ya que considera el espacio como nulo '/0'. Si usamos directamente el comando cat, no será capaz de encontrar el archivo.
 
