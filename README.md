@@ -73,7 +73,7 @@ Cada módulo incluye los siguientes subtemas detallados:
 |---------------|--------|
 | [**Jets3t**](https://github.com/dYNAM0x)  | ![Jets3t](https://github.com/dYNAM0x.png?size=100) |
 | [**KenaBot1**](https://github.com/SLAYER-CODE) | ![KenaBot1](https://github.com/SLAYER-CODE.png?size=100) |
-| [**RICO 07**](https://github.com/Imahian) | ![RICO07](https://github.com/Imahian.png?size=100) |
+| [**imahian**](https://github.com/Imahian) | ![RICO07](https://github.com/Imahian.png?size=100) |
 | [**Yisus794**](https://github.com/yisus794) | ![Yisus794](https://github.com/yisus794.png?size=100) |
 | [**Santi**](https://github.com/Santiagosmb18) | ![Santi](https://github.com/Santiagosmb18.png?size=100) |
 
