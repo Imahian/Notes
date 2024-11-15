@@ -1,2 +1,1 @@
-# Bandit0 - SSH Login
-## Level 0→1
+### Bandit0 - SSH Login Level 0→1
