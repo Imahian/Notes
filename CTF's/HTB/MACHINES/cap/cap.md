@@ -1,38 +1,36 @@
 # Cap
 
-# Cap
-
 <div align='center'>
   <img src='machine_image.png' width='400' alt='Machine Image'>
 </div>
 
-## Reco
+## Reconociemiento
 
-Escaneo de puertos con [nmap](https://nmap.org)
+escaneo de puertos
 
 ```bash
- nmap -sT -T5 --min-rate=10000 -vvv -p- 10.129.216.238
+ nmap -sS -p- --min-rate 5000 -n -Pn -vvv 10.10.11.221 -oN allPorts
 ```
 
 <div align='center'>
-  <img src='Recon.png' width='600' alt='Reco'>
+  <img src='allPorts.png' width='600' alt='Reconociemiento'>
 </div>
 
-## Servicios
+## enumeracion de servicios
 
 escaneo de servicios
 
 ```bash
- nmap -p 22,631 -sCV 10.10.11.40 -vvv -oN targeted
+ nmap -sCV -p53,88,135,139,389,445,464,593,636,3268,3269,5985,60129 -Pn -oN targeted 10.10.11.35
 ```
 
 <div align='center'>
-  <img src='Services.png' width='600' alt='Servicios'>
+  <img src='services.png' width='600' alt='enumeracion de servicios'>
 </div>
 
 
 ```bash
-Flag: fefwefw*******
+Flag: gsgdhsdghsfhsdf***************
 ```
 
 ## Siguenos
