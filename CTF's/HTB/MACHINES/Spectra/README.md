@@ -100,11 +100,6 @@ donde agregaremos la siguiente linea para aplicar un RCI (Remote Code Injection)
   <img src='img/codeinject.png' width='600' alt='Injeccion remota de comandos'>
 </div>
 
-## URL Revershell
-
-Una vez editado y actualizado el plugin akismet.php
-1. Nos dirigimos a http://spectra.htb/main/wp-content/plugins/akismet/akismet.php
-2. agregamos en la url ?cmd=
 
 ## URL Revershell
 
@@ -132,7 +127,7 @@ que toma un contrasena que se aloja en "/etc/autologin"
 </div>
 
 
-## Flag
+### Password
 
 ```bash
 SummerHer*********
