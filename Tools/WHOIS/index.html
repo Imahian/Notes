@@ -3155,7 +3155,6 @@ Esta información es útil para analizar la legitimidad de un dominio y puede ay
     const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF!@#$%^&*<>/\\';
     const FS = 14, FPS = 15, MS = 1000 / FPS;
     let cols, drops, last = 0;
-
     function init() {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -3183,9 +3182,10 @@ Esta información es útil para analizar la legitimidad de un dominio y puede ay
     requestAnimationFrame(draw);
   })();
 
-  /* ── Visitor terminal (fixed floating panel) ────────────────────────── */
+  /* ── Visitor terminal (left sidebar, home page only) ────────────────── */
   (function () {
-    if (document.querySelector('.visitor-term')) return;
+    const p = location.pathname;
+    if (!p.endsWith('/Notes/') && !p.endsWith('/Notes/index.html') && !/\/Notes\/?$/.test(p)) return;
 
     function getBrowser(ua) {
       if (/Edg\//.test(ua))     return 'Edge';
@@ -3207,49 +3207,9 @@ Esta información es útil para analizar la legitimidad de un dominio y puede ay
     function getDevice(ua) {
       return /Mobile|Android|iPhone|iPad/.test(ua) ? 'Mobile' : 'Desktop';
     }
-
-    const term = document.createElement('div');
-    term.className = 'visitor-term';
-    term.innerHTML =
-      '<div class="vt-bar"><span class="vt-dot r"></span><span class="vt-dot y"></span><span class="vt-dot g"></span></div>' +
-      '<pre class="vt-pre"></pre>' +
-      '<span class="vt-cursor">█</span>';
-    document.body.appendChild(term);
-
-    const pre = term.querySelector('.vt-pre');
-    const ua  = navigator.userAgent;
-
     function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-    function buildLines(d) {
-      return [
-        `IP       = ${d.ip                       || 'N/A'}`,
-        `TYPE     = ${d.type                     || 'N/A'}`,
-        `COUNTRY  = ${d.country                  || 'N/A'}`,
-        `REGION   = ${d.region                   || 'N/A'}`,
-        `CITY     = ${d.city                     || 'N/A'}`,
-        `ISP      = ${d.connection?.isp          || 'N/A'}`,
-        `LAT      = ${d.latitude                 || 'N/A'}`,
-        `LON      = ${d.longitude                || 'N/A'}`,
-        `TIMEZONE = ${d.timezone?.id             || 'N/A'}`,
-        ``,
-        `BROWSER  = ${getBrowser(ua)}`,
-        `OS       = ${getOS(ua)}`,
-        `DEVICE   = ${getDevice(ua)}`,
-      ];
-    }
-
-    function fallbackLines() {
-      return [
-        `BROWSER  = ${getBrowser(ua)}`,
-        `OS       = ${getOS(ua)}`,
-        `DEVICE   = ${getDevice(ua)}`,
-        ``,
-        `GEO      = unavailable`,
-      ];
-    }
-
-    async function typeLoop(lines) {
+    async function typeLoop(pre, lines) {
       while (true) {
         pre.textContent = '';
         for (const line of lines) {
@@ -3264,10 +3224,57 @@ Esta información es útil para analizar la legitimidad de un dominio y puede ay
       }
     }
 
-    fetch('https://ipwho.is/')
-      .then(r => r.json())
-      .then(d  => typeLoop(buildLines(d)))
-      .catch(()  => typeLoop(fallbackLines()));
+    function inject() {
+      if (document.querySelector('.visitor-term')) return;
+      const sidebar = document.querySelector('.md-sidebar--primary .md-sidebar__scrollwrap');
+      if (!sidebar) { setTimeout(inject, 150); return; }
+
+      const term = document.createElement('div');
+      term.className = 'visitor-term';
+      term.innerHTML =
+        '<div class="vt-bar">' +
+          '<span class="vt-dot r"></span>' +
+          '<span class="vt-dot y"></span>' +
+          '<span class="vt-dot g"></span>' +
+        '</div>' +
+        '<pre class="vt-pre"></pre>' +
+        '<span class="vt-cursor">█</span>';
+      sidebar.appendChild(term);
+
+      const pre = term.querySelector('.vt-pre');
+      const ua  = navigator.userAgent;
+
+      fetch('https://ipwho.is/')
+        .then(r => r.json())
+        .then(d => typeLoop(pre, [
+          `IP       = ${d.ip             || 'N/A'}`,
+          `TYPE     = ${d.type          || 'N/A'}`,
+          `COUNTRY  = ${d.country       || 'N/A'}`,
+          `REGION   = ${d.region        || 'N/A'}`,
+          `CITY     = ${d.city          || 'N/A'}`,
+          `ISP      = ${d.connection?.isp || 'N/A'}`,
+          `LAT      = ${d.latitude      || 'N/A'}`,
+          `LON      = ${d.longitude     || 'N/A'}`,
+          `TIMEZONE = ${d.timezone?.id  || 'N/A'}`,
+          ``,
+          `BROWSER  = ${getBrowser(ua)}`,
+          `OS       = ${getOS(ua)}`,
+          `DEVICE   = ${getDevice(ua)}`,
+        ]))
+        .catch(() => typeLoop(pre, [
+          `BROWSER  = ${getBrowser(ua)}`,
+          `OS       = ${getOS(ua)}`,
+          `DEVICE   = ${getDevice(ua)}`,
+          ``,
+          `GEO      = unavailable`,
+        ]));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', inject);
+    } else {
+      inject();
+    }
   })();
   </script>
 
