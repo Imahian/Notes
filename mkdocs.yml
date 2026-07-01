@@ -45,7 +45,7 @@ repo_url: https://github.com/Imahian/Notes
 repo_name: Imahian/Notes
 
 extra_css:
-  - stylesheets/hacker.css
+  - stylesheets/hacker2.css
 
 plugins:
   - search:
