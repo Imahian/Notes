@@ -446,27 +446,24 @@ body::after {
 
 /* ── Mobile drawer — opaque so matrix doesn't bleed through ─ */
 @media screen and (max-width: 76.1875em) {
-  .md-sidebar--primary {
+  /* every layer of the drawer gets opaque bg */
+  .md-sidebar--primary,
+  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--primary .md-sidebar__inner {
     background: rgba(0, 5, 1, 0.98) !important;
     background-color: rgba(0, 5, 1, 0.98) !important;
-    border-right: 1px solid rgba(0, 204, 51, 0.35) !important;
   }
 
-  .md-sidebar--primary .md-sidebar__inner,
-  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--primary {
+    border-right: 1px solid rgba(0, 204, 51, 0.35) !important;
+    z-index: 300 !important;
+  }
+
+  /* nav/list inside are transparent — color comes from parent bg */
   .md-sidebar--primary .md-nav,
   .md-sidebar--primary .md-nav__list {
     background: transparent !important;
     background-color: transparent !important;
-  }
-
-  /* Drawer backdrop shadow */
-  .md-sidebar--primary::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
   }
 }
 
