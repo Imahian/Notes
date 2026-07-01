@@ -96,9 +96,7 @@ body::after {
 .md-sidebar { position: relative; z-index: 5; }
 
 .md-sidebar__scrollwrap {
-  background: rgba(2, 13, 4, 0.52);
-  backdrop-filter: blur(22px) saturate(150%);
-  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  background: rgba(2, 13, 4, 0.72);
   border-right: 1px solid rgba(0, 204, 51, 0.15);
   box-shadow: 4px 0 32px rgba(0, 0, 0, 0.45);
 }
@@ -178,9 +176,7 @@ body::after {
 .md-content { position: relative; z-index: 4; }
 
 .md-content__inner {
-  background: rgba(2, 13, 4, 0.58);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(2, 13, 4, 0.75);
   border: 1px solid rgba(0, 204, 51, 0.1);
   border-radius: 8px;
   margin: 12px;
@@ -379,17 +375,51 @@ body::after {
 ::-webkit-scrollbar-thumb { background: rgba(0,204,51,0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,204,51,0.6); }
 
-/* ── Visitor terminal (left sidebar) ─────────────────── */
+/* ── Visitor terminal (fixed floating panel) ──────────── */
+@keyframes vt-glow-pulse {
+  0%,100% { box-shadow: 0 0 10px rgba(0,204,51,0.5), 0 0 24px rgba(0,204,51,0.2), inset 0 0 8px rgba(0,204,51,0.05); }
+  50%     { box-shadow: 0 0 22px rgba(0,204,51,0.8), 0 0 50px rgba(0,204,51,0.35), inset 0 0 16px rgba(0,204,51,0.08); }
+}
+@keyframes vt-glitch {
+  0%,90%,100% { transform: translate(0); border-color: rgba(0,204,51,0.55); }
+  91%  { transform: translate(-2px,0); border-color: #ff00cc; }
+  93%  { transform: translate(2px,0);  border-color: #00ffff; }
+  95%  { transform: translate(-1px,1px); }
+  97%  { transform: translate(0); border-color: rgba(0,204,51,0.55); }
+}
+@keyframes vt-scan {
+  0%   { top: 0; opacity: 0.07; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes vt-blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+
 .visitor-term {
-  margin: 18px 8px 0;
-  background: rgba(0,8,2,0.82);
-  border: 1px solid rgba(0,204,51,0.28);
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 270px;
+  max-width: calc(100vw - 48px);
+  background: rgba(0,6,1,0.93);
+  border: 1px solid rgba(0,204,51,0.55);
   border-radius: 8px;
   overflow: hidden;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 0 24px rgba(0,204,51,0.08), inset 0 1px 0 rgba(255,255,255,0.03);
+  z-index: 200;
   font-family: 'Fira Code', monospace;
   font-size: 0.7rem;
+  animation: vt-glow-pulse 3s ease-in-out infinite, vt-glitch 8s step-end infinite;
+}
+
+.visitor-term::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(0,255,65,0.04), transparent);
+  pointer-events: none;
+  animation: vt-scan 2.4s linear infinite;
 }
 
 .vt-bar {
@@ -397,46 +427,34 @@ body::after {
   align-items: center;
   gap: 5px;
   padding: 6px 10px;
-  background: rgba(0,204,51,0.08);
-  border-bottom: 1px solid rgba(0,204,51,0.18);
+  background: rgba(0,204,51,0.1);
+  border-bottom: 1px solid rgba(0,204,51,0.2);
 }
-.vt-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-}
+.vt-dot { width: 8px; height: 8px; border-radius: 50%; }
 .vt-dot.r { background: #ff5f57; }
 .vt-dot.y { background: #febc2e; }
 .vt-dot.g { background: #28c840; }
-.vt-title {
-  margin-left: 6px;
-  color: rgba(0,204,51,0.5);
-  font-size: 0.65rem;
-  letter-spacing: .1em;
-}
 
 .vt-pre {
   margin: 0;
-  padding: 10px 12px 4px;
+  padding: 10px 14px 6px;
   color: #00cc33;
   font-family: 'Fira Code', monospace;
   font-size: 0.68rem;
-  line-height: 1.6;
+  line-height: 1.65;
   white-space: pre-wrap;
   word-break: break-all;
-  min-height: 180px;
+  min-height: 160px;
   background: transparent;
   border: none;
+  text-shadow: 0 0 6px rgba(0,204,51,0.7);
 }
 
 .vt-cursor {
   display: inline-block;
   color: #00ff41;
   font-size: 0.7rem;
-  padding: 0 12px 8px;
+  padding: 0 14px 8px;
+  text-shadow: 0 0 8px #00ff41;
   animation: vt-blink 1s step-end infinite;
-}
-
-@keyframes vt-blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
 }

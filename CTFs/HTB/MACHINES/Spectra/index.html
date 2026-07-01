@@ -475,8 +475,6 @@
         
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
@@ -557,21 +555,16 @@
     
       
       
-        
-          
-          
-        
-      
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   
@@ -641,8 +634,6 @@
     
     
       
-      
-        
       
     
     
@@ -976,8 +967,6 @@
     
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1055,8 +1044,6 @@
     
     
       
-      
-        
       
     
     
@@ -1692,21 +1679,16 @@
     
       
       
-        
-          
-          
-        
-      
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
             
   
   
@@ -2182,8 +2164,6 @@
     
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2262,8 +2242,6 @@
     
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2341,8 +2319,6 @@
     
     
       
-      
-        
       
     
     
@@ -2725,8 +2701,6 @@
     
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2979,8 +2953,6 @@
     
     
       
-      
-        
       
     
     
@@ -3470,7 +3442,7 @@ que toma un contrasena que se aloja en "/etc/autologin"</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "tags"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "tags"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
   
@@ -3515,15 +3487,12 @@ que toma un contrasena que se aloja en "/etc/autologin"</p>
     requestAnimationFrame(draw);
   })();
 
-  /* ── Visitor terminal (left sidebar, home page only) ────────────────── */
+  /* ── Visitor terminal (fixed floating panel) ────────────────────────── */
   (function () {
-    function isHome() {
-      return /\/(Notes\/)?(index\.html)?(\?.*)?$/.test(location.pathname + location.search)
-          || location.pathname.endsWith('/Notes/');
-    }
+    if (document.querySelector('.visitor-term')) return;
 
     function getBrowser(ua) {
-      if (/Edg\//.test(ua))     return 'Microsoft Edge';
+      if (/Edg\//.test(ua))     return 'Edge';
       if (/OPR\//.test(ua))     return 'Opera';
       if (/Firefox\//.test(ua)) return 'Firefox';
       if (/Chrome\//.test(ua))  return 'Chrome';
@@ -3540,100 +3509,69 @@ que toma un contrasena que se aloja en "/etc/autologin"</p>
       return 'Unknown';
     }
     function getDevice(ua) {
-      return /Mobile|Android|iPhone|iPad|Tablet/.test(ua) ? 'Mobile' : 'Desktop';
+      return /Mobile|Android|iPhone|iPad/.test(ua) ? 'Mobile' : 'Desktop';
     }
+
+    const term = document.createElement('div');
+    term.className = 'visitor-term';
+    term.innerHTML =
+      '<div class="vt-bar"><span class="vt-dot r"></span><span class="vt-dot y"></span><span class="vt-dot g"></span></div>' +
+      '<pre class="vt-pre"></pre>' +
+      '<span class="vt-cursor">█</span>';
+    document.body.appendChild(term);
+
+    const pre = term.querySelector('.vt-pre');
+    const ua  = navigator.userAgent;
 
     function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-    async function typeLines(pre, lines) {
-      pre.textContent = '';
-      for (const line of lines) {
-        for (const ch of line) {
-          pre.textContent += ch;
-          await sleep(line.startsWith('#') ? 22 : 14);
-        }
-        pre.textContent += '\n';
-        await sleep(line === '' ? 60 : 35);
-      }
-    }
-
-    async function runLoop(pre, lines) {
-      while (true) {
-        await typeLines(pre, lines);
-        await sleep(3500);
-      }
-    }
-
     function buildLines(d) {
-      const ua = navigator.userAgent;
       return [
-        '#!/usr/bin/env bash',
-        '# > scanning visitor...',
-        '',
-        `IP       = ${d.ip        || 'N/A'}`,
-        `TYPE     = ${d.type      || 'N/A'}`,
-        `COUNTRY  = ${d.country   || 'N/A'}`,
-        `REGION   = ${d.region    || 'N/A'}`,
-        `CITY     = ${d.city      || 'N/A'}`,
-        `ISP      = ${d.connection?.isp || 'N/A'}`,
-        `LAT      = ${d.latitude  || 'N/A'}`,
-        `LON      = ${d.longitude || 'N/A'}`,
-        `TIMEZONE = ${d.timezone?.id || 'N/A'}`,
-        '',
+        `IP       = ${d.ip                       || 'N/A'}`,
+        `TYPE     = ${d.type                     || 'N/A'}`,
+        `COUNTRY  = ${d.country                  || 'N/A'}`,
+        `REGION   = ${d.region                   || 'N/A'}`,
+        `CITY     = ${d.city                     || 'N/A'}`,
+        `ISP      = ${d.connection?.isp          || 'N/A'}`,
+        `LAT      = ${d.latitude                 || 'N/A'}`,
+        `LON      = ${d.longitude                || 'N/A'}`,
+        `TIMEZONE = ${d.timezone?.id             || 'N/A'}`,
+        ``,
         `BROWSER  = ${getBrowser(ua)}`,
         `OS       = ${getOS(ua)}`,
         `DEVICE   = ${getDevice(ua)}`,
-        '',
-        '# scan complete.',
-        '# repeating...',
       ];
     }
 
     function fallbackLines() {
-      const ua = navigator.userAgent;
       return [
-        '#!/usr/bin/env bash',
-        '# > scanning visitor...',
-        '',
-        '# [network] geo lookup failed',
-        '',
         `BROWSER  = ${getBrowser(ua)}`,
         `OS       = ${getOS(ua)}`,
         `DEVICE   = ${getDevice(ua)}`,
-        '',
-        '# scan complete.',
-        '# repeating...',
+        ``,
+        `GEO      = unavailable`,
       ];
     }
 
-    function inject() {
-      if (!isHome()) return;
-      if (document.querySelector('.visitor-term')) return;
-
-      const sidebar = document.querySelector('.md-sidebar--primary .md-sidebar__scrollwrap');
-      if (!sidebar) { setTimeout(inject, 200); return; }
-
-      const term = document.createElement('div');
-      term.className = 'visitor-term';
-      term.innerHTML =
-        '<div class="vt-bar"><span class="vt-dot r"></span><span class="vt-dot y"></span><span class="vt-dot g"></span><span class="vt-title">visitor.sh</span></div>' +
-        '<pre class="vt-pre"></pre>' +
-        '<span class="vt-cursor">█</span>';
-      sidebar.appendChild(term);
-
-      const pre = term.querySelector('.vt-pre');
-
-      fetch('https://ipwho.is/')
-        .then(r => r.json())
-        .then(d  => runLoop(pre, buildLines(d)))
-        .catch(()  => runLoop(pre, fallbackLines()));
+    async function typeLoop(lines) {
+      while (true) {
+        pre.textContent = '';
+        for (const line of lines) {
+          for (const ch of line) {
+            pre.textContent += ch;
+            await sleep(12);
+          }
+          pre.textContent += '\n';
+          await sleep(line === '' ? 50 : 28);
+        }
+        await sleep(4000);
+      }
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', inject);
-    } else {
-      inject();
-    }
+    fetch('https://ipwho.is/')
+      .then(r => r.json())
+      .then(d  => typeLoop(buildLines(d)))
+      .catch(()  => typeLoop(fallbackLines()));
   })();
   </script>
 
