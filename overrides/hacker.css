@@ -1,0 +1,217 @@
+/* ── Hacker color palette ─────────────────────────────── */
+:root {
+  --md-primary-fg-color:        #00cc33;
+  --md-primary-fg-color--light: #00ff41;
+  --md-primary-fg-color--dark:  #008822;
+  --md-accent-fg-color:         #00ff41;
+  --md-default-bg-color:        #020d04;
+  --md-default-fg-color:        #c8ffc8;
+  --md-default-fg-color--light: #7abf7a;
+  --md-default-fg-color--lighter: #4d8c4d;
+  --md-typeset-color:           #c8ffc8;
+  --md-code-bg-color:           #0a1a0a;
+  --md-code-fg-color:           #00ff41;
+  --md-footer-bg-color:         #010a02;
+  --md-footer-fg-color:         #4d8c4d;
+}
+
+/* ── Background & base ────────────────────────────────── */
+body,
+.md-main,
+.md-content {
+  background: #020d04;
+}
+
+.md-header {
+  background: rgba(2, 13, 4, 0.95);
+  border-bottom: 1px solid rgba(0, 204, 51, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.md-tabs {
+  background: rgba(2, 13, 4, 0.9);
+  border-bottom: 1px solid rgba(0, 204, 51, 0.12);
+}
+
+/* ── Site name glitch ─────────────────────────────────── */
+@keyframes glitch-h {
+  0%, 90%, 100% { clip-path: none; transform: translate(0); }
+  92% { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translate(-3px, 0); color: #ff00a0; }
+  94% { clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); transform: translate(3px, 0); color: #00f0ff; }
+  96% { clip-path: none; transform: translate(0); color: #00cc33; }
+}
+
+.md-header__title {
+  font-family: 'Fira Code', monospace !important;
+  color: #00cc33 !important;
+  text-shadow: 0 0 8px rgba(0, 204, 51, 0.7);
+  animation: glitch-h 6s infinite;
+  letter-spacing: 0.06em;
+}
+
+/* ── Navigation ───────────────────────────────────────── */
+.md-nav__title,
+.md-nav__link {
+  color: #7abf7a;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+}
+
+.md-nav__link:hover,
+.md-nav__link--active {
+  color: #00ff41 !important;
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.5);
+}
+
+.md-nav__link--active {
+  font-weight: 600;
+}
+
+.md-nav__item--section > .md-nav__link {
+  color: #00cc33;
+  letter-spacing: 0.08em;
+}
+
+/* ── Sidebar ──────────────────────────────────────────── */
+.md-sidebar {
+  background: rgba(2, 13, 4, 0.6);
+  border-right: 1px solid rgba(0, 204, 51, 0.08);
+}
+
+/* ── Content typography ───────────────────────────────── */
+.md-typeset h1 {
+  color: #00ff41;
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+  border-bottom: 1px solid rgba(0, 204, 51, 0.2);
+  padding-bottom: 0.3em;
+}
+
+.md-typeset h2 {
+  color: #00cc33;
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+  color: #7abf7a;
+  font-family: 'Fira Code', monospace;
+}
+
+.md-typeset a {
+  color: #00cc33;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 204, 51, 0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.md-typeset a:hover {
+  color: #00ff41;
+  border-bottom-color: #00ff41;
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.4);
+}
+
+/* ── Code blocks ──────────────────────────────────────── */
+.md-typeset code,
+.md-typeset pre {
+  font-family: 'Fira Code', monospace;
+  border: 1px solid rgba(0, 204, 51, 0.2);
+  border-radius: 6px;
+}
+
+.md-typeset pre {
+  background: #0a1a0a !important;
+  box-shadow: 0 0 16px rgba(0, 204, 51, 0.06), inset 0 0 0 1px rgba(0, 204, 51, 0.12);
+  position: relative;
+}
+
+/* Terminal prompt before shell code blocks */
+.md-typeset .highlight.language-bash::before,
+.md-typeset .highlight.language-sh::before {
+  content: '$ ';
+  color: #00cc33;
+}
+
+/* Copy button */
+.md-clipboard {
+  color: rgba(0, 204, 51, 0.4) !important;
+  transition: color 0.2s;
+}
+
+.md-clipboard:hover {
+  color: #00ff41 !important;
+}
+
+/* ── Tables ───────────────────────────────────────────── */
+.md-typeset table {
+  border: 1px solid rgba(0, 204, 51, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.md-typeset table th {
+  background: rgba(0, 204, 51, 0.1);
+  color: #00ff41;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 0.05em;
+}
+
+.md-typeset table tr:hover {
+  background: rgba(0, 204, 51, 0.04);
+}
+
+/* ── Admonitions ──────────────────────────────────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  border-left-color: #00cc33 !important;
+  background: rgba(0, 204, 51, 0.05);
+}
+
+.md-typeset .admonition-title {
+  background: rgba(0, 204, 51, 0.1) !important;
+  color: #00ff41;
+  font-family: 'Fira Code', monospace;
+}
+
+/* ── Search ───────────────────────────────────────────── */
+.md-search__input {
+  background: rgba(0, 20, 0, 0.8);
+  border: 1px solid rgba(0, 204, 51, 0.3);
+  color: #c8ffc8;
+  font-family: 'Fira Code', monospace;
+}
+
+.md-search__input::placeholder {
+  color: rgba(0, 204, 51, 0.4);
+}
+
+/* ── Footer ───────────────────────────────────────────── */
+.md-footer {
+  background: #010a02;
+  border-top: 1px solid rgba(0, 204, 51, 0.1);
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #020d04; }
+::-webkit-scrollbar-thumb { background: rgba(0, 204, 51, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 204, 51, 0.6); }
+
+/* ── Scan-line overlay ────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 204, 51, 0.015) 2px,
+    rgba(0, 204, 51, 0.015) 4px
+  );
+}

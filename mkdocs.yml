@@ -1,0 +1,105 @@
+site_name: "imahian // notes"
+site_url: https://imahian.github.io/Notes/
+site_description: "CTF writeups, cert notes, hacking tools"
+site_author: imahian
+docs_dir: '.'
+site_dir: site
+
+exclude_docs: |
+  site/
+  .github/
+  mkdocs.yml
+  requirements.txt
+  *.json
+  *.lock
+  overrides/
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    scheme: slate
+    primary: custom
+    accent: custom
+  font:
+    text: Fira Code
+    code: Fira Code
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+repo_url: https://github.com/imahian/Notes
+repo_name: imahian/Notes
+
+extra_css:
+  - overrides/hacker.css
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: README.md
+  - "CTFs":
+    - Overview: "CTF's/README.md"
+    - HackTheBox:
+      - Overview: "CTF's/HTB/README.md"
+      - Machines:
+        - Overview: "CTF's/HTB/MACHINES/README.md"
+        - Spectra: "CTF's/HTB/MACHINES/Spectra/README.md"
+      - Academy:
+        - Overview: "CTF's/HTB/ACADEMY/README.md"
+    - OverTheWire:
+      - Overview: "CTF's/OTW/README.md"
+      - Bandit: "CTF's/OTW/Bandit/README.md"
+    - TryHackMe:
+      - Overview: "CTF's/THM/README.md"
+    - VulnHub:
+      - Overview: "CTF's/VHB/README.md"
+  - Certs:
+    - Overview: "CERT's/README.md"
+    - eJPT:
+      - Overview: "CERT's/eJPT/README.md"
+      - Assessment Methodologies:
+        - Overview: "CERT's/eJPT/Assessment_Methodologies/README.md"
+        - Reconocimiento: "CERT's/eJPT/Assessment_Methodologies/Reconocimiento.md"
+    - eMAPT: "CERT's/eMAPT/README.md"
+    - eEDA: "CERT's/eEDA/README.md"
+    - ICCA: "CERT's/ICCA/README.md"
+    - eCIR: "CERT's/eCIR/README.md"
+    - eCPPT: "CERT's/eCPPT/README.md"
+    - eWPTX: "CERT's/eWPTX/README.md"
+    - eCDFP: "CERT's/eCDFP/README.md"
+    - eWPT: "CERT's/eWPT/README.md"
+    - eCTHP: "CERT's/eCTHP/README.md"
+  - Tools:
+    - dnsdumpster: Tools/dnsdumpster.md
+    - Sublist3r: Tools/Sublist3r.md
+    - HTTrack: Tools/HTTrack.md
+    - WHOIS: Tools/WHOIS.md
+    - DNSRecon: Tools/DNSRecon-Slayer.md
+    - Netcraft: Tools/Netcraft.md
+    - WafW00f: Tools/WafW00f.md
