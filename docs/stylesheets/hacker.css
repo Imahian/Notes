@@ -1,5 +1,7 @@
 /* ── Hacker palette ───────────────────────────────────── */
-:root {
+:root,
+[data-md-color-scheme],
+[data-md-color-scheme=slate] {
   --md-primary-fg-color:        #00cc33;
   --md-primary-fg-color--light: #00ff41;
   --md-primary-fg-color--dark:  #008822;
@@ -24,6 +26,8 @@
 }
 
 /* ── Base — kill ALL Material container backgrounds ────── */
+html { background: #000 !important; }
+
 body,
 [data-md-color-scheme],
 [data-md-color-scheme=slate] {
@@ -31,14 +35,19 @@ body,
 }
 
 .md-main,
+.md-main__inner,
 .md-container,
 .md-grid,
 .md-content,
 .md-sidebar,
 .md-sidebar--primary,
 .md-sidebar--secondary,
-.md-typeset {
+.md-sidebar__inner,
+.md-typeset,
+.md-nav,
+.md-nav__list {
   background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Scan-line overlay */
