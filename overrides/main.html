@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
-{% block content %}
-  <canvas id="matrix-bg"></canvas>
-  {{ super() }}
-{% endblock %}
-
 {% block scripts %}
   {{ super() }}
   <script>
   (function () {
-    const canvas = document.getElementById('matrix-bg');
-    if (!canvas) return;
+    const canvas = document.createElement('canvas');
+    canvas.id = 'matrix-bg';
+    document.body.prepend(canvas);
     const ctx = canvas.getContext('2d');
     const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF!@#$%^&*<>/\\';
-    const COLORS = ['#00cc33', '#00cc33', '#00cc33', '#cc00ff', '#0088ff'];
     const FS = 14, FPS = 15, MS = 1000 / FPS;
     let cols, drops, raf, last = 0;
 
@@ -37,7 +32,7 @@
       ctx.font = FS + 'px monospace';
       for (let i = 0; i < cols; i++) {
         const bright = Math.random() > 0.96;
-        ctx.fillStyle = bright ? '#ffffff' : COLORS[Math.floor(Math.random() * COLORS.length)];
+        ctx.fillStyle = bright ? '#ffffff' : '#00cc33';
         ctx.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], i * FS, drops[i] * FS);
         if (drops[i] * FS > canvas.height && Math.random() > 0.97) drops[i] = 0;
         drops[i]++;

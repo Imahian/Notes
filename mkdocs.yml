@@ -21,7 +21,6 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
     - navigation.top
     - search.highlight
     - search.suggest
@@ -145,4 +144,5 @@ nav:
     - WafW00f: Tools/WafW00f.md
   - CVEs:
     - Overview: CVEs/README.md
+  - Search: search-advanced.md
   - Tags: tags.md
