@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+  <canvas id="matrix-bg"></canvas>
+  {{ super() }}
+{% endblock %}
+
+{% block footer %}
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      {% include "partials/footer-nav.html" %}
+    </div>
+  </footer>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+  (function () {
+    const canvas = document.getElementById('matrix-bg');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF!@#$%^&*<>/\\';
+    const COLORS = ['#00cc33', '#00cc33', '#00cc33', '#cc00ff', '#0088ff'];
+    const FS = 14;
+    const FPS = 15;
+    const MS = 1000 / FPS;
+    let cols, drops, raf, last = 0;
+
+    function init() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      cols = Math.floor(canvas.width / FS);
+      drops = Array.from({ length: cols }, () =>
+        Math.floor(Math.random() * (canvas.height / FS))
+      );
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function draw(ts) {
+      raf = requestAnimationFrame(draw);
+      if (ts - last < MS) return;
+      last = ts;
+      ctx.fillStyle = 'rgba(0,0,0,0.07)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = FS + 'px monospace';
+      for (let i = 0; i < cols; i++) {
+        const bright = Math.random() > 0.96;
+        ctx.fillStyle = bright ? '#ffffff' : COLORS[Math.floor(Math.random() * COLORS.length)];
+        const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        ctx.fillText(ch, i * FS, drops[i] * FS);
+        if (drops[i] * FS > canvas.height && Math.random() > 0.97) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+
+    init();
+    window.addEventListener('resize', init);
+    raf = requestAnimationFrame(draw);
+  })();
+  </script>
+{% endblock %}

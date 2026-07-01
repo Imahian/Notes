@@ -1,12 +1,15 @@
 site_name: "imahian // notes"
 site_url: https://imahian.github.io/Notes/
-site_description: "CTF writeups, cert notes, hacking tools"
+site_description: "CTF writeups, cert notes, hacking tools, CVEs"
 site_author: imahian
 docs_dir: docs
 site_dir: site
 
 theme:
   name: material
+  custom_dir: overrides
+  logo: assets/oroborus.gif
+  favicon: assets/oroborus.gif
   palette:
     scheme: slate
     primary: custom
@@ -24,14 +27,31 @@ theme:
     - search.suggest
     - content.code.copy
     - content.code.annotate
+    - tags
   icon:
     repo: fontawesome/brands/github
+    tag:
+      ssh: fontawesome/solid/terminal
+      web: fontawesome/solid/globe
+      privesc: fontawesome/solid/arrow-up
+      easy: fontawesome/solid/circle
+      medium: fontawesome/solid/circle-half-stroke
+      hard: fontawesome/solid/circle-dot
+      htb: fontawesome/solid/cube
+      thm: fontawesome/solid/flag
+      otw: fontawesome/solid/scroll
+      cve: fontawesome/solid/bug
 
 repo_url: https://github.com/Imahian/Notes
 repo_name: Imahian/Notes
 
 extra_css:
   - stylesheets/hacker.css
+
+plugins:
+  - search
+  - tags:
+      tags_file: tags.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -62,9 +82,41 @@ nav:
         - Spectra: CTFs/HTB/MACHINES/Spectra/README.md
       - Academy:
         - Overview: CTFs/HTB/ACADEMY/README.md
+        - Bug Bounty Hunter:
+          - Overview: CTFs/HTB/ACADEMY/Bug Bounty Hunter/README.md
+          - Attacking with Ffuf: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Attacking Web Applications with Ffuf/README.md"
+          - Broken Authentication: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Broken Authentication/README.md"
+          - Bug Bounty Process: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Bug Bounty Hunting Process/README.md"
+          - Command Injections: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Command Injections/README.md"
+          - XSS: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Cross-Site Scripting (XSS)/README.md"
+          - File Inclusion: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/File Inclusion/README.md"
+          - File Upload Attacks: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/File Upload Attacks/README.md"
+          - Hacking WordPress: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Hacking WordPress/README.md"
+          - Info Gathering Web: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Information Gathering - Web Edition/README.md"
+          - Intro to Web Apps: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Introduction to Web Applications/README.md"
+          - JS Deobfuscation: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/JavaScript Deobfuscation/README.md"
+          - Login Brute Forcing: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Login Brute Forcing/README.md"
+          - SQL Injection: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/SQL Injection Fundamentals/README.md"
+          - SQLMap: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/SQLMap Essentials/README.md"
+          - Server-side Attacks: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Server-side Attacks/README.md"
+          - Session Security: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Session Security/README.md"
+          - Web Proxies: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Using Web Proxies/README.md"
+          - Web Attacks: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Web Attacks/README.md"
+          - Web Service API: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Web Service & API Attacks/README.md"
     - OverTheWire:
       - Overview: CTFs/OTW/README.md
       - Bandit: CTFs/OTW/Bandit/README.md
+      - Behemoth: CTFs/OTW/Behemoth/README.md
+      - Drifter: CTFs/OTW/Drifter/README.md
+      - FormulaOne: CTFs/OTW/FormulaOne/README.md
+      - Krypton: CTFs/OTW/Krypton/README.md
+      - Leviathan: CTFs/OTW/Leviathan/README.md
+      - Manpage: CTFs/OTW/Manpage/README.md
+      - Maze: CTFs/OTW/Maze/README.md
+      - Narnia: CTFs/OTW/Narnia/README.md
+      - Natas: CTFs/OTW/Natas/README.md
+      - Utumno: CTFs/OTW/Utumno/README.md
+      - Vortex: CTFs/OTW/Vortex/README.md
     - TryHackMe: CTFs/THM/README.md
     - VulnHub: CTFs/VHB/README.md
   - Certs:
@@ -91,3 +143,6 @@ nav:
     - DNSRecon: Tools/DNSRecon-Slayer.md
     - Netcraft: Tools/Netcraft.md
     - WafW00f: Tools/WafW00f.md
+  - CVEs:
+    - Overview: CVEs/README.md
+  - Tags: tags.md
