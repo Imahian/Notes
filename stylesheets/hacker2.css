@@ -457,6 +457,12 @@ body::after {
   .md-sidebar--primary {
     border-right: 1px solid rgba(0, 204, 51, 0.35) !important;
     z-index: 300 !important;
+    overflow: hidden !important;
+  }
+
+  /* overlay must be above page content (z-index 4) but below drawer (300) */
+  .md-overlay {
+    z-index: 150 !important;
   }
 
   /* nav/list inside are transparent — color comes from parent bg */
