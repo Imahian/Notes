@@ -444,32 +444,34 @@ body::after {
   }
 }
 
-/* ── Mobile drawer ────────────────────────────────────── */
+/* ── Mobile drawer — terminal file browser ────────────── */
 @media screen and (max-width: 76.1875em) {
   /* Opaque background on every drawer layer */
   .md-sidebar--primary,
   .md-sidebar--primary .md-sidebar__scrollwrap,
   .md-sidebar--primary .md-sidebar__inner {
-    background: rgba(0, 4, 1, 0.98) !important;
-    background-color: rgba(0, 4, 1, 0.98) !important;
+    background: #000d01 !important;
+    background-color: #000d01 !important;
   }
 
   .md-sidebar--primary {
-    border-right: 1px solid rgba(0, 204, 51, 0.3) !important;
+    border-right: 1px solid rgba(0, 204, 51, 0.25) !important;
     z-index: 300 !important;
-    overflow: hidden !important;
+    /* overflow-x clipped by scrollwrap; don't clip y here */
+    overflow: visible !important;
   }
 
-  /* Allow vertical scroll inside the drawer */
+  /* Scrollable container — this is what handles the scroll */
   .md-sidebar--primary .md-sidebar__scrollwrap {
     overflow-y: auto !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
   }
 
   .md-overlay { z-index: 150 !important; }
 
-  /* Reset Material's absolute-position slide animation */
+  /* ── Reset Material's translateX animation ── */
   .md-sidebar--primary .md-nav--primary,
   .md-sidebar--primary .md-nav__item--nested > .md-nav {
     position: static !important;
@@ -480,84 +482,114 @@ body::after {
     background-color: transparent !important;
   }
 
-  /* Hide nested nav by default */
+  /* Hide nested navs by default */
   .md-sidebar--primary .md-nav__item--nested > .md-nav {
     display: none !important;
   }
 
-  /* Show nested nav when toggle is checked */
+  /* Show nested nav when toggle checked */
   .md-sidebar--primary .md-nav__item--nested > .md-nav__toggle:checked ~ .md-nav {
     display: block !important;
   }
 
-  /* Drill-down: when a toggle is active, hide all sibling items */
+  /* Drill-down: hide all siblings when a toggle is active */
   .md-sidebar--primary .md-nav__list:has(> .md-nav__item--nested > .md-nav__toggle:checked) > .md-nav__item:not(:has(> .md-nav__toggle:checked)) {
     display: none !important;
   }
 
-  /* Also hide the active parent item label (children panel replaces it) */
+  /* Hide the expanded folder's own label — children panel takes over */
   .md-sidebar--primary .md-nav__item--nested:has(> .md-nav__toggle:checked) > label.md-nav__link {
     display: none !important;
   }
 
-  /* Nav lists transparent */
   .md-sidebar--primary .md-nav,
   .md-sidebar--primary .md-nav__list {
     background: transparent !important;
     background-color: transparent !important;
   }
 
-  /* ── Nav items — clean rows ── */
-  .md-sidebar--primary .md-nav__item {
-    border-bottom: 1px solid rgba(0, 204, 51, 0.09) !important;
-  }
-
-  .md-sidebar--primary .md-nav__link {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 13px 18px !important;
-    min-height: 50px !important;
-    line-height: 1.3 !important;
-    font-size: 0.88rem !important;
-    color: #a8e6b0 !important;
-    transition: background 0.15s, color 0.15s !important;
-  }
-
-  .md-sidebar--primary .md-nav__link:hover,
-  .md-sidebar--primary .md-nav__link--active {
-    background: rgba(0, 204, 51, 0.07) !important;
-    color: #00ff41 !important;
-    padding-left: 18px !important;
-  }
-
-  /* ── Back button (sticky header of each sub-panel) ── */
+  /* ── Terminal: back button as sticky prompt ── */
   .md-sidebar--primary .md-nav__title {
     position: sticky !important;
     top: 0 !important;
     z-index: 10 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 10px !important;
-    padding: 14px 18px !important;
-    min-height: 52px !important;
+    gap: 8px !important;
+    padding: 0 14px !important;
+    height: 46px !important;
     cursor: pointer !important;
-    color: #00ff41 !important;
     font-family: 'Fira Code', monospace !important;
-    font-size: 0.88rem !important;
-    font-weight: 600 !important;
-    background: rgba(0, 204, 51, 0.1) !important;
-    background-color: rgba(0, 204, 51, 0.1) !important;
-    border-bottom: 1px solid rgba(0, 204, 51, 0.3) !important;
-    letter-spacing: 0.04em !important;
+    font-size: 0.78rem !important;
+    font-weight: 400 !important;
+    color: #00ff41 !important;
+    background: #001403 !important;
+    background-color: #001403 !important;
+    border-bottom: 1px solid rgba(0, 204, 51, 0.2) !important;
+    letter-spacing: 0.02em !important;
   }
 
-  /* Arrow icon inside back button */
+  /* Prefix "$ cd .." on the back button via the icon container */
+  .md-sidebar--primary .md-nav__title::before {
+    content: '$ cd ..' !important;
+    color: rgba(0, 204, 51, 0.55) !important;
+    font-size: 0.72rem !important;
+    margin-right: 6px !important;
+  }
+
   .md-sidebar--primary .md-nav__title .md-nav__icon {
+    display: none !important;
+  }
+
+  /* ── Terminal: nav items as ls-style rows ── */
+  .md-sidebar--primary .md-nav__item {
+    border-bottom: 1px solid rgba(0, 204, 51, 0.06) !important;
+  }
+
+  .md-sidebar--primary .md-nav__link {
     display: flex !important;
     align-items: center !important;
+    padding: 0 14px !important;
+    height: 46px !important;
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.8rem !important;
+    color: #7abf7a !important;
+    transition: background 0.12s, color 0.12s !important;
+    line-height: 1 !important;
+  }
+
+  /* "drwx" prefix for folders, "-rwx" for files */
+  .md-sidebar--primary .md-nav__item--nested > label.md-nav__link::before {
+    content: 'drwx  ' !important;
+    color: #00cc33 !important;
+    font-size: 0.68rem !important;
+    opacity: 0.7 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .md-sidebar--primary .md-nav__item:not(.md-nav__item--nested) > a.md-nav__link::before {
+    content: '-rwx  ' !important;
+    color: rgba(0, 204, 51, 0.35) !important;
+    font-size: 0.68rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Arrow icon for folders (right side) */
+  .md-sidebar--primary .md-nav__icon {
+    margin-left: auto !important;
+    color: rgba(0, 204, 51, 0.5) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hover and active */
+  .md-sidebar--primary .md-nav__link:hover {
+    background: rgba(0, 204, 51, 0.07) !important;
     color: #00ff41 !important;
-    opacity: 0.9 !important;
+  }
+
+  .md-sidebar--primary .md-nav__link--active {
+    color: #00ff41 !important;
+    text-shadow: 0 0 6px rgba(0,255,65,0.4) !important;
   }
 }
 
