@@ -165,6 +165,21 @@ body::after {
   font-family: 'Fira Code', monospace;
 }
 
+/* Ensure nav toggle labels are tappable on mobile */
+.md-nav__toggle { pointer-events: auto !important; }
+label.md-nav__link {
+  cursor: pointer;
+  pointer-events: auto !important;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0,204,51,0.15);
+}
+.md-nav__item--nested > .md-nav { pointer-events: auto !important; }
+
+/* Nav drawer overlay must not block nav items */
+[data-md-toggle=drawer]:checked ~ .md-container .md-sidebar--primary {
+  pointer-events: auto !important;
+}
+
 /* ── Tabs ─────────────────────────────────────────────── */
 .md-tabs__link {
   font-family: 'Fira Code', monospace;
@@ -374,85 +389,59 @@ body::after {
 ::-webkit-scrollbar-thumb { background: rgba(0,204,51,0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,204,51,0.6); }
 
-/* ── Visitor terminal (left sidebar, home page) ───────── */
-@keyframes vt-glow-pulse {
-  0%,100% { box-shadow: 0 0 10px rgba(0,204,51,0.5), 0 0 24px rgba(0,204,51,0.2); }
-  50%     { box-shadow: 0 0 22px rgba(0,204,51,0.8), 0 0 50px rgba(0,204,51,0.35); }
-}
-@keyframes vt-glitch {
-  0%,90%,100% { transform: translate(0); border-color: rgba(0,204,51,0.55); }
-  91%  { transform: translate(-2px,0); border-color: #ff00cc; }
-  93%  { transform: translate(2px,0);  border-color: #00ffff; }
-  95%  { transform: translate(-1px,1px); }
-  97%  { transform: translate(0); border-color: rgba(0,204,51,0.55); }
-}
-@keyframes vt-scan {
-  0%   { top: 0; opacity: 0.07; }
-  100% { top: 100%; opacity: 0; }
-}
-@keyframes vt-blink {
-  0%,100% { opacity: 1; }
-  50%     { opacity: 0; }
+/* ── Visitor ticker (horizontal strip, bottom of screen) ─ */
+@keyframes vtk-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-.visitor-term {
-  position: relative;
-  margin: 18px 8px 0;
-  background: rgba(0,6,1,0.95);
-  border: 1px solid rgba(0,204,51,0.55);
-  border-radius: 8px;
-  overflow: hidden;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.7rem;
-  animation: vt-glow-pulse 3s ease-in-out infinite, vt-glitch 8s step-end infinite;
-}
-
-.visitor-term::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, rgba(0,255,65,0.04), transparent);
-  pointer-events: none;
-  animation: vt-scan 2.4s linear infinite;
-}
-
-.vt-bar {
+#visitor-ticker {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 28px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 10px;
-  background: rgba(0,204,51,0.1);
-  border-bottom: 1px solid rgba(0,204,51,0.2);
+  background: rgba(0, 4, 1, 0.93);
+  border-top: 1px solid rgba(0, 204, 51, 0.35);
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 204, 51, 0.08);
 }
-.vt-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.vt-dot.r { background: #ff5f57; }
-.vt-dot.y { background: #febc2e; }
-.vt-dot.g { background: #28c840; }
 
-.vt-pre {
-  margin: 0;
-  padding: 10px 14px 6px;
-  color: #00cc33;
+.vtk-label {
+  flex-shrink: 0;
+  padding: 0 10px;
   font-family: 'Fira Code', monospace;
-  font-size: 0.68rem;
-  line-height: 1.65;
-  white-space: pre-wrap;
-  word-break: break-all;
-  min-height: 160px;
-  background: transparent;
-  border: none;
-  text-shadow: 0 0 6px rgba(0,204,51,0.7);
+  font-size: 0.65rem;
+  color: #00ff41;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+  border-right: 1px solid rgba(0, 204, 51, 0.3);
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.vt-cursor {
-  display: inline-block;
-  color: #00ff41;
-  font-size: 0.7rem;
-  padding: 0 14px 8px;
-  text-shadow: 0 0 8px #00ff41;
-  animation: vt-blink 1s step-end infinite;
+.vtk-track {
+  flex: 1;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
+
+.vtk-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: #00cc33;
+  text-shadow: 0 0 5px rgba(0, 204, 51, 0.55);
+  animation: vtk-scroll linear infinite;
+  will-change: transform;
+}
+
+/* push page content above ticker */
+.md-footer { margin-bottom: 28px; }
 
 /* ── Tablet (≤ 76em) ──────────────────────────────────── */
 @media screen and (max-width: 76.1875em) {
@@ -498,5 +487,7 @@ body::after {
 
   .md-header__button.md-logo img { width: 26px; height: 26px; }
 
-  .visitor-term { display: none; }
+  #visitor-ticker { height: 24px; }
+  .vtk-label { font-size: 0.58rem; padding: 0 7px; }
+  .vtk-text { font-size: 0.58rem; }
 }
