@@ -260,14 +260,91 @@ body::after {
 .md-typeset .admonition-title { background: rgba(0,204,51,0.1) !important; color: #00ff41; font-family: 'Fira Code', monospace; }
 
 /* ── Search ───────────────────────────────────────────── */
+.md-search__form {
+  background: rgba(0,12,4,0.88) !important;
+  border: 1px solid rgba(0,204,51,0.28);
+  border-radius: 6px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.md-search__form:focus-within {
+  border-color: #00cc33;
+  box-shadow: 0 0 18px rgba(0,204,51,0.18);
+}
+
 .md-search__input {
-  background: rgba(0,12,4,0.85) !important;
-  border: 1px solid rgba(0,204,51,0.25);
+  background: transparent !important;
   color: #c8ffc8;
+  font-family: 'Fira Code', monospace;
+  caret-color: #00ff41;
+}
+.md-search__input::placeholder { color: rgba(0,204,51,0.32); }
+
+/* Search icon */
+.md-search__icon { color: rgba(0,204,51,0.5) !important; }
+.md-search__icon:hover { color: #00ff41 !important; }
+
+/* Results overlay */
+.md-search__output {
+  background: rgba(2,13,4,0.97) !important;
+  border: 1px solid rgba(0,204,51,0.2);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+}
+
+.md-search-result__meta {
+  background: rgba(0,204,51,0.06) !important;
+  color: rgba(0,204,51,0.45) !important;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  letter-spacing: .06em;
+  border-bottom: 1px solid rgba(0,204,51,0.1);
+}
+
+.md-search-result__item {
+  border-bottom: 1px solid rgba(0,204,51,0.06) !important;
+}
+
+.md-search-result__link {
+  transition: background .15s;
+}
+.md-search-result__link:hover,
+.md-search-result__link:focus {
+  background: rgba(0,204,51,0.08) !important;
+}
+
+.md-search-result__article--document .md-search-result__title {
+  color: #00ff41 !important;
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+}
+
+.md-search-result__title {
+  color: #c8ffc8 !important;
   font-family: 'Fira Code', monospace;
 }
 
-.md-search__input::placeholder { color: rgba(0,204,51,0.35); }
+.md-search-result__teaser {
+  color: #7abf7a !important;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Highlighted match terms */
+.md-search-result__teaser mark,
+.md-search-result__title mark {
+  background: rgba(0,204,51,0.25) !important;
+  color: #00ff41 !important;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* Suggestion (Tab-complete) */
+.md-search__suggest {
+  color: rgba(0,204,51,0.3) !important;
+  font-family: 'Fira Code', monospace;
+}
 
 /* ── Tags ─────────────────────────────────────────────── */
 .md-typeset .md-tag {
