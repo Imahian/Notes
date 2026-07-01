@@ -1,4 +1,4 @@
-/* ── Hacker color palette ─────────────────────────────── */
+/* ── Hacker palette ───────────────────────────────────── */
 :root {
   --md-primary-fg-color:        #00cc33;
   --md-primary-fg-color--light: #00ff41;
@@ -7,143 +7,238 @@
   --md-default-bg-color:        #020d04;
   --md-default-fg-color:        #c8ffc8;
   --md-default-fg-color--light: #7abf7a;
-  --md-default-fg-color--lighter: #4d8c4d;
   --md-typeset-color:           #c8ffc8;
-  --md-code-bg-color:           #0a1a0a;
+  --md-code-bg-color:           #091409;
   --md-code-fg-color:           #00ff41;
   --md-footer-bg-color:         #010a02;
-  --md-footer-fg-color:         #4d8c4d;
 }
 
-/* ── Background & base ────────────────────────────────── */
-body,
-.md-main,
-.md-content {
-  background: #020d04;
+/* ── Matrix canvas ────────────────────────────────────── */
+#matrix-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
+/* ── Base ─────────────────────────────────────────────── */
+body { background: #020d04; }
+.md-main { background: transparent; }
+
+/* Scan-line overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent, transparent 2px,
+    rgba(0, 204, 51, 0.012) 2px,
+    rgba(0, 204, 51, 0.012) 4px
+  );
+}
+
+/* ── Header ───────────────────────────────────────────── */
 .md-header {
-  background: rgba(2, 13, 4, 0.95);
-  border-bottom: 1px solid rgba(0, 204, 51, 0.2);
-  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 10;
+  background: rgba(2, 13, 4, 0.85) !important;
+  border-bottom: 1px solid rgba(0, 204, 51, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .md-tabs {
-  background: rgba(2, 13, 4, 0.9);
+  background: rgba(2, 13, 4, 0.75) !important;
   border-bottom: 1px solid rgba(0, 204, 51, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  z-index: 9;
 }
 
-/* ── Site name glitch ─────────────────────────────────── */
-@keyframes glitch-h {
-  0%, 90%, 100% { clip-path: none; transform: translate(0); }
-  92% { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translate(-3px, 0); color: #ff00a0; }
-  94% { clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); transform: translate(3px, 0); color: #00f0ff; }
-  96% { clip-path: none; transform: translate(0); color: #00cc33; }
+/* ── Logo spin CCW ────────────────────────────────────── */
+@keyframes spin-ccw {
+  to { transform: rotate(-360deg); }
+}
+
+.md-header__button.md-logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  animation: spin-ccw 10s linear infinite;
+  border: 1px solid rgba(0, 204, 51, 0.4);
+  box-shadow: 0 0 8px rgba(0, 204, 51, 0.3);
+}
+
+/* ── Site title glitch ────────────────────────────────── */
+@keyframes glitch-title {
+  0%, 88%, 100% { transform: translate(0); text-shadow: 0 0 8px rgba(0,204,51,0.8); }
+  90% { transform: translate(-3px,0); text-shadow: -3px 0 #ff00cc, 3px 0 #0088ff; }
+  92% { transform: translate(3px,0);  text-shadow:  3px 0 #ff00cc,-3px 0 #0088ff; }
+  94% { transform: translate(-1px,0); text-shadow: 0 0 6px #00f0ff; }
+  96% { transform: translate(0); }
 }
 
 .md-header__title {
   font-family: 'Fira Code', monospace !important;
   color: #00cc33 !important;
-  text-shadow: 0 0 8px rgba(0, 204, 51, 0.7);
-  animation: glitch-h 6s infinite;
+  animation: glitch-title 7s infinite;
   letter-spacing: 0.06em;
 }
 
-/* ── Navigation ───────────────────────────────────────── */
-.md-nav__title,
+/* ── Glassmorphic sidebar ─────────────────────────────── */
+.md-sidebar { position: relative; z-index: 5; }
+
+.md-sidebar__scrollwrap {
+  background: rgba(2, 13, 4, 0.52);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border-right: 1px solid rgba(0, 204, 51, 0.15);
+  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Colour-split sheen on glass */
+.md-sidebar__scrollwrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 255, 65, 0.04) 0%,
+    rgba(0, 136, 255, 0.025) 40%,
+    rgba(204, 0, 255, 0.015) 70%,
+    transparent 100%
+  );
+}
+
+/* ── Nav ──────────────────────────────────────────────── */
+.md-nav__title {
+  font-family: 'Fira Code', monospace;
+  color: rgba(0, 204, 51, 0.45);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .md-nav__link {
   color: #7abf7a;
   font-family: 'Fira Code', monospace;
   font-size: 0.78rem;
+  transition: color 0.18s, text-shadow 0.18s, padding-left 0.18s;
+  border-radius: 4px;
 }
 
-.md-nav__link:hover,
+.md-nav__link:hover {
+  color: #00ff41;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.55);
+  padding-left: 4px;
+}
+
 .md-nav__link--active {
   color: #00ff41 !important;
   text-shadow: 0 0 6px rgba(0, 255, 65, 0.5);
-}
-
-.md-nav__link--active {
   font-weight: 600;
 }
 
 .md-nav__item--section > .md-nav__link {
   color: #00cc33;
-  letter-spacing: 0.08em;
+  border-left: 2px solid rgba(0, 204, 51, 0.3);
+  padding-left: 8px;
 }
 
-/* ── Sidebar ──────────────────────────────────────────── */
-.md-sidebar {
-  background: rgba(2, 13, 4, 0.6);
-  border-right: 1px solid rgba(0, 204, 51, 0.08);
+.md-nav__item--active > .md-nav__link {
+  border-left: 2px solid #00ff41;
+  padding-left: 8px;
 }
 
-/* ── Content typography ───────────────────────────────── */
+/* ── Tabs ─────────────────────────────────────────────── */
+.md-tabs__link {
+  font-family: 'Fira Code', monospace;
+  color: rgba(0, 204, 51, 0.6);
+  font-size: 0.78rem;
+  transition: color 0.2s;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover { color: #00ff41; }
+
+.md-tabs__link--active {
+  border-bottom: 2px solid #00ff41;
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.4);
+}
+
+/* ── Content card ─────────────────────────────────────── */
+.md-content { position: relative; z-index: 4; }
+
+.md-content__inner {
+  background: rgba(2, 13, 4, 0.58);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 204, 51, 0.1);
+  border-radius: 8px;
+  margin: 12px;
+  padding: 24px 32px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 4px 32px rgba(0,0,0,0.5);
+}
+
+/* ── Headings glitch ──────────────────────────────────── */
+@keyframes glitch-h1 {
+  0%, 92%, 100% { text-shadow: 0 0 12px rgba(0,255,65,0.5); transform: translate(0); }
+  93% { transform: translate(-2px,0); text-shadow: -3px 0 #ff00cc, 3px 0 #0088ff; }
+  95% { transform: translate(2px,0);  text-shadow:  3px 0 #ff00cc,-3px 0 #0088ff; }
+  97% { transform: translate(0); }
+}
+
 .md-typeset h1 {
   color: #00ff41;
   font-family: 'Fira Code', monospace;
   font-weight: 700;
-  text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+  animation: glitch-h1 9s infinite;
   border-bottom: 1px solid rgba(0, 204, 51, 0.2);
   padding-bottom: 0.3em;
 }
 
-.md-typeset h2 {
-  color: #00cc33;
-  font-family: 'Fira Code', monospace;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-
-.md-typeset h3,
-.md-typeset h4 {
-  color: #7abf7a;
-  font-family: 'Fira Code', monospace;
-}
+.md-typeset h2 { color: #00cc33; font-family: 'Fira Code', monospace; font-weight: 600; }
+.md-typeset h3, .md-typeset h4 { color: #7abf7a; font-family: 'Fira Code', monospace; }
 
 .md-typeset a {
   color: #00cc33;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 204, 51, 0.3);
-  transition: color 0.2s, border-color 0.2s;
+  border-bottom: 1px solid rgba(0, 204, 51, 0.25);
+  transition: color 0.2s, text-shadow 0.2s;
 }
 
 .md-typeset a:hover {
   color: #00ff41;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
   border-bottom-color: #00ff41;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.4);
 }
 
-/* ── Code blocks ──────────────────────────────────────── */
-.md-typeset code,
-.md-typeset pre {
-  font-family: 'Fira Code', monospace;
+/* ── Code ─────────────────────────────────────────────── */
+.md-typeset code {
+  background: rgba(0, 25, 8, 0.85);
+  color: #00ff41;
   border: 1px solid rgba(0, 204, 51, 0.2);
-  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  border-radius: 4px;
 }
 
 .md-typeset pre {
-  background: #0a1a0a !important;
-  box-shadow: 0 0 16px rgba(0, 204, 51, 0.06), inset 0 0 0 1px rgba(0, 204, 51, 0.12);
-  position: relative;
+  background: rgba(0, 12, 4, 0.92) !important;
+  border: 1px solid rgba(0, 204, 51, 0.18);
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 204, 51, 0.06);
 }
 
-/* Terminal prompt before shell code blocks */
-.md-typeset .highlight.language-bash::before,
-.md-typeset .highlight.language-sh::before {
-  content: '$ ';
-  color: #00cc33;
-}
-
-/* Copy button */
-.md-clipboard {
-  color: rgba(0, 204, 51, 0.4) !important;
-  transition: color 0.2s;
-}
-
-.md-clipboard:hover {
-  color: #00ff41 !important;
-}
+.md-clipboard { color: rgba(0,204,51,0.4) !important; transition: color 0.2s; }
+.md-clipboard:hover { color: #00ff41 !important; }
 
 /* ── Tables ───────────────────────────────────────────── */
 .md-typeset table {
@@ -156,62 +251,53 @@ body,
   background: rgba(0, 204, 51, 0.1);
   color: #00ff41;
   font-family: 'Fira Code', monospace;
-  letter-spacing: 0.05em;
 }
 
-.md-typeset table tr:hover {
-  background: rgba(0, 204, 51, 0.04);
-}
+.md-typeset table tr:hover { background: rgba(0, 204, 51, 0.04); }
 
 /* ── Admonitions ──────────────────────────────────────── */
-.md-typeset .admonition,
-.md-typeset details {
-  border-left-color: #00cc33 !important;
-  background: rgba(0, 204, 51, 0.05);
-}
-
-.md-typeset .admonition-title {
-  background: rgba(0, 204, 51, 0.1) !important;
-  color: #00ff41;
-  font-family: 'Fira Code', monospace;
-}
+.md-typeset .admonition { border-left-color: #00cc33 !important; background: rgba(0,204,51,0.05); }
+.md-typeset .admonition-title { background: rgba(0,204,51,0.1) !important; color: #00ff41; font-family: 'Fira Code', monospace; }
 
 /* ── Search ───────────────────────────────────────────── */
 .md-search__input {
-  background: rgba(0, 20, 0, 0.8);
-  border: 1px solid rgba(0, 204, 51, 0.3);
+  background: rgba(0,12,4,0.85) !important;
+  border: 1px solid rgba(0,204,51,0.25);
   color: #c8ffc8;
   font-family: 'Fira Code', monospace;
 }
 
-.md-search__input::placeholder {
-  color: rgba(0, 204, 51, 0.4);
+.md-search__input::placeholder { color: rgba(0,204,51,0.35); }
+
+/* ── Tags ─────────────────────────────────────────────── */
+.md-typeset .md-tag {
+  background: rgba(0,204,51,0.12);
+  color: #00ff41;
+  border: 1px solid rgba(0,204,51,0.3);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  border-radius: 4px;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
-/* ── Footer ───────────────────────────────────────────── */
+.md-typeset .md-tag:hover {
+  background: rgba(0,204,51,0.22);
+  box-shadow: 0 0 8px rgba(0,204,51,0.3);
+}
+
+/* ── Footer — hide "Made with" ────────────────────────── */
+.md-footer-meta { display: none; }
+
 .md-footer {
-  background: #010a02;
-  border-top: 1px solid rgba(0, 204, 51, 0.1);
+  background: rgba(1,10,2,0.82);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0,204,51,0.1);
+  position: relative;
+  z-index: 5;
 }
 
 /* ── Scrollbar ────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #020d04; }
-::-webkit-scrollbar-thumb { background: rgba(0, 204, 51, 0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(0, 204, 51, 0.6); }
-
-/* ── Scan-line overlay ────────────────────────────────── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 204, 51, 0.015) 2px,
-    rgba(0, 204, 51, 0.015) 4px
-  );
-}
+::-webkit-scrollbar-thumb { background: rgba(0,204,51,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,204,51,0.6); }
