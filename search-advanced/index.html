@@ -3487,11 +3487,8 @@
     requestAnimationFrame(draw);
   })();
 
-  /* ── Visitor terminal (left sidebar, home page only) ────────────────── */
+  /* ── Visitor ticker (horizontal scrolling strip, all pages) ─────────── */
   (function () {
-    const p = location.pathname;
-    if (!p.endsWith('/Notes/') && !p.endsWith('/Notes/index.html') && !/\/Notes\/?$/.test(p)) return;
-
     function getBrowser(ua) {
       if (/Edg\//.test(ua))     return 'Edge';
       if (/OPR\//.test(ua))     return 'Opera';
@@ -3512,74 +3509,47 @@
     function getDevice(ua) {
       return /Mobile|Android|iPhone|iPad/.test(ua) ? 'Mobile' : 'Desktop';
     }
-    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-    async function typeLoop(pre, lines) {
-      while (true) {
-        pre.textContent = '';
-        for (const line of lines) {
-          for (const ch of line) {
-            pre.textContent += ch;
-            await sleep(12);
-          }
-          pre.textContent += '\n';
-          await sleep(line === '' ? 50 : 28);
-        }
-        await sleep(4000);
-      }
+    function buildTicker(fields) {
+      const sep = '  //  ';
+      const line = fields.join(sep) + sep;
+      return line + line;
     }
 
-    function inject() {
-      if (document.querySelector('.visitor-term')) return;
-      const sidebar = document.querySelector('.md-sidebar--primary .md-sidebar__scrollwrap');
-      if (!sidebar) { setTimeout(inject, 150); return; }
+    function inject(d) {
+      if (document.getElementById('visitor-ticker')) return;
+      const ua = navigator.userAgent;
+      const fields = [
+        d.ip               ? 'IP: '      + d.ip               : null,
+        d.type             ? 'TYPE: '    + d.type             : null,
+        d.country          ? 'COUNTRY: ' + d.country          : null,
+        d.region           ? 'REGION: '  + d.region           : null,
+        d.city             ? 'CITY: '    + d.city             : null,
+        d.connection && d.connection.isp ? 'ISP: ' + d.connection.isp : null,
+        d.latitude  != null ? 'LAT: '    + d.latitude         : null,
+        d.longitude != null ? 'LON: '    + d.longitude        : null,
+        d.timezone && d.timezone.id ? 'TZ: ' + d.timezone.id : null,
+        'BROWSER: ' + getBrowser(ua),
+        'OS: '      + getOS(ua),
+        'DEVICE: '  + getDevice(ua),
+      ].filter(Boolean);
 
-      const term = document.createElement('div');
-      term.className = 'visitor-term';
-      term.innerHTML =
-        '<div class="vt-bar">' +
-          '<span class="vt-dot r"></span>' +
-          '<span class="vt-dot y"></span>' +
-          '<span class="vt-dot g"></span>' +
-        '</div>' +
-        '<pre class="vt-pre"></pre>' +
-        '<span class="vt-cursor">█</span>';
-      sidebar.appendChild(term);
+      const text = buildTicker(fields);
+      const dur  = Math.max(18, fields.length * 2.5);
 
-      const pre = term.querySelector('.vt-pre');
-      const ua  = navigator.userAgent;
-
-      fetch('https://ipwho.is/')
-        .then(r => r.json())
-        .then(d => typeLoop(pre, [
-          `IP       = ${d.ip             || 'N/A'}`,
-          `TYPE     = ${d.type          || 'N/A'}`,
-          `COUNTRY  = ${d.country       || 'N/A'}`,
-          `REGION   = ${d.region        || 'N/A'}`,
-          `CITY     = ${d.city          || 'N/A'}`,
-          `ISP      = ${d.connection?.isp || 'N/A'}`,
-          `LAT      = ${d.latitude      || 'N/A'}`,
-          `LON      = ${d.longitude     || 'N/A'}`,
-          `TIMEZONE = ${d.timezone?.id  || 'N/A'}`,
-          ``,
-          `BROWSER  = ${getBrowser(ua)}`,
-          `OS       = ${getOS(ua)}`,
-          `DEVICE   = ${getDevice(ua)}`,
-        ]))
-        .catch(() => typeLoop(pre, [
-          `BROWSER  = ${getBrowser(ua)}`,
-          `OS       = ${getOS(ua)}`,
-          `DEVICE   = ${getDevice(ua)}`,
-          ``,
-          `GEO      = unavailable`,
-        ]));
+      const bar = document.createElement('div');
+      bar.id = 'visitor-ticker';
+      bar.innerHTML =
+        '<div class="vtk-label">&gt;_</div>' +
+        '<div class="vtk-track"><span class="vtk-text" style="animation-duration:' + dur + 's">' +
+        text + '</span></div>';
+      document.body.appendChild(bar);
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', inject);
-    } else {
-      inject();
-    }
+    fetch('https://ipwho.is/')
+      .then(function(r) { return r.json(); })
+      .then(inject)
+      .catch(function() { inject({}); });
   })();
   </script>
 
