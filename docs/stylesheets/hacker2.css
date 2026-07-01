@@ -444,9 +444,9 @@ body::after {
   }
 }
 
-/* ── Mobile drawer — opaque so matrix doesn't bleed through ─ */
+/* ── Mobile drawer ────────────────────────────────────── */
 @media screen and (max-width: 76.1875em) {
-  /* every layer of the drawer gets opaque bg */
+  /* Opaque drawer — all layers */
   .md-sidebar--primary,
   .md-sidebar--primary .md-sidebar__scrollwrap,
   .md-sidebar--primary .md-sidebar__inner {
@@ -457,15 +457,52 @@ body::after {
   .md-sidebar--primary {
     border-right: 1px solid rgba(0, 204, 51, 0.35) !important;
     z-index: 300 !important;
-    overflow: hidden !important;
+    overflow-x: hidden !important;
   }
 
-  /* overlay must be above page content (z-index 4) but below drawer (300) */
-  .md-overlay {
-    z-index: 150 !important;
+  .md-overlay { z-index: 150 !important; }
+
+  /* ── Replace Material's translateX slide with simple show/hide ── */
+  /* Reset absolute positioning on all nested navs in drawer */
+  .md-sidebar--primary .md-nav--primary,
+  .md-sidebar--primary .md-nav__item--nested > .md-nav {
+    position: static !important;
+    transform: none !important;
+    transition: none !important;
+    width: 100% !important;
+    background: transparent !important;
   }
 
-  /* nav/list inside are transparent — color comes from parent bg */
+  /* Hide nested nav by default */
+  .md-sidebar--primary .md-nav__item--nested > .md-nav {
+    display: none !important;
+  }
+
+  /* Show nested nav when toggle is checked */
+  .md-sidebar--primary .md-nav__item--nested > .md-nav__toggle:checked ~ .md-nav {
+    display: block !important;
+  }
+
+  /* ── Drill-down: hide siblings when any toggle in list is active ── */
+  .md-sidebar--primary .md-nav__list:has(> .md-nav__item--nested > .md-nav__toggle:checked) > .md-nav__item:not(:has(> .md-nav__toggle:checked)) {
+    display: none !important;
+  }
+
+  /* ── Back button (nav title label) ── */
+  .md-sidebar--primary .md-nav__title {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    color: #00cc33 !important;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
+    border-bottom: 1px solid rgba(0, 204, 51, 0.25);
+    background: rgba(0, 204, 51, 0.06) !important;
+  }
+
+  /* Nav lists transparent */
   .md-sidebar--primary .md-nav,
   .md-sidebar--primary .md-nav__list {
     background: transparent !important;
