@@ -111,11 +111,12 @@ body::after {
 }
 
 /* ── Sidebar ──────────────────────────────────────────── */
-.md-sidebar { position: relative; z-index: 5; }
-
-.md-sidebar__scrollwrap {
-  background: rgba(0, 0, 0, 0.18);
-  border-right: 1px solid rgba(0, 204, 51, 0.12);
+/* do NOT override position — Material needs fixed on mobile for the drawer */
+@media screen and (min-width: 76.1875em) {
+  .md-sidebar__scrollwrap {
+    background: rgba(0, 0, 0, 0.18);
+    border-right: 1px solid rgba(0, 204, 51, 0.12);
+  }
 }
 
 /* ── Nav ──────────────────────────────────────────────── */
@@ -165,19 +166,11 @@ body::after {
   font-family: 'Fira Code', monospace;
 }
 
-/* Ensure nav toggle labels are tappable on mobile */
-.md-nav__toggle { pointer-events: auto !important; }
-label.md-nav__link {
-  cursor: pointer;
-  pointer-events: auto !important;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(0,204,51,0.15);
-}
-.md-nav__item--nested > .md-nav { pointer-events: auto !important; }
-
-/* Nav drawer overlay must not block nav items */
-[data-md-toggle=drawer]:checked ~ .md-container .md-sidebar--primary {
-  pointer-events: auto !important;
+/* Mobile drawer — ensure it layers above content */
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar--primary {
+    z-index: 300 !important;
+  }
 }
 
 /* ── Tabs ─────────────────────────────────────────────── */
@@ -481,7 +474,7 @@ label.md-nav__link {
   .md-typeset pre { font-size: 0.78rem; }
   .md-typeset code { font-size: 0.78rem; }
 
-  .md-nav__link { font-size: 0.88rem; min-height: 44px; display: flex; align-items: center; }
+  .md-nav__link { font-size: 0.88rem; min-height: 44px; line-height: 44px; }
 
   .md-tabs__link { font-size: 0.72rem; }
 
