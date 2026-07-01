@@ -375,7 +375,7 @@ body::after {
 ::-webkit-scrollbar-thumb { background: rgba(0,204,51,0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,204,51,0.6); }
 
-/* ── Visitor terminal (fixed floating panel) ──────────── */
+/* ── Visitor terminal (left sidebar, home page) ───────── */
 @keyframes vt-glow-pulse {
   0%,100% { box-shadow: 0 0 10px rgba(0,204,51,0.5), 0 0 24px rgba(0,204,51,0.2), inset 0 0 8px rgba(0,204,51,0.05); }
   50%     { box-shadow: 0 0 22px rgba(0,204,51,0.8), 0 0 50px rgba(0,204,51,0.35), inset 0 0 16px rgba(0,204,51,0.08); }
@@ -397,16 +397,11 @@ body::after {
 }
 
 .visitor-term {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 270px;
-  max-width: calc(100vw - 48px);
+  margin: 18px 8px 0;
   background: rgba(0,6,1,0.93);
   border: 1px solid rgba(0,204,51,0.55);
   border-radius: 8px;
   overflow: hidden;
-  z-index: 200;
   font-family: 'Fira Code', monospace;
   font-size: 0.7rem;
   animation: vt-glow-pulse 3s ease-in-out infinite, vt-glitch 8s step-end infinite;
