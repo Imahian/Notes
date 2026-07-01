@@ -24,6 +24,7 @@ theme:
     - navigation.top
     - search.highlight
     - search.suggest
+    - search.share
     - content.code.copy
     - content.code.annotate
     - tags
@@ -48,7 +49,8 @@ extra_css:
   - stylesheets/hacker.css
 
 plugins:
-  - search
+  - search:
+      prebuild_index: true
   - tags:
       tags_file: tags.md
 
@@ -144,5 +146,3 @@ nav:
     - WafW00f: Tools/WafW00f.md
   - CVEs:
     - Overview: CVEs/README.md
-  - Search: search-advanced.md
-  - Tags: tags.md
