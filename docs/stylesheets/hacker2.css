@@ -502,6 +502,11 @@ body::after {
     display: none !important;
   }
 
+  /* Hide toggle label when item also has a direct anchor link (e.g. Home tab) */
+  .md-sidebar--primary .md-nav__item > label.md-nav__link:has(+ a.md-nav__link) {
+    display: none !important;
+  }
+
   .md-sidebar--primary .md-nav,
   .md-sidebar--primary .md-nav__list {
     background: transparent !important;
