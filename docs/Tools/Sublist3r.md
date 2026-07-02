@@ -1,39 +1,69 @@
-# 🛠 Herramienta Sublist3r en Redes y Ciberseguridad
+# Sublist3r
 
-**Sublist3r** es una herramienta ampliamente utilizada en redes y ciberseguridad para realizar **enumeración de subdominios** de manera efectiva. A continuación, se describe su funcionamiento, características principales y algunas herramientas complementarias para enriquecer su uso en la investigación de dominios.
+Passive subdomain enumeration tool. Queries search engines and public APIs to build a subdomain list without directly probing the target.
 
----
+**GitHub:** https://github.com/aboul3la/Sublist3r
 
-## ¿Qué es Sublist3r?
-Sublist3r es una herramienta de **reconocimiento de subdominios** que ayuda a obtener una lista completa de subdominios asociados a un dominio objetivo. Es muy útil en **pruebas de penetración** y **auditorías de seguridad** para identificar subdominios expuestos, los cuales podrían representar puntos vulnerables en la infraestructura de una organización.
-
-La herramienta consulta varios motores de búsqueda y servicios API, como **Google**, **Bing**, **Yahoo**, **Baidu**, y **VirusTotal**, para recolectar información de subdominios de manera rápida y automatizada.
-
-### ¿Por qué es importante?
-La enumeración de subdominios es un paso esencial en el proceso de reconocimiento. Al identificar subdominios, se puede construir un mapa más detallado de la infraestructura de una organización, revelando posibles puntos de entrada y servicios no documentados o expuestos accidentalmente.
-
----
-
-## Funcionamiento Básico de Sublist3r
-Sublist3r realiza solicitudes a través de diferentes motores de búsqueda y servicios, recolectando datos sobre subdominios registrados para el dominio especificado. Es una herramienta de **recolección pasiva**, lo que significa que se basa en información pública y no interactúa directamente con los servidores del objetivo.
-
-### Ejemplo Básico de Uso
-Para obtener una lista de subdominios de un dominio específico, se usa el siguiente comando:
+## Installation
 
 ```bash
-sublist3r -d example.com
+git clone https://github.com/aboul3la/Sublist3r.git
+cd Sublist3r && pip install -r requirements.txt
+
+# or
+sudo apt install sublist3r
 ```
-Este comando devolverá una lista de subdominios asociados a `example.com`, tales como `sub.example.com`, `mail.example.com`, entre otros.
 
---------
+## Basic usage
 
-## Opciones Principales en Sublist3r
+```bash
+# Enumerate subdomains
+sublist3r -d example.com
 
-Sublist3r ofrece diversas opciones para personalizar y optimizar el proceso de búsqueda:
+# Save output to file
+sublist3r -d example.com -o subdomains.txt
 
-- **-d**: Especifica el dominio objetivo.
-- **-o**: Guarda los resultados en un archivo de salida.
-- **-v**: Habilita el modo verboso, mostrando información adicional sobre el progreso de la búsqueda.
-- **-b**: Utiliza **Baidu** como motor de búsqueda para obtener subdominios adicionales.
+# Verbose mode
+sublist3r -d example.com -v
 
+# Enable bruteforce in addition to passive search
+sublist3r -d example.com -b
+```
 
+## Options
+
+| Option | Description |
+|--------|-------------|
+| `-d` | Target domain |
+| `-o <file>` | Save results to file |
+| `-v` | Verbose output |
+| `-b` | Enable brute-force mode |
+| `-p <ports>` | Scan discovered subdomains on specified ports |
+| `-e <engines>` | Comma-separated list of engines to use |
+| `-t <threads>` | Thread count (default: 10) |
+
+## Data sources
+
+Sublist3r queries: Google, Bing, Yahoo, Baidu, Ask, Netcraft, VirusTotal, ThreatCrowd, SSL certificates, PassiveDNS
+
+## Limitations
+
+- Passive only by default — misses non-indexed subdomains
+- Search engine rate limits can slow results
+- For better coverage, combine with active tools
+
+## Better alternatives (modern)
+
+| Tool | Notes |
+|------|-------|
+| `subfinder` | Faster, more sources, actively maintained |
+| `amass` | Most thorough; passive + active modes |
+| `assetfinder` | Lightweight, fast |
+| `chaos` | ProjectDiscovery's massive subdomain dataset |
+
+```bash
+# Recommended modern workflow
+subfinder -d example.com -o passive.txt
+amass enum -passive -d example.com -o amass.txt
+cat passive.txt amass.txt | sort -u > all_subdomains.txt
+```

@@ -1,61 +1,93 @@
+# Assessment Methodologies
 
-# Assessment Methodologies en Hacking y Descubrimiento de Servicios
+Structured approach to security assessments — from passive recon through vulnerability scanning.
 
-El proceso de realizar evaluaciones de seguridad (o *security assessments*) es fundamental en el hacking ético y la ciberseguridad. Estas metodologías se utilizan para evaluar la seguridad de un sistema, identificar vulnerabilidades y garantizar que las redes y los servicios estén protegidos de amenazas. A continuación, exploraremos las metodologías relacionadas con el descubrimiento de servicios y el análisis de dominios, como el uso de herramientas como DNSRecon.
+## Methodology Phases
 
-## ¿Qué son las Assessment Methodologies?
+### 1. Passive Information Gathering
 
-Las *Assessment Methodologies* son enfoques estructurados que los profesionales de la seguridad utilizan para evaluar y probar las infraestructuras tecnológicas. Estas metodologías suelen implicar la identificación de vulnerabilidades, el mapeo de redes, la recopilación de información y la ejecución de pruebas para evaluar la seguridad de sistemas, redes y aplicaciones. 
+Collect data about the target **without** direct interaction. Uses public sources only — no packets sent to the target.
 
-## Introducción al Descubrimiento de Servicios
+| Tool | Purpose |
+|------|---------|
+| DNSRecon | DNS record enumeration (A, MX, NS, TXT, zone transfer attempts) |
+| whois | Domain ownership, registration dates, registrar, DNS servers |
+| DNSDumpster | Visual DNS map — subdomains, IPs, MX, NS records |
+| Shodan | Internet-connected device search; find exposed services |
+| Netcraft | Web server history, technology stack, WHOIS reports |
+| Sublist3r | Subdomain enumeration via search engines and APIs |
+| theHarvester | Email, host, and subdomain discovery from public sources |
 
-Una parte esencial del proceso de evaluación de seguridad es el descubrimiento de servicios. Esto incluye la identificación de servicios activos, la recopilación de información sobre sus configuraciones y el análisis de las posibles vulnerabilidades. Herramientas como DNSRecon, nmap y otras se utilizan para obtener información sobre dominios y redes, lo que permite mapear la infraestructura y planificar ataques simulados de manera controlada.
+```bash
+# Passive DNS recon
+dnsrecon -d target.com
+whois target.com
+theHarvester -d target.com -b all
+```
 
-### 1. **Recolección de Información Pasiva** 
+### 2. Service Discovery
 
-La *recolección de información pasiva* es una técnica utilizada para obtener detalles sobre un objetivo sin interactuar directamente con el sistema objetivo. Las herramientas que se utilizan en este proceso buscan información disponible públicamente, como registros DNS, Whois y otros metadatos que proporcionan datos valiosos sobre un dominio o dirección IP.
+Identify active hosts and open ports on the target network.
 
-#### Herramientas Comunes:
-- **DNSRecon**: Herramienta de recopilación de información sobre DNS que permite obtener detalles sobre servidores DNS, registros de dominios y sus configuraciones.
-- **Whois**: Se utiliza para obtener información sobre el propietario de un dominio, fechas de creación, registrador y otros detalles importantes.
-- **Shodan**: Motor de búsqueda de dispositivos conectados a Internet, útil para identificar servicios expuestos y dispositivos vulnerables.
+| Tool | Purpose |
+|------|---------|
+| nmap | Port scanning, service detection, OS fingerprinting |
+| netcat | Manual port probing, banner grabbing |
+| masscan | High-speed port scanning across large ranges |
 
-### 2. **Reconocimiento de Servicios (Service Discovery)**
+```bash
+# Discover live hosts
+nmap -sn 192.168.1.0/24
 
-El reconocimiento de servicios es una fase crucial en las evaluaciones de seguridad. Implica la identificación de puertos abiertos y servicios activos en un sistema objetivo. Con esta información, los atacantes o evaluadores pueden identificar posibles puntos de entrada o servicios vulnerables.
+# Fast full port scan
+nmap -p- --open --min-rate 5000 -n -Pn <target>
 
-#### Herramientas Comunes:
-- **Nmap**: Esta herramienta escanea redes y puertos para identificar servicios activos y sus versiones, lo que permite detectar vulnerabilidades específicas asociadas a esos servicios.
-- **Netcat**: Utilizada para explorar puertos y establecer conexiones en la red para probar servicios y obtener información adicional sobre el sistema objetivo.
+# Service + version detection
+nmap -sCV -p<ports> <target>
+```
 
-### 3. **Enumeración de Servicios y Puertos**
+### 3. Service Enumeration
 
-La enumeración de servicios es el proceso de identificar y listar todos los servicios disponibles en un sistema objetivo. Esta fase es vital para realizar un análisis de seguridad exhaustivo.
+Enumerate services in depth to extract versions, configurations, and potential entry points.
 
-#### Herramientas Comunes:
-- **Nmap**: Permite enumerar puertos y servicios de forma precisa, brindando información sobre las versiones de los servicios detectados.
-- **Dnsmasq**: Un servidor que puede ser usado para propósitos de pruebas y análisis de DNS, en especial cuando se investiga sobre servicios relacionados con DNS.
-- **Nikto**: Herramienta que escanea servidores web en busca de vulnerabilidades conocidas y configuraciones inseguras.
+| Tool | Purpose |
+|------|---------|
+| nmap -sCV | Script scan + version detection on open ports |
+| nikto | Web server vulnerability scanner |
+| gobuster / ffuf | Web directory and file brute force |
+| enum4linux | SMB/Samba enumeration (users, shares, policies) |
 
-### 4. **Escaneo de Vulnerabilidades**
+```bash
+# Web enumeration
+nikto -h http://target.com
+gobuster dir -u http://target.com -w /usr/share/wordlists/dirb/common.txt
 
-Una vez que se han identificado los servicios, es importante realizar un escaneo de vulnerabilidades para detectar posibles fallos de seguridad. Las herramientas de escaneo buscan errores comunes de configuración o vulnerabilidades que podrían ser explotadas por atacantes.
+# SMB enumeration
+enum4linux -a target.com
+```
 
-#### Herramientas Comunes:
-- **OpenVAS**: Herramienta de escaneo de vulnerabilidades de código abierto que analiza redes y servicios en busca de fallos de seguridad.
-- **Nessus**: Solución comercial ampliamente utilizada para realizar escaneos de vulnerabilidades en servicios y sistemas de red.
+### 4. Vulnerability Scanning
 
-## Aplicación Práctica de las Assessment Methodologies
+Scan discovered services for known CVEs and misconfigurations.
 
-El uso adecuado de las *Assessment Methodologies* implica seguir un conjunto de pasos sistemáticos, desde la recopilación de información inicial hasta el análisis de resultados. Un ejemplo práctico de estas metodologías es la aplicación de *DNSRecon* para realizar un reconocimiento de servicios en una red:
+| Tool | Purpose |
+|------|---------|
+| OpenVAS | Open-source full vulnerability scanner |
+| Nessus | Commercial vulnerability scanner (widely used) |
+| nmap NSE | Script-based vuln checks (`--script vuln`) |
 
-1. Realizar una consulta Whois para obtener detalles del dominio.
-2. Usar herramientas como *DNSRecon* para descubrir registros DNS, incluidos subdominios y servidores asociados.
-3. Ejecutar escaneos con herramientas como *Nmap* para identificar puertos y servicios activos.
-4. Evaluar la configuración de los servicios y realizar un análisis de vulnerabilidades utilizando herramientas como *Nessus* o *OpenVAS*.
+```bash
+# Nmap vuln scripts
+nmap --script vuln -p<ports> <target>
+```
 
-Al emplear estas metodologías, los profesionales de la seguridad pueden identificar puntos débiles en la infraestructura y aplicar medidas de mitigación para proteger los sistemas y servicios contra ataques.
+## Practical Workflow
 
-## Conclusión
-
-Las metodologías de evaluación de seguridad son fundamentales para comprender cómo los servicios y sistemas pueden ser vulnerables a los ataques. El descubrimiento de servicios y la recolección de información sobre dominios, junto con herramientas como *DNSRecon*, son pasos clave para asegurar redes y sistemas. A medida que las amenazas cibernéticas evolucionan, es esencial mantenerse actualizado sobre las últimas herramientas y enfoques para proteger las infraestructuras tecnológicas.
+```
+1. whois + DNSRecon + theHarvester   → passive recon
+2. nmap -sn                           → host discovery
+3. nmap -p- --min-rate 5000           → port discovery
+4. nmap -sCV -p<ports>                → service fingerprinting
+5. nikto / gobuster / enum4linux      → service enumeration
+6. OpenVAS / Nessus / nmap --script vuln → vulnerability scan
+```

@@ -1,44 +1,76 @@
-### Herramienta WafW00f en Redes y Ciberseguridad
+# WafW00f
 
+WAF (Web Application Firewall) detection tool. Sends crafted requests to a target and analyzes responses to identify the WAF protecting it.
 
-[WafW00f](https://github.com/EnableSecurity/wafw00f) es una herramienta popular en ciberseguridad, utilizada para detectar firewalls de aplicaciones web (WAF, por sus siglas en inglés) que protegen sitios web. A continuación, exploraremos su funcionamiento, sus principales características y algunas herramientas que pueden complementarla.
-¿Qué es WafW00f?
+**GitHub:** https://github.com/EnableSecurity/wafw00f
 
-[WafW00f](https://github.com/EnableSecurity/wafw00f) es una herramienta de código abierto que permite identificar y reconocer la presencia de un WAF en un sitio web. Es especialmente útil en auditorías de seguridad, ya que ayuda a los profesionales a saber si un sitio está protegido por un WAF, y qué tipo específico de firewall utiliza. Esto permite ajustar las estrategias de pruebas de penetración y de ataque ético para evitar o gestionar las restricciones impuestas por el WAF.
-Información que WafW00f Puede Obtener:
+## Installation
 
-Identificación del WAF: Detecta si el sitio está protegido por un WAF.
-Tipo de WAF: Reconoce la marca y versión del WAF.
-Métodos de Protección: Analiza la forma en que el WAF maneja peticiones, permitiendo ajustar la estrategia de pruebas de seguridad.
+```bash
+pip install wafw00f
+# or
+sudo apt install wafw00f
+```
 
-## Funcionamiento Básico de WafW00f
+## Basic usage
 
-[WafW00f](https://github.com/EnableSecurity/wafw00f) funciona enviando una serie de solicitudes al sitio web objetivo y observando las respuestas para identificar patrones característicos de diferentes WAFs. Si detecta un WAF, también intentará identificar el tipo específico y su versión.
-Ejemplo Básico de Uso
+```bash
+# Detect WAF on a target
+wafw00f https://example.com
 
-Para ejecutar WafW00f desde la terminal, puedes usar el siguiente comando:
+# Test all known WAFs (slower but more thorough)
+wafw00f -a https://example.com
 
-    wafw00f -u https://ejemplo.com
+# Verbose output
+wafw00f -v https://example.com
 
-En este ejemplo, WafW00f analizará el sitio https://ejemplo.com para determinar si hay un WAF presente y, si es posible, identificará su tipo.
-Características Principales de WafW00f
+# Output in JSON
+wafw00f -o output.json https://example.com
 
-Detección de WAF: WafW00f puede detectar una amplia variedad de WAFs comerciales y de código abierto.
-Reconocimiento de Marca y Versión: Cuando es posible, identifica la marca y la versión específica del WAF.
-Análisis de Métodos de Bloqueo: Observa las respuestas del WAF para determinar cómo bloquea o restringe el tráfico.
-Facilidad de Uso: Permite realizar análisis rápidos y directos desde la terminal con comandos sencillos.
+# Test multiple targets from file
+wafw00f -i targets.txt
+```
 
-## Herramientas Complementarias
+## What it detects
 
-Estas herramientas pueden mejorar la efectividad de WafW00f al proporcionar información adicional o al ayudar a evadir los WAFs detectados:
+WafW00f fingerprints 100+ WAFs including:
 
-Nmap: Con el script NSE http-waf-detect, Nmap también permite detectar la presencia de un WAF y es útil en combinación con WafW00f.
-Burp Suite: Herramienta de análisis y pruebas web, que permite enviar peticiones HTTP personalizadas y observar cómo responde el WAF.
-sqlmap: Al integrarse con WafW00f, sqlmap puede ajustar las pruebas de inyección SQL cuando detecta la presencia de un WAF.
+| WAF | Vendor |
+|-----|--------|
+| Cloudflare | Cloudflare |
+| AWS WAF | Amazon |
+| ModSecurity | Open Source |
+| Akamai Kona | Akamai |
+| Imperva Incapsula | Imperva |
+| F5 BIG-IP ASM | F5 |
+| Barracuda WAF | Barracuda |
+| Sucuri | Sucuri |
 
-## Recursos Adicionales
+```
+# Example output
+[*] Checking https://example.com
+[+] The site https://example.com is behind Cloudflare (Cloudflare Inc.) WAF.
+[~] Number of requests: 7
+```
 
-Página oficial de WafW00f en GitHub: https://github.com/EnableSecurity/wafw00f
-Documentación de WafW00f y lista de WAFs compatibles: WafW00f Documentation
+## How it works
 
-[WafW00f](https://github.com/EnableSecurity/wafw00f) es una herramienta esencial para los profesionales de ciberseguridad que necesitan analizar la seguridad perimetral de aplicaciones web. Detectar un WAF y comprender sus mecanismos de bloqueo permite adaptar las estrategias de prueba y realizar evaluaciones de seguridad más efectivas.
+1. Sends normal baseline request
+2. Sends crafted malicious payloads (SQLi, XSS probes)
+3. Compares response headers, body, and status codes
+4. Matches patterns against WAF signature database
+
+## Use in pentesting
+
+- **Before active testing** — know if WAF is present; adjust payloads accordingly
+- **WAF bypass planning** — identify WAF type → research known bypass techniques
+- **Scope documentation** — document security controls in pentest report
+
+## Complementary tools
+
+| Tool | Use |
+|------|-----|
+| `nmap --script http-waf-detect` | Alternative WAF detection via Nmap NSE |
+| Burp Suite | Manual WAF behavior analysis via HTTP proxy |
+| `sqlmap --tamper` | Tamper scripts to bypass detected WAFs |
+| `cloudflair` | Find origin IP behind Cloudflare |

