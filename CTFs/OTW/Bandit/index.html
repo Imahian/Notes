@@ -140,7 +140,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/hacker2.css">
+      <link rel="stylesheet" href="../../../stylesheets/hacker3.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -3011,6 +3011,158 @@
       .then(function(r) { return r.json(); })
       .then(inject)
       .catch(function() { inject({}); });
+  })();
+
+  /* ── Terminal mobile nav ─────────────────────────────── */
+  (function () {
+    var MOBILE_BP = 76.1875 * 16;
+    if (window.innerWidth > MOBILE_BP) return;
+
+    var stack = [];
+    var rootItems = null;
+    var typeTimer = null;
+
+    function extractNav(el) {
+      if (!el) return [];
+      var out = [];
+      var lis = el.querySelectorAll(':scope > .md-nav__list > .md-nav__item');
+      lis.forEach(function (li) {
+        if (li.querySelector('.md-source')) return;
+        var a   = li.querySelector(':scope > a.md-nav__link');
+        var lbl = li.querySelector(':scope > label.md-nav__link');
+        var sub = li.querySelector(':scope > .md-nav');
+        var link = a || lbl;
+        if (!link) return;
+        var ell = link.querySelector('.md-ellipsis');
+        var text = (ell ? ell.textContent : link.textContent).trim();
+        if (!text || text.indexOf('imahian') >= 0) return;
+        out.push({
+          text: text,
+          href: a ? a.href : null,
+          children: sub ? extractNav(sub) : []
+        });
+      });
+      return out;
+    }
+
+    function cdPath() {
+      return ['~', 'Notes'].concat(stack.map(function (s) { return s.title; })).join('/');
+    }
+
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function typeText(el, text) {
+      clearInterval(typeTimer);
+      el.textContent = '';
+      var i = 0;
+      typeTimer = setInterval(function () {
+        el.textContent += text[i++];
+        if (i >= text.length) clearInterval(typeTimer);
+      }, 16);
+    }
+
+    function render(panel) {
+      var items = stack.length ? stack[stack.length - 1].items : rootItems;
+      var depth = stack.length;
+      var loc   = window.location.href;
+
+      var html = '<div class="tn-hdr">'
+        + '<span class="tn-user">root@notes</span>'
+        + '<span class="tn-col">:</span>'
+        + '<span class="tn-path" id="tn-path-el"></span>'
+        + '<span class="tn-ps"> $</span>'
+        + ' <span class="tn-cur">&#x2588;</span>'
+        + '</div>';
+
+      if (depth > 0) {
+        var dots = '';
+        for (var d = 0; d < depth; d++) dots += '../';
+        html += '<button class="tn-back" data-action="back">'
+          + '&#x2190; cd ' + esc(dots) + '</button>';
+      }
+
+      html += '<div class="tn-cmd">$ ls</div><ul class="tn-list">';
+
+      items.forEach(function (item, i) {
+        var isDir    = item.children.length > 0;
+        var isActive = !isDir && item.href && item.href === loc;
+        var delay    = (i * 0.04 + 0.02).toFixed(2) + 's';
+        html += '<li class="tn-item'
+          + (isDir    ? ' tn-dir'    : ' tn-file')
+          + (isActive ? ' tn-active' : '')
+          + '" style="animation-delay:' + delay + '">';
+        if (isDir) {
+          html += '<button class="tn-link" data-idx="' + i + '">'
+            + '<span class="tn-pfx">&gt;</span>'
+            + '<span class="tn-name">' + esc(item.text) + '/</span>'
+            + '<span class="tn-arr">&#x203A;</span>'
+            + '</button>';
+        } else {
+          html += '<a class="tn-link" href="' + esc(item.href || '#') + '">'
+            + '<span class="tn-pfx">-</span>'
+            + '<span class="tn-name">' + esc(item.text) + '</span>'
+            + '</a>';
+        }
+        html += '</li>';
+      });
+
+      html += '</ul>';
+      panel.innerHTML = html;
+
+      var pathEl = document.getElementById('tn-path-el');
+      if (pathEl) typeText(pathEl, cdPath());
+
+      var back = panel.querySelector('[data-action=back]');
+      if (back) {
+        back.addEventListener('click', function () {
+          stack.pop();
+          render(panel);
+        });
+      }
+
+      panel.querySelectorAll('[data-idx]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var idx  = parseInt(btn.getAttribute('data-idx'), 10);
+          var item = items[idx];
+          if (item && item.children.length) {
+            stack.push({ title: item.text, items: item.children });
+            render(panel);
+          }
+        });
+      });
+    }
+
+    function init() {
+      var sw = document.querySelector('.md-sidebar--primary .md-sidebar__scrollwrap');
+      if (!sw) { setTimeout(init, 250); return; }
+      if (document.getElementById('term-nav')) return;
+
+      var primary = document.querySelector('.md-sidebar--primary .md-nav--primary');
+      rootItems = extractNav(primary);
+      if (!rootItems || !rootItems.length) return;
+
+      var panel = document.createElement('div');
+      panel.id = 'term-nav';
+      sw.appendChild(panel);
+      render(panel);
+
+      var drawer = document.getElementById('__drawer');
+      if (drawer) {
+        drawer.addEventListener('change', function () {
+          if (!this.checked) { stack = []; render(panel); }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      setTimeout(init, 150);
+    }
   })();
   </script>
 
