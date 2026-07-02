@@ -534,9 +534,27 @@ body::after {
     letter-spacing: 0.02em !important;
   }
 
-  /* Prefix "$ cd .." on the back button via the icon container */
-  .md-sidebar--primary .md-nav__title::before {
-    content: '$ cd ..' !important;
+  /* Back button depth based on data-md-level */
+  .md-sidebar--primary [data-md-level="1"] > .md-nav__title::before {
+    content: '$ cd ../' !important;
+    color: rgba(0, 204, 51, 0.55) !important;
+    font-size: 0.72rem !important;
+    margin-right: 6px !important;
+  }
+  .md-sidebar--primary [data-md-level="2"] > .md-nav__title::before {
+    content: '$ cd ../../' !important;
+    color: rgba(0, 204, 51, 0.55) !important;
+    font-size: 0.72rem !important;
+    margin-right: 6px !important;
+  }
+  .md-sidebar--primary [data-md-level="3"] > .md-nav__title::before {
+    content: '$ cd ../../../' !important;
+    color: rgba(0, 204, 51, 0.55) !important;
+    font-size: 0.72rem !important;
+    margin-right: 6px !important;
+  }
+  .md-sidebar--primary [data-md-level="4"] > .md-nav__title::before {
+    content: '$ cd ../../../../' !important;
     color: rgba(0, 204, 51, 0.55) !important;
     font-size: 0.72rem !important;
     margin-right: 6px !important;
@@ -563,21 +581,6 @@ body::after {
     line-height: 1 !important;
   }
 
-  /* "drwx" prefix for folders, "-rwx" for files */
-  .md-sidebar--primary .md-nav__item--nested > label.md-nav__link::before {
-    content: 'drwx  ' !important;
-    color: #00cc33 !important;
-    font-size: 0.68rem !important;
-    opacity: 0.7 !important;
-    flex-shrink: 0 !important;
-  }
-
-  .md-sidebar--primary .md-nav__item:not(.md-nav__item--nested) > a.md-nav__link::before {
-    content: '-rwx  ' !important;
-    color: rgba(0, 204, 51, 0.35) !important;
-    font-size: 0.68rem !important;
-    flex-shrink: 0 !important;
-  }
 
   /* Arrow icon for folders (right side) */
   .md-sidebar--primary .md-nav__icon {
