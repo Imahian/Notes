@@ -502,8 +502,8 @@ body::after {
     display: none !important;
   }
 
-  /* Hide toggle label when item also has a direct anchor link (e.g. Home tab) */
-  .md-sidebar--primary .md-nav__item > label.md-nav__link:has(+ a.md-nav__link) {
+  /* Hide TOC toggle label (for="__toc") — redundant alongside the page anchor */
+  .md-sidebar--primary label[for=__toc].md-nav__link {
     display: none !important;
   }
 
