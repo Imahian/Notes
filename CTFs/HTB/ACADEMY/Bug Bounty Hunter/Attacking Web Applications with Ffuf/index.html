@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#attacking-web-applications-with-ffuf" class="md-skip">
           Skip to content
         </a>
       
@@ -911,6 +911,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attacking with Ffuf
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -927,6 +945,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wordlists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wordlists
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2911,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wordlists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wordlists
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +2970,73 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="attacking-web-applications-with-ffuf">Attacking Web Applications with Ffuf<a class="headerlink" href="#attacking-web-applications-with-ffuf" title="Permanent link">&para;</a></h1>
+<p>Fast web fuzzer written in Go. Used for directory discovery, parameter fuzzing, vhost enumeration, and filter bypass.</p>
+<h2 id="core-usage">Core Usage<a class="headerlink" href="#core-usage" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Directory fuzzing</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/FUZZ<span class="w"> </span>-w<span class="w"> </span>/usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Extension fuzzing</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/indexFUZZ<span class="w"> </span>-w<span class="w"> </span>/usr/share/seclists/Discovery/Web-Content/web-extensions.txt
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Page fuzzing (with extension)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/FUZZ.php<span class="w"> </span>-w<span class="w"> </span>wordlist.txt
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Recursive fuzzing</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-recursion<span class="w"> </span>-recursion-depth<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Subdomain/vhost fuzzing</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Host: FUZZ.target.com&quot;</span><span class="w"> </span>-w<span class="w"> </span>subdomains.txt
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># GET parameter fuzzing</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>ffuf<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://TARGET/page.php?FUZZ=value&quot;</span><span class="w"> </span>-w<span class="w"> </span>params.txt
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># POST data fuzzing</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/login<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;user=admin&amp;pass=FUZZ&quot;</span><span class="w"> </span>-w<span class="w"> </span>passwords.txt<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span>
+</span></code></pre></div>
+<h2 id="filtering-results">Filtering Results<a class="headerlink" href="#filtering-results" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Filter by response code</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-fc<span class="w"> </span><span class="m">404</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Filter by size</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-fs<span class="w"> </span><span class="m">1234</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Filter by word count</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-fw<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Match specific codes only</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-mc<span class="w"> </span><span class="m">200</span>,301,302
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Filter by regex in response</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-fr<span class="w"> </span><span class="s2">&quot;Not Found&quot;</span>
+</span></code></pre></div>
+<h2 id="wordlists">Wordlists<a class="headerlink" href="#wordlists" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Directories</td>
+<td><code>/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt</code></td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td><code>/usr/share/seclists/Discovery/Web-Content/web-extensions.txt</code></td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td><code>/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt</code></td>
+</tr>
+<tr>
+<td>Subdomains</td>
+<td><code>/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt</code></td>
+</tr>
+</tbody>
+</table>
 
 
 

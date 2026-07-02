@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overthewire" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1505,6 +1510,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1522,6 +1547,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wargames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wargames
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2827,6 +2893,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wargames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wargames
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2846,9 +2944,85 @@
   
 
 
-  <h1>Overview</h1>
-
-
+<h1 id="overthewire">OverTheWire<a class="headerlink" href="#overthewire" title="Permanent link">&para;</a></h1>
+<p><a href="https://overthewire.org/wargames">overthewire.org/wargames</a> — SSH-based wargames covering Linux fundamentals, binary exploitation, web security, and cryptography.</p>
+<h2 id="wargames">Wargames<a class="headerlink" href="#wargames" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Wargame</th>
+<th>Difficulty</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Bandit/">Bandit</a></td>
+<td>Beginner</td>
+<td>Linux CLI, SSH, file permissions, scripting</td>
+</tr>
+<tr>
+<td><a href="Leviathan/">Leviathan</a></td>
+<td>Beginner</td>
+<td>SUID, file permissions, ltrace/strace</td>
+</tr>
+<tr>
+<td><a href="Natas/">Natas</a></td>
+<td>Beginner–Intermediate</td>
+<td>Web: PHP, SQLi, XSS, file inclusion, crypto</td>
+</tr>
+<tr>
+<td><a href="Krypton/">Krypton</a></td>
+<td>Beginner–Intermediate</td>
+<td>Classical cryptography, ciphers</td>
+</tr>
+<tr>
+<td><a href="Narnia/">Narnia</a></td>
+<td>Intermediate</td>
+<td>C, buffer overflows, shellcode, SUID</td>
+</tr>
+<tr>
+<td><a href="Behemoth/">Behemoth</a></td>
+<td>Intermediate</td>
+<td>Buffer overflows, format strings, symlinks</td>
+</tr>
+<tr>
+<td><a href="Utumno/">Utumno</a></td>
+<td>Intermediate–Hard</td>
+<td>Binary exploitation, shellcoding</td>
+</tr>
+<tr>
+<td><a href="Maze/">Maze</a></td>
+<td>Hard</td>
+<td>Advanced binary exploitation</td>
+</tr>
+<tr>
+<td><a href="Vortex/">Vortex</a></td>
+<td>Hard</td>
+<td>Network programming, binary exploitation</td>
+</tr>
+<tr>
+<td><a href="Manpage/">Manpage</a></td>
+<td>Hard</td>
+<td>GTFOBins-style exploitation via man pages</td>
+</tr>
+<tr>
+<td><a href="Drifter/">Drifter</a></td>
+<td>Hard</td>
+<td>Advanced exploitation chain</td>
+</tr>
+<tr>
+<td><a href="FormulaOne/">FormulaOne</a></td>
+<td>Hard</td>
+<td>Advanced multi-stage exploitation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="connection-template">Connection Template<a class="headerlink" href="#connection-template" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>bandit&lt;level&gt;@bandit.labs.overthewire.org<span class="w"> </span>-p<span class="w"> </span><span class="m">2220</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Password from previous level</span>
+</span></code></pre></div>
+<p>Each wargame has its own hostname and port. Check each section for connection details.</p>
 
 
 

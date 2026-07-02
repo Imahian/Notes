@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#vulnhub" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1903,6 +1908,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VulnHub
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1920,6 +1945,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Series
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2902,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Series
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2964,56 @@
   
 
 
-  <h1>VulnHub</h1>
-
-
+<h1 id="vulnhub">VulnHub<a class="headerlink" href="#vulnhub" title="Permanent link">&para;</a></h1>
+<p><a href="https://vulnhub.com">vulnhub.com</a> — Collection of intentionally vulnerable VMs for offline penetration testing practice. Download, import into VirtualBox or VMware, and attack from your local network.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Download .ova or .vmdk from vulnhub.com</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 2. Import into VirtualBox: File → Import Appliance</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 3. Set network adapter to Host-Only or NAT (match your Kali)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 4. Boot VM and discover IP:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>arp-scan<span class="w"> </span>-l
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># or</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sudo<span class="w"> </span>netdiscover<span class="w"> </span>-r<span class="w"> </span><span class="m">192</span>.168.56.0/24
+</span></code></pre></div>
+<h2 id="characteristics">Characteristics<a class="headerlink" href="#characteristics" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>No hints or guidance</strong> — fully black-box</li>
+<li><strong>Varies widely</strong> in quality and realism</li>
+<li><strong>Older CVEs</strong> often required — snapshot VMs before exploitation</li>
+<li><strong>Boot-to-root</strong> format: foothold → escalate → read <code>/root/flag.txt</code></li>
+</ul>
+<h2 id="recommended-series">Recommended Series<a class="headerlink" href="#recommended-series" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Series</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mr. Robot</td>
+<td>Web, Linux, CTF themed</td>
+</tr>
+<tr>
+<td>Kioptrix</td>
+<td>Classic Linux exploitation</td>
+</tr>
+<tr>
+<td>DC series</td>
+<td>Varied, beginner to intermediate</td>
+</tr>
+<tr>
+<td>HarryPotter</td>
+<td>Chain of machines</td>
+</tr>
+<tr>
+<td>Symfonos</td>
+<td>Active Directory simulation</td>
+</tr>
+</tbody>
+</table>
 
 
 

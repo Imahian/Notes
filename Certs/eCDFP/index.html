@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ecdfp" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2384,6 +2389,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eCDFP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2401,6 +2426,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2902,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2964,75 @@
   
 
 
-  <h1>eCDFP</h1>
-
-
+<h1 id="ecdfp">eCDFP<a class="headerlink" href="#ecdfp" title="Permanent link">&para;</a></h1>
+<p><strong>eLearnSecurity Certified Digital Forensics Professional</strong> — covers disk, memory, network, and mobile forensics with emphasis on proper evidence handling and reporting.</p>
+<h2 id="exam-format">Exam Format<a class="headerlink" href="#exam-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Duration:</strong> 3 days</li>
+<li><strong>Format:</strong> Analyze forensic images and answer investigative questions</li>
+<li><strong>Deliverable:</strong> Forensic investigation report</li>
+</ul>
+<h2 id="syllabus">Syllabus<a class="headerlink" href="#syllabus" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forensics Fundamentals</td>
+<td>Chain of custody, write blockers, hashing, legal considerations</td>
+</tr>
+<tr>
+<td>Disk Forensics</td>
+<td>File system analysis (NTFS, ext4, FAT32), deleted file recovery, timeline</td>
+</tr>
+<tr>
+<td>Windows Artifacts</td>
+<td>Registry, prefetch, LNK, Jump Lists, browser history, event logs</td>
+</tr>
+<tr>
+<td>Linux Artifacts</td>
+<td>/var/log, bash history, cron, systemd, syslog</td>
+</tr>
+<tr>
+<td>Memory Forensics</td>
+<td>RAM acquisition, process analysis, network connections, injected code</td>
+</tr>
+<tr>
+<td>Network Forensics</td>
+<td>PCAP reconstruction, email headers, protocol analysis</td>
+</tr>
+<tr>
+<td>Mobile Forensics</td>
+<td>Android/iOS acquisition, SQLite databases, app artifacts</td>
+</tr>
+<tr>
+<td>Report Writing</td>
+<td>Executive summary, technical findings, evidence chain</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Disk imaging</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/sdb<span class="w"> </span><span class="nv">of</span><span class="o">=</span>image.dd<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>4M<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>dcfldd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/sdb<span class="w"> </span><span class="nv">of</span><span class="o">=</span>image.dd<span class="w"> </span><span class="nv">hash</span><span class="o">=</span>sha256<span class="w"> </span><span class="nv">hashlog</span><span class="o">=</span>hash.txt
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Hash verification</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sha256sum<span class="w"> </span>image.dd
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Autopsy / Sleuth Kit</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>mmls<span class="w"> </span>image.dd<span class="w">                    </span><span class="c1"># partition table</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>fls<span class="w"> </span>-r<span class="w"> </span>-m<span class="w"> </span>/<span class="w"> </span>image.dd<span class="w"> </span>-o<span class="w"> </span>&lt;offset&gt;<span class="w"> </span><span class="c1"># file listing</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>icat<span class="w"> </span>image.dd<span class="w"> </span>-o<span class="w"> </span>&lt;offset&gt;<span class="w"> </span>&lt;inode&gt;<span class="w"> </span>&gt;<span class="w"> </span>recovered_file
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Volatility</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>vol.py<span class="w"> </span>-f<span class="w"> </span>memory.dmp<span class="w"> </span>windows.info
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>vol.py<span class="w"> </span>-f<span class="w"> </span>memory.dmp<span class="w"> </span>windows.pstree
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>vol.py<span class="w"> </span>-f<span class="w"> </span>memory.dmp<span class="w"> </span>windows.filescan<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;.exe&quot;</span>
+</span></code></pre></div>
 
 
 

@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#information-gathering-web-edition" class="md-skip">
           Skip to content
         </a>
       
@@ -1135,6 +1135,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Info Gathering Web
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1151,6 +1169,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#passive-recon-no-direct-contact-with-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passive Recon (no direct contact with target)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subdomain-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subdomain Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fingerprinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fingerprinting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crawling-spidering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crawling &amp; Spidering
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2922,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#passive-recon-no-direct-contact-with-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passive Recon (no direct contact with target)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subdomain-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subdomain Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fingerprinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fingerprinting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crawling-spidering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crawling &amp; Spidering
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +2992,64 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="information-gathering-web-edition">Information Gathering - Web Edition<a class="headerlink" href="#information-gathering-web-edition" title="Permanent link">&para;</a></h1>
+<p>Passive and active recon techniques for web targets — DNS, WHOIS, subdomain enumeration, fingerprinting, and crawling.</p>
+<h2 id="passive-recon-no-direct-contact-with-target">Passive Recon (no direct contact with target)<a class="headerlink" href="#passive-recon-no-direct-contact-with-target" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># WHOIS</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>whois<span class="w"> </span>target.com
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># DNS records</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>dig<span class="w"> </span>target.com<span class="w"> </span>ANY
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>dig<span class="w"> </span>target.com<span class="w"> </span>MX
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>dig<span class="w"> </span>target.com<span class="w"> </span>NS
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>nslookup<span class="w"> </span>-type<span class="o">=</span>any<span class="w"> </span>target.com
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Reverse DNS</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>dig<span class="w"> </span>-x<span class="w"> </span>&lt;IP&gt;
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Certificate transparency (subdomains)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>curl<span class="w"> </span><span class="s2">&quot;https://crt.sh/?q=%.target.com&amp;output=json&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.[].name_value&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># Google dorks</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>site:target.com
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>site:target.com<span class="w"> </span>filetype:pdf
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>site:target.com<span class="w"> </span>inurl:admin
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>cache:target.com
+</span></code></pre></div>
+<h2 id="subdomain-enumeration">Subdomain Enumeration<a class="headerlink" href="#subdomain-enumeration" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Passive — via APIs (no DNS queries)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>subfinder<span class="w"> </span>-d<span class="w"> </span>target.com
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>amass<span class="w"> </span>enum<span class="w"> </span>-passive<span class="w"> </span>-d<span class="w"> </span>target.com
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>assetfinder<span class="w"> </span>target.com
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Active — DNS brute force</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://FUZZ.target.com<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Host: FUZZ.target.com&quot;</span><span class="w"> </span>-w<span class="w"> </span>subdomains.txt<span class="w"> </span>-mc<span class="w"> </span><span class="m">200</span>,301,302
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>gobuster<span class="w"> </span>dns<span class="w"> </span>-d<span class="w"> </span>target.com<span class="w"> </span>-w<span class="w"> </span>/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+</span></code></pre></div>
+<h2 id="fingerprinting">Fingerprinting<a class="headerlink" href="#fingerprinting" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Web server and technology</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>whatweb<span class="w"> </span>http://target.com
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>curl<span class="w"> </span>-I<span class="w"> </span>http://target.com<span class="w">           </span><span class="c1"># Check Server, X-Powered-By headers</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># WAF detection</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>wafw00f<span class="w"> </span>http://target.com
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># CMS detection</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>wpscan<span class="w"> </span>--url<span class="w"> </span>http://target.com<span class="w">      </span><span class="c1"># WordPress</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>droopescan<span class="w"> </span>scan<span class="w"> </span>drupal<span class="w"> </span>-u<span class="w"> </span>http://target.com
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>joomscan<span class="w"> </span>--url<span class="w"> </span>http://target.com
+</span></code></pre></div>
+<h2 id="crawling-spidering">Crawling &amp; Spidering<a class="headerlink" href="#crawling-spidering" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Wayback machine for old URLs</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>waybackurls<span class="w"> </span>target.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Crawl with hakrawler</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;https://target.com&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-subs
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Robots and sitemap</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>curl<span class="w"> </span>http://target.com/robots.txt
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>curl<span class="w"> </span>http://target.com/sitemap.xml
+</span></code></pre></div>
 
 
 

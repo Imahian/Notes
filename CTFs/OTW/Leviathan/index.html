@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#leviathan" class="md-skip">
           Skip to content
         </a>
       
@@ -1681,6 +1681,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Leviathan
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1697,6 +1715,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2837,6 +2907,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2855,7 +2966,46 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="leviathan">Leviathan<a class="headerlink" href="#leviathan" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Beginner | <strong>Topics:</strong> SUID binaries, ltrace, strace, file permissions, symlinks</p>
+<p>Short wargame (8 levels) focusing on abusing setuid programs and observing binary behavior with dynamic analysis tools.</p>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>leviathan0@leviathan.labs.overthewire.org<span class="w"> </span>-p<span class="w"> </span><span class="m">2223</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Password: leviathan0</span>
+</span></code></pre></div>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ltrace</code></td>
+<td>Trace library calls — reveals strcmp arguments, file paths</td>
+</tr>
+<tr>
+<td><code>strace</code></td>
+<td>Trace system calls — reveals open(), read(), access()</td>
+</tr>
+<tr>
+<td><code>strings</code></td>
+<td>Extract readable strings from binaries</td>
+</tr>
+<tr>
+<td>symlinks</td>
+<td>Abuse <code>access()</code> TOCTOU race or mislead file open paths</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pattern">Pattern<a class="headerlink" href="#pattern" title="Permanent link">&para;</a></h2>
+<p>Most levels involve a SUID binary owned by the next user. The workflow:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span>-la<span class="w"> </span>/usr/bin/leviathan*<span class="w">   </span><span class="c1"># find suid binaries</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ltrace<span class="w"> </span>./binary<span class="w">              </span><span class="c1"># observe strcmp(input, password)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>strace<span class="w"> </span>./binary<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>open<span class="w">  </span><span class="c1"># observe file access</span>
+</span></code></pre></div>
 
 
 

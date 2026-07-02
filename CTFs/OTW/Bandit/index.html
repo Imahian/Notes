@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#bandit" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1533,6 +1538,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bandit
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1550,6 +1575,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-by-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts by Level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2827,6 +2904,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-by-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts by Level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2846,9 +2966,59 @@
   
 
 
-  <h1>Bandit</h1>
-
-<p>Bandit</p>
+<h1 id="bandit">Bandit<a class="headerlink" href="#bandit" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Beginner | <strong>Topics:</strong> Linux CLI, SSH, file permissions, scripting, encoding</p>
+<p>The entry point for OverTheWire. Teaches essential Linux command-line skills used in every other wargame and real pentest.</p>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>bandit0@bandit.labs.overthewire.org<span class="w"> </span>-p<span class="w"> </span><span class="m">2220</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Password: bandit0</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Next level password stored somewhere on the system</span>
+</span></code></pre></div>
+<p>Each level's password is stored in <code>/etc/bandit_pass/banditN</code> — only readable by that user.</p>
+<h2 id="concepts-by-level">Concepts by Level<a class="headerlink" href="#concepts-by-level" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Levels</th>
+<th>Concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–5</td>
+<td>SSH, ls, cat, find, file, strings</td>
+</tr>
+<tr>
+<td>6–10</td>
+<td>find flags, file ownership, hidden files, base64</td>
+</tr>
+<tr>
+<td>11–15</td>
+<td>rot13, xxd, gzip/bzip2/tar, nc</td>
+</tr>
+<tr>
+<td>16–20</td>
+<td>SSL/TLS, nmap, setuid, cron</td>
+</tr>
+<tr>
+<td>21–27</td>
+<td>shell scripts, git, diff</td>
+</tr>
+<tr>
+<td>28–34</td>
+<td>git branches, tags, commits, rebasing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-commands">Key Commands<a class="headerlink" href="#key-commands" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>find<span class="w"> </span>/<span class="w"> </span>-user<span class="w"> </span>banditN<span class="w"> </span>-readable<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>strings<span class="w"> </span>&lt;file&gt;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>base64<span class="w"> </span>-d<span class="w"> </span>&lt;file&gt;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>xxd<span class="w"> </span>&lt;file&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>file<span class="w"> </span>&lt;file&gt;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>nc<span class="w"> </span>localhost<span class="w"> </span>&lt;port&gt;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>localhost:&lt;port&gt;
+</span></code></pre></div>
 
 
 

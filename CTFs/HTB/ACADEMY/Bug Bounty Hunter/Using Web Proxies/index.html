@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#using-web-proxies" class="md-skip">
           Skip to content
         </a>
       
@@ -1359,6 +1359,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Proxies
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1375,6 +1393,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#burp-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burp Suite
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Burp Suite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Tabs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owasp-zap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OWASP ZAP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-as-a-proxy-aware-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl as a Proxy-Aware Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intercepting-mobile-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intercepting Mobile Traffic
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2950,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#burp-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burp Suite
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Burp Suite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Tabs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owasp-zap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OWASP ZAP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-as-a-proxy-aware-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl as a Proxy-Aware Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intercepting-mobile-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intercepting Mobile Traffic
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3048,88 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="using-web-proxies">Using Web Proxies<a class="headerlink" href="#using-web-proxies" title="Permanent link">&para;</a></h1>
+<p>Web proxies intercept HTTP/S traffic between browser and server, enabling manual inspection and modification of every request and response.</p>
+<h2 id="burp-suite">Burp Suite<a class="headerlink" href="#burp-suite" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Setup:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>1. Proxy → Options → 127.0.0.1:8080
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>2. Browser → set HTTP proxy to 127.0.0.1:8080
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>3. Install Burp CA certificate (http://burp → CA Certificate)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>4. Intercept → On
+</span></code></pre></div>
+<h3 id="key-tabs">Key Tabs<a class="headerlink" href="#key-tabs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proxy</td>
+<td>Intercept and modify live traffic</td>
+</tr>
+<tr>
+<td>Repeater</td>
+<td>Manually replay and modify single requests</td>
+</tr>
+<tr>
+<td>Intruder</td>
+<td>Automated fuzzing with payloads</td>
+</tr>
+<tr>
+<td>Scanner</td>
+<td>Passive/active vulnerability scan (Pro only)</td>
+</tr>
+<tr>
+<td>Decoder</td>
+<td>Encode/decode base64, URL, HTML, hex</td>
+</tr>
+<tr>
+<td>Comparer</td>
+<td>Diff two requests/responses</td>
+</tr>
+<tr>
+<td>Logger</td>
+<td>Full request log</td>
+</tr>
+</tbody>
+</table>
+<h3 id="common-workflows">Common Workflows<a class="headerlink" href="#common-workflows" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Intercept → modify → forward
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Right-click request → Send to Repeater → modify → Send
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Right-click request → Send to Intruder → set § positions → load payload → Attack
+</span></code></pre></div>
+<h2 id="owasp-zap">OWASP ZAP<a class="headerlink" href="#owasp-zap" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Launch</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>zaproxy<span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Automated scan</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>zap-baseline.py<span class="w"> </span>-t<span class="w"> </span>https://target.com<span class="w"> </span>-r<span class="w"> </span>report.html
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Spider</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Tools<span class="w"> </span>→<span class="w"> </span>Spider<span class="w"> </span>→<span class="w"> </span>Start<span class="w"> </span>Scan
+</span></code></pre></div>
+<h2 id="curl-as-a-proxy-aware-client">curl as a Proxy-Aware Client<a class="headerlink" href="#curl-as-a-proxy-aware-client" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Route curl through Burp</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-x<span class="w"> </span>http://127.0.0.1:8080<span class="w"> </span>http://target.com/page
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Ignore SSL errors (Burp cert not installed)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>curl<span class="w"> </span>-x<span class="w"> </span>http://127.0.0.1:8080<span class="w"> </span>-k<span class="w"> </span>https://target.com/page
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Replay Burp request with curl</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;http://target.com/login&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Cookie: PHPSESSID=abc123&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;user=admin&amp;pass=test&quot;</span>
+</span></code></pre></div>
+<h2 id="intercepting-mobile-traffic">Intercepting Mobile Traffic<a class="headerlink" href="#intercepting-mobile-traffic" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Route Android/iOS through Burp</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># 1. Set same Burp proxy (your-ip:8080) on device</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># 2. Install Burp CA cert on device</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 3. For certificate pinning: use Frida SSL pinning bypass</span>
+</span></code></pre></div>
 
 
 

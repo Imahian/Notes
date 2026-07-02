@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ctfs" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -521,6 +526,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -538,6 +563,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methodology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tags Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2891,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methodology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tags Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2942,50 @@
   
 
 
-  <h1>Overview</h1>
-
-
+<h1 id="ctfs">CTFs<a class="headerlink" href="#ctfs" title="Permanent link">&para;</a></h1>
+<p>Writeups and notes for Capture The Flag competitions, wargames, and hacking labs — organized by platform.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Type</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="HTB/">HackTheBox</a></td>
+<td>Labs + Academy</td>
+<td>Machines, challenges, structured paths</td>
+</tr>
+<tr>
+<td><a href="OTW/">OverTheWire</a></td>
+<td>Wargames</td>
+<td>Linux, web, crypto, binary exploitation</td>
+</tr>
+<tr>
+<td><a href="THM/">TryHackMe</a></td>
+<td>Guided rooms</td>
+<td>Beginner to intermediate</td>
+</tr>
+<tr>
+<td><a href="VHB/">VulnHub</a></td>
+<td>Offline VMs</td>
+<td>Full penetration test practice</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methodology">Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
+<p>Every writeup follows a consistent structure:</p>
+<ol>
+<li><strong>Reconnaissance</strong> — port scan, service enumeration, OSINT</li>
+<li><strong>Foothold</strong> — vulnerability identification and initial shell</li>
+<li><strong>Enumeration</strong> — internal discovery, credential hunting</li>
+<li><strong>Privilege escalation</strong> — sudo, SUID, cron, kernel, token abuse</li>
+<li><strong>Flags</strong> — proof screenshots and hashes</li>
+</ol>
+<h2 id="tags-used">Tags Used<a class="headerlink" href="#tags-used" title="Permanent link">&para;</a></h2>
+<p><code>ssh</code> <code>web</code> <code>privesc</code> <code>easy</code> <code>medium</code> <code>hard</code> <code>htb</code> <code>thm</code> <code>otw</code> <code>cve</code></p>
 
 
 

@@ -2784,6 +2784,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2800,6 +2818,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#severity-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Severity Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploitation-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploitation Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2833,6 +2914,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#severity-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Severity Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploitation-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploitation Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2852,7 +2985,68 @@
 
 
 <h1 id="cves">CVEs<a class="headerlink" href="#cves" title="Permanent link">&para;</a></h1>
-<p>CVE research and analysis.</p>
+<p>CVE research, proof-of-concept analysis, and exploitation notes for publicly disclosed vulnerabilities.</p>
+<h2 id="format">Format<a class="headerlink" href="#format" title="Permanent link">&para;</a></h2>
+<p>Each CVE entry includes:</p>
+<ul>
+<li><strong>Affected software</strong> and vulnerable versions</li>
+<li><strong>Vulnerability type</strong> (RCE, LFI, SQLi, privilege escalation, etc.)</li>
+<li><strong>CVSS score</strong> and severity</li>
+<li><strong>Root cause</strong> — the actual bug in the code</li>
+<li><strong>Exploitation</strong> — PoC commands or scripts</li>
+<li><strong>Patch/mitigation</strong></li>
+</ul>
+<h2 id="severity-reference">Severity Reference<a class="headerlink" href="#severity-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>CVSS</th>
+<th>Severity</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9.0–10.0</td>
+<td>Critical</td>
+<td>Remote code execution, no auth</td>
+</tr>
+<tr>
+<td>7.0–8.9</td>
+<td>High</td>
+<td>Auth bypass, significant data exposure</td>
+</tr>
+<tr>
+<td>4.0–6.9</td>
+<td>Medium</td>
+<td>Requires interaction or specific conditions</td>
+</tr>
+<tr>
+<td>0.1–3.9</td>
+<td>Low</td>
+<td>Limited impact</td>
+</tr>
+</tbody>
+</table>
+<h2 id="research-sources">Research Sources<a class="headerlink" href="#research-sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://nvd.nist.gov">NVD</a> — National Vulnerability Database</li>
+<li><a href="https://exploit-db.com">Exploit-DB</a> — Public exploits</li>
+<li><a href="https://github.com/advisories">GitHub Security Advisories</a> — OSS vulns</li>
+<li><a href="https://www.vulnhub.com">VulnHub CVEs</a> — Practical exploitation</li>
+<li><a href="https://packetstormsecurity.com">Packet Storm</a> — PoCs and advisories</li>
+</ul>
+<h2 id="exploitation-template">Exploitation Template<a class="headerlink" href="#exploitation-template" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Search for existing exploits</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>searchsploit<span class="w"> </span>&lt;software&gt;<span class="w"> </span>&lt;version&gt;
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>searchsploit<span class="w"> </span>-m<span class="w"> </span>&lt;exploit-id&gt;
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># CVE lookup</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>curl<span class="w"> </span><span class="s2">&quot;https://cve.circl.lu/api/cve/CVE-YYYY-NNNNN&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Run PoC</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>python3<span class="w"> </span>exploit.py<span class="w"> </span>--target<span class="w"> </span>&lt;IP&gt;<span class="w"> </span>--port<span class="w"> </span>&lt;PORT&gt;
+</span></code></pre></div>
 
 
 

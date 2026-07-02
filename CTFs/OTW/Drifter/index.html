@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#drifter" class="md-skip">
           Skip to content
         </a>
       
@@ -1597,6 +1597,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drifter
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1613,6 +1631,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2837,6 +2918,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2855,7 +2988,59 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="drifter">Drifter<a class="headerlink" href="#drifter" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Hard | <strong>Topics:</strong> Advanced binary exploitation — ROP, heap, kernel modules, race conditions</p>
+<p>One of the harder OverTheWire wargames. Combines multiple exploitation techniques including return-oriented programming and complex memory corruption chains.</p>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>drifter0@drifter.labs.overthewire.org<span class="w"> </span>-p<span class="w"> </span><span class="m">2230</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Password: drifter0</span>
+</span></code></pre></div>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ROP chains</td>
+<td>Gadget chaining to bypass NX/DEP</td>
+</tr>
+<tr>
+<td>ret2libc</td>
+<td>Return to libc functions without shellcode</td>
+</tr>
+<tr>
+<td>Heap corruption</td>
+<td>Exploit malloc metadata for arbitrary write</td>
+</tr>
+<tr>
+<td>Race conditions</td>
+<td>TOCTOU in multi-threaded binaries</td>
+</tr>
+<tr>
+<td>Kernel modules</td>
+<td>Level 15 involves LKM exploitation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recommended-prerequisites">Recommended Prerequisites<a class="headerlink" href="#recommended-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Solid x86/x64 assembly knowledge</li>
+<li>Comfortable with pwntools exploit development</li>
+<li>Understand ELF relocations and dynamic linking</li>
+<li>Complete Utumno and Maze first</li>
+</ul>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Find ROP gadgets</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ROPgadget<span class="w"> </span>--binary<span class="w"> </span>./binary<span class="w"> </span>--rop
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ropper<span class="w"> </span>-f<span class="w"> </span>./binary
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># ret2libc</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from pwn import *; libc=ELF(&#39;/lib/i386-linux-gnu/libc.so.6&#39;); print(hex(libc.symbols[&#39;system&#39;]))&quot;</span>
+</span></code></pre></div>
 
 
 

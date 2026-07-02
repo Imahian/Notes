@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#narnia" class="md-skip">
           Skip to content
         </a>
       
@@ -1765,6 +1765,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Narnia
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1781,6 +1799,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2837,6 +2907,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2855,7 +2966,76 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="narnia">Narnia<a class="headerlink" href="#narnia" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Intermediate | <strong>Topics:</strong> Binary exploitation — stack buffer overflows, shellcode, format strings, SUID</p>
+<p>Introduction to binary exploitation in C. Programs are compiled with weakened protections to expose classic memory corruption vulnerabilities.</p>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>narnia0@narnia.labs.overthewire.org<span class="w"> </span>-p<span class="w"> </span><span class="m">2226</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Password: narnia0</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Binaries in /narnia/</span>
+</span></code></pre></div>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Technique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Stack buffer overflow — control EIP</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Environment variable shellcode</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Stack overflow with shellcode injection</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Symlink + race condition</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Large buffer overflow</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Format string vulnerability</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Format string — arbitrary write</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Pointer corruption</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Advanced format string</td>
+</tr>
+</tbody>
+</table>
+<h2 id="useful-commands">Useful Commands<a class="headerlink" href="#useful-commands" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Inspect binary</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>file<span class="w"> </span>/narnia/narniaX
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>checksec<span class="w"> </span>/narnia/narniaX
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>objdump<span class="w"> </span>-d<span class="w"> </span>/narnia/narniaX<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">20</span><span class="w"> </span>main
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Generate pattern</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;A&#39;*100)&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>/usr/share/metasploit-framework/tools/exploit/pattern_create.rb<span class="w"> </span>-l<span class="w"> </span><span class="m">200</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Find offset</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>gdb<span class="w"> </span>-q<span class="w"> </span>/narnia/narniaX
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>run<span class="w"> </span><span class="k">$(</span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;A&#39;*100)&quot;</span><span class="k">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>info<span class="w"> </span>registers
+</span></code></pre></div>
 
 
 

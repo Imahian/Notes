@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#behemoth" class="md-skip">
           Skip to content
         </a>
       
@@ -1569,6 +1569,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Behemoth
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1585,6 +1603,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2837,6 +2907,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2855,7 +2966,69 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="behemoth">Behemoth<a class="headerlink" href="#behemoth" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Intermediate | <strong>Topics:</strong> Buffer overflows, format strings, symbolic links, environment variables, command injection</p>
+<p>Eight levels of binary and filesystem exploitation. Programs have SUID bits set — exploiting them grants access to the next level's credentials.</p>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>behemoth0@behemoth.labs.overthewire.org<span class="w"> </span>-p<span class="w"> </span><span class="m">2221</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Password: behemoth0</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Binaries in /behemoth/</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Passwords in /etc/behemoth_pass/</span>
+</span></code></pre></div>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Technique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Hardcoded password — ltrace reveals strcmp</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Buffer overflow — EIP control</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Symlink attack — predictable temp file</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Format string — info leak</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Buffer overflow with environment variable shellcode</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Network socket + hardcoded logic</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Shellcode in environment, ltrace bypass</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Format string — arbitrary write to GOT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="techniques">Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Observe binary behavior</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ltrace<span class="w"> </span>/behemoth/behemoth0
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>strace<span class="w"> </span>/behemoth/behemoth0<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;open|read|write&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Symlink attack</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ln<span class="w"> </span>-s<span class="w"> </span>/etc/behemoth_pass/behemothN<span class="w"> </span>/tmp/predictable_tempfile
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Environment shellcode</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SHELLCODE</span><span class="o">=</span><span class="k">$(</span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;\x90&#39;*100 + shellcode)&quot;</span><span class="k">)</span>
+</span></code></pre></div>
 
 
 

@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#hackthebox" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -601,6 +606,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -618,6 +643,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writeup-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writeup Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difficulty-rating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficulty Rating
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2827,6 +2915,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writeup-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writeup Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difficulty-rating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficulty Rating
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2846,9 +2988,53 @@
   
 
 
-  <h1>Overview</h1>
-
-
+<h1 id="hackthebox">HackTheBox<a class="headerlink" href="#hackthebox" title="Permanent link">&para;</a></h1>
+<p><a href="https://hackthebox.com">hackthebox.com</a> — Competitive hacking platform with real machines, challenges, and structured learning paths.</p>
+<h2 id="sections">Sections<a class="headerlink" href="#sections" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="MACHINES/">Machines</a></td>
+<td>Linux and Windows full compromise chains (foothold → root)</td>
+</tr>
+<tr>
+<td><a href="ACADEMY/">Academy</a></td>
+<td>Structured modules from beginner to advanced</td>
+</tr>
+</tbody>
+</table>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Download your .ovpn from HTB → Connect → VPN</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>openvpn<span class="w"> </span>&lt;username&gt;.ovpn
+</span></code></pre></div>
+<p>Machines are reachable at <code>10.10.x.x</code> after VPN connects. Your tun0 IP is your attacker address.</p>
+<h2 id="writeup-policy">Writeup Policy<a class="headerlink" href="#writeup-policy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Writeups</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active machine</td>
+<td>Not allowed</td>
+</tr>
+<tr>
+<td>Retired machine</td>
+<td>Allowed after official walkthrough release</td>
+</tr>
+</tbody>
+</table>
+<h2 id="difficulty-rating">Difficulty Rating<a class="headerlink" href="#difficulty-rating" title="Permanent link">&para;</a></h2>
+<p>Machines are rated Easy / Medium / Hard / Insane by the community. Ratings reflect initial foothold difficulty, not necessarily the full chain.</p>
 
 
 

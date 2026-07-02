@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#emapt" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2216,6 +2221,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eMAPT
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2233,6 +2258,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2913,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2986,73 @@
   
 
 
-  <h1>eMAPT</h1>
-
-
+<h1 id="emapt">eMAPT<a class="headerlink" href="#emapt" title="Permanent link">&para;</a></h1>
+<p><strong>eLearnSecurity Mobile Application Penetration Tester</strong> — covers Android and iOS penetration testing, from static analysis to runtime manipulation.</p>
+<h2 id="exam-format">Exam Format<a class="headerlink" href="#exam-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Duration:</strong> 7 days</li>
+<li><strong>Format:</strong> Exploit a vulnerable Android application</li>
+<li><strong>Deliverable:</strong> Working exploit + report</li>
+</ul>
+<h2 id="syllabus">Syllabus<a class="headerlink" href="#syllabus" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Android Architecture</td>
+<td>APK structure, Dalvik/ART, permissions, intents</td>
+</tr>
+<tr>
+<td>Static Analysis</td>
+<td>Decompile APK, review AndroidManifest.xml, find hardcoded secrets</td>
+</tr>
+<tr>
+<td>Dynamic Analysis</td>
+<td>Frida, Objection, runtime hooking, SSL pinning bypass</td>
+</tr>
+<tr>
+<td>Network Traffic</td>
+<td>MitM with Burp on device, certificate installation</td>
+</tr>
+<tr>
+<td>Vulnerabilities</td>
+<td>Exported activities, deep links, insecure storage, content providers</td>
+</tr>
+<tr>
+<td>iOS Architecture</td>
+<td>IPA structure, Keychain, plist analysis</td>
+</tr>
+<tr>
+<td>iOS Dynamic</td>
+<td>Frida on jailbroken device, Cycript, runtime patching</td>
+</tr>
+</tbody>
+</table>
+<h2 id="android-quick-reference">Android Quick Reference<a class="headerlink" href="#android-quick-reference" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Decompile APK</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>apktool<span class="w"> </span>d<span class="w"> </span>app.apk
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>jadx<span class="w"> </span>-d<span class="w"> </span>output/<span class="w"> </span>app.apk
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># ADB commands</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>adb<span class="w"> </span>devices
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>adb<span class="w"> </span>shell
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>adb<span class="w"> </span>logcat<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>password
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Frida SSL pinning bypass</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>frida<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>com.target.app<span class="w"> </span>-l<span class="w"> </span>ssl-pinning-bypass.js<span class="w"> </span>--no-pause
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Objection</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>objection<span class="w"> </span>-g<span class="w"> </span>com.target.app<span class="w"> </span>explore
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>android<span class="w"> </span>sslpinning<span class="w"> </span>disable
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>android<span class="w"> </span>root<span class="w"> </span>disable
+</span></code></pre></div>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<p><code>apktool</code> <code>jadx</code> <code>frida</code> <code>objection</code> <code>burpsuite</code> <code>adb</code> <code>MobSF</code> <code>drozer</code></p>
 
 
 

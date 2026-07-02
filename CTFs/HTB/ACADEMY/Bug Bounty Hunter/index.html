@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#bug-bounty-hunter-path" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -875,6 +880,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -892,6 +917,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2831,6 +2897,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2850,9 +2948,97 @@
   
 
 
-  <h1>Overview</h1>
-
-
+<h1 id="bug-bounty-hunter-path">Bug Bounty Hunter Path<a class="headerlink" href="#bug-bounty-hunter-path" title="Permanent link">&para;</a></h1>
+<p>HTB Academy structured path covering the full bug bounty workflow — from recon and web exploitation to writing professional reports.</p>
+<h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Information%20Gathering%20-%20Web%20Edition/">Information Gathering - Web Edition</a></td>
+<td>Passive and active recon, DNS, subdomain enumeration</td>
+</tr>
+<tr>
+<td><a href="Attacking%20Web%20Applications%20with%20Ffuf/">Attacking Web Applications with Ffuf</a></td>
+<td>Directory and parameter fuzzing</td>
+</tr>
+<tr>
+<td><a href="JavaScript%20Deobfuscation/">JavaScript Deobfuscation</a></td>
+<td>Decoding and reversing obfuscated JS</td>
+</tr>
+<tr>
+<td><a href="Cross-Site%20Scripting%20%28XSS%29/">Cross-Site Scripting (XSS)</a></td>
+<td>Reflected, stored, DOM-based XSS</td>
+</tr>
+<tr>
+<td><a href="SQL%20Injection%20Fundamentals/">SQL Injection Fundamentals</a></td>
+<td>In-band, blind, time-based SQLi</td>
+</tr>
+<tr>
+<td><a href="SQLMap%20Essentials/">SQLMap Essentials</a></td>
+<td>Automated SQLi with sqlmap</td>
+</tr>
+<tr>
+<td><a href="Command%20Injections/">Command Injections</a></td>
+<td>OS command injection, filter bypass</td>
+</tr>
+<tr>
+<td><a href="File%20Upload%20Attacks/">File Upload Attacks</a></td>
+<td>Extension bypass, webshells, polyglots</td>
+</tr>
+<tr>
+<td><a href="File%20Inclusion/">File Inclusion</a></td>
+<td>LFI, RFI, log poisoning</td>
+</tr>
+<tr>
+<td><a href="Web%20Attacks/">Web Attacks</a></td>
+<td>IDOR, XXE, SSRF, Open Redirect</td>
+</tr>
+<tr>
+<td><a href="Using%20Web%20Proxies/">Using Web Proxies</a></td>
+<td>Burp Suite and ZAP workflows</td>
+</tr>
+<tr>
+<td><a href="Login%20Brute%20Forcing/">Login Brute Forcing</a></td>
+<td>Hydra, medusa, credential stuffing</td>
+</tr>
+<tr>
+<td><a href="Broken%20Authentication/">Broken Authentication</a></td>
+<td>Session fixation, token flaws, 2FA bypass</td>
+</tr>
+<tr>
+<td><a href="Session%20Security/">Session Security</a></td>
+<td>Cookie theft, CSRF, SameSite</td>
+</tr>
+<tr>
+<td><a href="Hacking%20WordPress/">Hacking WordPress</a></td>
+<td>WPScan, plugin exploits, admin RCE</td>
+</tr>
+<tr>
+<td><a href="Introduction%20to%20Web%20Applications/">Introduction to Web Applications</a></td>
+<td>HTTP, cookies, headers, architecture</td>
+</tr>
+<tr>
+<td><a href="Server-side%20Attacks/">Server-side Attacks</a></td>
+<td>SSRF, SSTI, XXE advanced</td>
+</tr>
+<tr>
+<td><a href="Web%20Service%20%26%20API%20Attacks/">Web Service &amp; API Attacks</a></td>
+<td>REST/SOAP attacks, mass assignment, BOLA</td>
+</tr>
+<tr>
+<td><a href="Bug%20Bounty%20Hunting%20Process/">Bug Bounty Hunting Process</a></td>
+<td>Scope, reporting, responsible disclosure</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-tools">Key Tools<a class="headerlink" href="#key-tools" title="Permanent link">&para;</a></h2>
+<p><code>ffuf</code> <code>burpsuite</code> <code>sqlmap</code> <code>wpscan</code> <code>nikto</code> <code>curl</code> <code>dirsearch</code> <code>nuclei</code></p>
 
 
 

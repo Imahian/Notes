@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tryhackme" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1875,6 +1880,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TryHackMe
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1892,6 +1917,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-when-using-own-kali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection (when using own Kali)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#room-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Room Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2913,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-when-using-own-kali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection (when using own Kali)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#room-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Room Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2986,54 @@
   
 
 
-  <h1>TryHackMe</h1>
-
-
+<h1 id="tryhackme">TryHackMe<a class="headerlink" href="#tryhackme" title="Permanent link">&para;</a></h1>
+<p><a href="https://tryhackme.com">tryhackme.com</a> — Guided learning platform with browser-accessible machines, CTF rooms, and structured paths for beginners through intermediate practitioners.</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>No VPN required</strong> for most rooms — machines run in-browser via AttackBox</li>
+<li><strong>Learning paths</strong> with curated room sequences</li>
+<li><strong>Hints and walkthroughs</strong> available for all rooms</li>
+<li><strong>Streak and gamification</strong> system for daily practice</li>
+</ul>
+<h2 id="connection-when-using-own-kali">Connection (when using own Kali)<a class="headerlink" href="#connection-when-using-own-kali" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Download OpenVPN config from TryHackMe → Access</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>openvpn<span class="w"> </span>&lt;username&gt;.ovpn
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Target machines at 10.10.x.x</span>
+</span></code></pre></div>
+<h2 id="room-types">Room Types<a class="headerlink" href="#room-types" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free</td>
+<td>Open access, no subscription</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>Requires subscription</td>
+</tr>
+<tr>
+<td>CTF</td>
+<td>Competition-style, no hints</td>
+</tr>
+<tr>
+<td>Learning</td>
+<td>Guided with questions and answers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-paths">Key Paths<a class="headerlink" href="#key-paths" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pre-Security</strong> — absolute beginner fundamentals</li>
+<li><strong>Complete Beginner</strong> — Linux, web, networking, Metasploit</li>
+<li><strong>Jr Penetration Tester</strong> — aligned with eJPT / PJPT level</li>
+<li><strong>SOC Level 1</strong> — Blue team, log analysis, threat detection</li>
+</ul>
 
 
 

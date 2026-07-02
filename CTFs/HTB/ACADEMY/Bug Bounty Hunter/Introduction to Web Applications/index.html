@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#introduction-to-web-applications" class="md-skip">
           Skip to content
         </a>
       
@@ -1163,6 +1163,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro to Web Apps
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1179,6 +1197,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#http-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-relevant-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security-Relevant Headers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Status Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend-vs-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend vs Backend
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2933,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#http-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-relevant-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security-Relevant Headers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Status Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend-vs-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend vs Backend
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3014,150 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="introduction-to-web-applications">Introduction to Web Applications<a class="headerlink" href="#introduction-to-web-applications" title="Permanent link">&para;</a></h1>
+<p>Foundational concepts behind how web applications work — HTTP, HTML, JavaScript, cookies, and web architecture.</p>
+<h2 id="http-basics">HTTP Basics<a class="headerlink" href="#http-basics" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Request structure
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GET /index.php?id=1 HTTP/1.1
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Host: target.com
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>User-Agent: Mozilla/5.0
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Cookie: session=abc123
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Accept: text/html
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a># Response structure
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>HTTP/1.1 200 OK
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Content-Type: text/html
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Set-Cookie: session=abc123; HttpOnly; Secure
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Content-Length: 1234
+</span></code></pre></div>
+<h2 id="important-http-methods">Important HTTP Methods<a class="headerlink" href="#important-http-methods" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>Retrieve data (params in URL)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>Send data (body)</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Create/update resource</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Delete resource</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>List allowed methods</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>Same as GET but no body</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Partial update</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-relevant-headers">Security-Relevant Headers<a class="headerlink" href="#security-relevant-headers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Content-Security-Policy</code></td>
+<td>Restricts script/resource sources</td>
+</tr>
+<tr>
+<td><code>X-Frame-Options</code></td>
+<td>Prevents clickjacking</td>
+</tr>
+<tr>
+<td><code>X-XSS-Protection</code></td>
+<td>Legacy XSS filter</td>
+</tr>
+<tr>
+<td><code>Strict-Transport-Security</code></td>
+<td>Forces HTTPS</td>
+</tr>
+<tr>
+<td><code>Access-Control-Allow-Origin</code></td>
+<td>CORS policy</td>
+</tr>
+<tr>
+<td><code>HttpOnly</code> cookie flag</td>
+<td>Cookie not accessible via JS</td>
+</tr>
+<tr>
+<td><code>Secure</code> cookie flag</td>
+<td>Cookie only over HTTPS</td>
+</tr>
+<tr>
+<td><code>SameSite</code> cookie flag</td>
+<td>CSRF protection</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-status-codes">Common Status Codes<a class="headerlink" href="#common-status-codes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>301/302</td>
+<td>Redirect</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized (needs auth)</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden (has auth, no access)</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="frontend-vs-backend">Frontend vs Backend<a class="headerlink" href="#frontend-vs-backend" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Frontend (runs in browser):
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  HTML → structure
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  CSS  → presentation
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  JS   → behavior, AJAX, DOM manipulation
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Backend (runs on server):
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  PHP, Python, Ruby, Java, Node.js
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  Databases: MySQL, PostgreSQL, MSSQL, MongoDB
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  Application logic, auth, data processing
+</span></code></pre></div>
 
 
 

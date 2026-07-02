@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#javascript-deobfuscation" class="md-skip">
           Skip to content
         </a>
       
@@ -1191,6 +1191,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JS Deobfuscation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1207,6 +1225,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-obfuscation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Obfuscation Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deobfuscation-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deobfuscation Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2922,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-obfuscation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Obfuscation Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deobfuscation-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deobfuscation Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +2992,79 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="javascript-deobfuscation">JavaScript Deobfuscation<a class="headerlink" href="#javascript-deobfuscation" title="Permanent link">&para;</a></h1>
+<p>Techniques for reversing obfuscated JavaScript to discover hidden functionality, API keys, hardcoded credentials, and logic flaws.</p>
+<h2 id="common-obfuscation-methods">Common Obfuscation Methods<a class="headerlink" href="#common-obfuscation-methods" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minification</td>
+<td>Whitespace and variable names stripped</td>
+</tr>
+<tr>
+<td>Packing (eval/p,a,c,k,e,d)</td>
+<td>Code compressed into eval string</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td>base64, hex, unicode escapes</td>
+</tr>
+<tr>
+<td>String splitting</td>
+<td><code>"hel"+"lo"</code></td>
+</tr>
+<tr>
+<td>Character code</td>
+<td><code>String.fromCharCode(72,101,108,108,111)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="deobfuscation-tools">Deobfuscation Tools<a class="headerlink" href="#deobfuscation-tools" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Online</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># https://beautifier.io       — format and indent minified JS</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># https://obf-io.deobfuscate.io — automated deobfuscation</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># https://deobfuscate.relative.im — handles eval/packer</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># https://www.dcode.fr/javascript-unobfuscator</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Browser DevTools</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># F12 → Sources → Pretty print {} button</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># F12 → Console → paste code, call eval manually</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Node.js</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>node<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;eval(require(&#39;fs&#39;).readFileSync(&#39;obf.js&#39;,&#39;utf8&#39;))&quot;</span>
+</span></code></pre></div>
+<h2 id="manual-techniques">Manual Techniques<a class="headerlink" href="#manual-techniques" title="Permanent link">&para;</a></h2>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Replace eval with console.log to see decoded string</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">eval</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">a</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">k</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">d</span><span class="p">){...})</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// → change eval to console.log:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">a</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">k</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">d</span><span class="p">){...})</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// Decode base64</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nx">atob</span><span class="p">(</span><span class="s2">&quot;aGVsbG8=&quot;</span><span class="p">)</span><span class="w">                   </span><span class="c1">// browser console</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nx">echo</span><span class="w"> </span><span class="s2">&quot;aGVsbG8=&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">base64</span><span class="w"> </span><span class="o">-</span><span class="nx">d</span><span class="w">       </span><span class="c1">// bash</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1">// Decode hex string</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="s2">&quot;\x68\x65\x6c\x6c\x6f&quot;</span><span class="w">            </span><span class="c1">// → &quot;hello&quot; in browser console</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1">// fromCharCode array</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mf">72</span><span class="p">,</span><span class="mf">101</span><span class="p">,</span><span class="mf">108</span><span class="p">,</span><span class="mf">108</span><span class="p">,</span><span class="mf">111</span><span class="p">)</span><span class="w">   </span><span class="c1">// → &quot;Hello&quot;</span>
+</span></code></pre></div>
+<h2 id="finding-secrets">Finding Secrets<a class="headerlink" href="#finding-secrets" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Extract strings from JS file</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>strings<span class="w"> </span>script.js<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-iE<span class="w"> </span><span class="s2">&quot;api|key|token|secret|pass|auth&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Search for interesting patterns</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;(api_key|apiKey|access_token|secret|password)\s*[:=]&quot;</span><span class="w"> </span>*.js
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Download all JS files from page</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>wget<span class="w"> </span>-r<span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-A<span class="w"> </span><span class="s2">&quot;*.js&quot;</span><span class="w"> </span>http://target.com
+</span></code></pre></div>
 
 
 

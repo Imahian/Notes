@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ecthp" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2440,6 +2445,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eCTHP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2457,6 +2482,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-sysmon-event-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Sysmon Event IDs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-spl-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Splunk SPL Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2913,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-sysmon-event-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Sysmon Event IDs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-spl-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Splunk SPL Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2986,110 @@
   
 
 
-  <h1>eCTHP</h1>
-
-
+<h1 id="ecthp">eCTHP<a class="headerlink" href="#ecthp" title="Permanent link">&para;</a></h1>
+<p><strong>eLearnSecurity Certified Threat Hunting Professional</strong> — covers proactive threat detection using SIEM, EDR, log analysis, and MITRE ATT&amp;CK-based hunting hypotheses.</p>
+<h2 id="exam-format">Exam Format<a class="headerlink" href="#exam-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Duration:</strong> 3 days</li>
+<li><strong>Format:</strong> Hunt for adversary activity in a simulated environment</li>
+<li><strong>Deliverable:</strong> Threat hunting report with findings and ATT&amp;CK mappings</li>
+</ul>
+<h2 id="syllabus">Syllabus<a class="headerlink" href="#syllabus" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Threat Hunting Fundamentals</td>
+<td>Hunt cycles, hypothesis-driven hunting, intelligence-led hunting</td>
+</tr>
+<tr>
+<td>MITRE ATT&amp;CK</td>
+<td>Tactics, techniques, sub-techniques, procedure mapping</td>
+</tr>
+<tr>
+<td>Windows Telemetry</td>
+<td>Event IDs, Sysmon, Windows Defender logs, ETW</td>
+</tr>
+<tr>
+<td>Linux Telemetry</td>
+<td>Auditd, syslog, systemd journal, eBPF</td>
+</tr>
+<tr>
+<td>SIEM Queries</td>
+<td>Splunk SPL, Elastic KQL, hunting dashboards</td>
+</tr>
+<tr>
+<td>Endpoint Detection</td>
+<td>EDR alert correlation, process tree analysis</td>
+</tr>
+<tr>
+<td>Network Detection</td>
+<td>DNS anomalies, beaconing, C2 patterns in PCAP</td>
+</tr>
+<tr>
+<td>Malware Hunting</td>
+<td>LOLBAS, living-off-the-land techniques, fileless malware</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-sysmon-event-ids">Key Sysmon Event IDs<a class="headerlink" href="#key-sysmon-event-ids" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Event ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Process creation</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Network connection</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Image loaded (DLL)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CreateRemoteThread</td>
+</tr>
+<tr>
+<td>10</td>
+<td>ProcessAccess (LSASS dump)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>FileCreate</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Registry value set</td>
+</tr>
+<tr>
+<td>22</td>
+<td>DNS query</td>
+</tr>
+</tbody>
+</table>
+<h2 id="splunk-spl-examples">Splunk SPL Examples<a class="headerlink" href="#splunk-spl-examples" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Detect LSASS credential dumping
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>index=wineventlog EventCode=10 TargetImage=&quot;*lsass.exe&quot; | stats count by SourceImage,SourceProcessId
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># Detect PowerShell download cradle
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>index=wineventlog EventCode=4688 CommandLine=&quot;*IEX*&quot; OR CommandLine=&quot;*DownloadString*&quot;
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a># Detect lateral movement via WMI
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>index=wineventlog EventCode=4688 NewProcessName=&quot;*wmiprvse.exe&quot; | stats count by ParentProcessName
+</span></code></pre></div>
 
 
 

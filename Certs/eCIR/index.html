@@ -164,6 +164,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ecir" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2300,6 +2305,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eCIR
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2317,6 +2342,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2825,6 +2913,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exam-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syllabus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2844,9 +2986,68 @@
   
 
 
-  <h1>eCIR</h1>
-
-
+<h1 id="ecir">eCIR<a class="headerlink" href="#ecir" title="Permanent link">&para;</a></h1>
+<p><strong>eLearnSecurity Certified Incident Responder</strong> — covers the full incident response lifecycle from detection to containment, eradication, and recovery.</p>
+<h2 id="exam-format">Exam Format<a class="headerlink" href="#exam-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Duration:</strong> 3 days</li>
+<li><strong>Format:</strong> Analyze a simulated compromise — identify attacker TTPs and timeline</li>
+<li><strong>Deliverable:</strong> Incident response report</li>
+</ul>
+<h2 id="syllabus">Syllabus<a class="headerlink" href="#syllabus" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IR Fundamentals</td>
+<td>PICERL framework, chain of custody, evidence handling</td>
+</tr>
+<tr>
+<td>Windows Forensics</td>
+<td>Event logs, registry hives, prefetch, LNK files, $MFT</td>
+</tr>
+<tr>
+<td>Linux Forensics</td>
+<td>Auth logs, bash history, cron, syslog, auditd</td>
+</tr>
+<tr>
+<td>Memory Forensics</td>
+<td>Volatility — process injection, network connections, malware</td>
+</tr>
+<tr>
+<td>Network Forensics</td>
+<td>PCAP analysis, C2 identification, lateral movement detection</td>
+</tr>
+<tr>
+<td>Malware Analysis</td>
+<td>Static/dynamic analysis, sandbox detonation, IOC extraction</td>
+</tr>
+<tr>
+<td>Threat Intelligence</td>
+<td>MITRE ATT&amp;CK mapping, TTPs, IOCs, threat actors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-commands">Key Commands<a class="headerlink" href="#key-commands" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Windows event log analysis</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Get-WinEvent<span class="w"> </span>-LogName<span class="w"> </span>Security<span class="w"> </span><span class="p">|</span><span class="w"> </span>Where-Object<span class="w"> </span><span class="o">{</span><span class="nv">$_</span>.Id<span class="w"> </span>-eq<span class="w"> </span><span class="m">4624</span><span class="o">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Select-Object<span class="w"> </span>TimeCreated,Message
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Volatility (memory)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>vol.py<span class="w"> </span>-f<span class="w"> </span>memory.raw<span class="w"> </span>imageinfo
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>vol.py<span class="w"> </span>-f<span class="w"> </span>memory.raw<span class="w"> </span>--profile<span class="o">=</span>Win10x64<span class="w"> </span>pstree
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>vol.py<span class="w"> </span>-f<span class="w"> </span>memory.raw<span class="w"> </span>--profile<span class="o">=</span>Win10x64<span class="w"> </span>netscan
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>vol.py<span class="w"> </span>-f<span class="w"> </span>memory.raw<span class="w"> </span>--profile<span class="o">=</span>Win10x64<span class="w"> </span>malfind
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># PCAP with tshark</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>tshark<span class="w"> </span>-r<span class="w"> </span>capture.pcap<span class="w"> </span>-Y<span class="w"> </span><span class="s2">&quot;http.request&quot;</span><span class="w"> </span>-T<span class="w"> </span>fields<span class="w"> </span>-e<span class="w"> </span>ip.src<span class="w"> </span>-e<span class="w"> </span>http.host<span class="w"> </span>-e<span class="w"> </span>http.request.uri
+</span></code></pre></div>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<p><code>volatility</code> <code>autopsy</code> <code>wireshark</code> <code>tshark</code> <code>yara</code> <code>velociraptor</code> <code>Splunk</code></p>
 
 
 

