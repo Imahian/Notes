@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#herramienta-httrack-en-redes-y-ciberseguridad" class="md-skip">
+        <a href="#httrack" class="md-skip">
           Skip to content
         </a>
       
@@ -2640,10 +2640,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#funcionamiento-basico-de-httrack" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Funcionamiento Básico de HTTrack
+        Installation
       
     </span>
   </a>
@@ -2651,10 +2651,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#herramientas-complementarias" class="md-nav__link">
+  <a href="#basic-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Herramientas Complementarias
+        Basic usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-in-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use cases in security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complementary-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complementary tools
       
     </span>
   </a>
@@ -2901,10 +2945,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#funcionamiento-basico-de-httrack" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Funcionamiento Básico de HTTrack
+        Installation
       
     </span>
   </a>
@@ -2912,10 +2956,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#herramientas-complementarias" class="md-nav__link">
+  <a href="#basic-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Herramientas Complementarias
+        Basic usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-in-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use cases in security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complementary-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complementary tools
       
     </span>
   </a>
@@ -2942,36 +3030,106 @@
   
 
 
-<h1 id="herramienta-httrack-en-redes-y-ciberseguridad">Herramienta HTTrack en Redes y Ciberseguridad<a class="headerlink" href="#herramienta-httrack-en-redes-y-ciberseguridad" title="Permanent link">&para;</a></h1>
-<p><a href="https://github.com/xroche/httrack">HTTrack</a> es una herramienta ampliamente utilizada en redes y ciberseguridad para descargar sitios web completos y visualizarlos sin conexión. A continuación, te explicamos su funcionamiento, sus características principales y algunas herramientas complementarias.
-¿Qué es HTTrack?</p>
-<p><a href="https://github.com/xroche/httrack">HTTrack</a> es una herramienta de código abierto que permite clonar y descargar sitios web, facilitando la navegación sin conexión. Es especialmente útil en auditorías y análisis de estructuras web en el ámbito de la ciberseguridad, ya que permite obtener una copia fiel de un sitio con todos sus enlaces, archivos y páginas.
-Información que puede descargarse con HTTrack:</p>
-<p>Estructura del sitio: Organización de directorios y enlaces internos
-Contenido HTML: Todas las páginas y enlaces en el sitio
-Archivos multimedia: Imágenes, archivos CSS, JavaScript, y otros recursos
-Scripts de frontend: Incluye todos los archivos necesarios para la visualización offline</p>
-<h2 id="funcionamiento-basico-de-httrack">Funcionamiento Básico de HTTrack<a class="headerlink" href="#funcionamiento-basico-de-httrack" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/xroche/httrack">HTTrack</a> actúa como un rastreador de sitios web (crawler), enviando solicitudes al servidor para descargar y estructurar el contenido localmente. Una vez descargado, puedes navegar el sitio como si estuvieras en línea, pero sin realizar solicitudes al servidor.
-Ejemplo Básico de Uso</p>
-<p>Para usar HTTrack desde la terminal, puedes ejecutar el siguiente comando:</p>
-<div class="language-text highlight"><pre><span></span><code>httrack &quot;https://ejemplo.com&quot; -O &quot;/ruta/a/la/carpeta/destino&quot;
-</code></pre></div>
-<p>En este ejemplo, <a href="https://github.com/xroche/httrack">HTTrack</a> descargará todo el contenido de https://ejemplo.com y lo guardará en la carpeta especificada.
-Características Principales de HTTrack</p>
-<p>Navegación Offline Completa: Navega todo el contenido descargado sin conexión a Internet.
-Control de Profundidad: Configura cuántos niveles de enlaces internos deseas seguir al descargar.
-Filtrado de Archivos: Excluye o incluye tipos específicos de archivos, según tu necesidad.
-Actualización de Copias Locales: Puedes actualizar un sitio clonado sin tener que descargarlo todo nuevamente.</p>
-<h2 id="herramientas-complementarias">Herramientas Complementarias<a class="headerlink" href="#herramientas-complementarias" title="Permanent link">&para;</a></h2>
-<p>Estas herramientas pueden ser útiles para complementar y mejorar el uso de HTTrack:</p>
-<p>Wget: Otra herramienta de descarga de sitios que permite obtener contenido web simple sin la complejidad de HTTrack.
-Burp Suite: Permite analizar las solicitudes HTTP y observar cómo responde el sitio web a cada petición. Muy útil para un análisis en profundidad.
-Wayback Machine Downloader: Herramienta para descargar versiones históricas de sitios web, útil en ciberseguridad para analizar cómo ha cambiado el sitio a lo largo del tiempo.</p>
-<h1 id="recursos-adicionales">Recursos Adicionales<a class="headerlink" href="#recursos-adicionales" title="Permanent link">&para;</a></h1>
-<p>Página oficial de HTTrack: https://www.httrack.com/
-Documentación detallada y parámetros adicionales: HTTrack Documentation</p>
-<p><a href="https://github.com/xroche/httrack">HTTrack</a> es una herramienta poderosa y efectiva para obtener un análisis detallado de un sitio web y realizar auditorías de seguridad, sin impactar el servidor original.</p>
+<h1 id="httrack">HTTrack<a class="headerlink" href="#httrack" title="Permanent link">&para;</a></h1>
+<p>Open-source website crawler and offline browser. Downloads complete websites — HTML, CSS, JS, images — for offline analysis.</p>
+<p><strong>GitHub:</strong> https://github.com/xroche/httrack<br />
+<strong>Official site:</strong> https://www.httrack.com</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>httrack
+</span></code></pre></div>
+<h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Clone a full website</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>httrack<span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;/path/to/output/&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Limit crawl depth</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>httrack<span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;/path/to/output/&quot;</span><span class="w"> </span>-r2
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Exclude specific file types</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>httrack<span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;/path/to/output/&quot;</span><span class="w"> </span>-*.png<span class="w"> </span>-*.jpg
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Mirror with no external links</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>httrack<span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;/path/to/output/&quot;</span><span class="w"> </span>-%e0
+</span></code></pre></div>
+<h2 id="key-options">Key options<a class="headerlink" href="#key-options" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-O &lt;dir&gt;</code></td>
+<td>Output directory</td>
+</tr>
+<tr>
+<td><code>-r&lt;n&gt;</code></td>
+<td>Max crawl depth (default: unlimited)</td>
+</tr>
+<tr>
+<td><code>-*.ext</code></td>
+<td>Exclude file types</td>
+</tr>
+<tr>
+<td><code>+*.ext</code></td>
+<td>Include only specific file types</td>
+</tr>
+<tr>
+<td><code>-%e0</code></td>
+<td>Don't follow external links</td>
+</tr>
+<tr>
+<td><code>-c&lt;n&gt;</code></td>
+<td>Max simultaneous connections</td>
+</tr>
+<tr>
+<td><code>--mirror</code></td>
+<td>Full mirror mode</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-it-downloads">What it downloads<a class="headerlink" href="#what-it-downloads" title="Permanent link">&para;</a></h2>
+<ul>
+<li>HTML pages and internal links</li>
+<li>CSS stylesheets and JS files</li>
+<li>Images and multimedia</li>
+<li>Documents (PDF, etc.) if linked</li>
+</ul>
+<h2 id="use-cases-in-security">Use cases in security<a class="headerlink" href="#use-cases-in-security" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Web application recon</strong> — map directory structure, find hidden endpoints, JS file analysis</li>
+<li><strong>Technology fingerprinting</strong> — inspect frontend frameworks, comment leaks, version strings in source</li>
+<li><strong>Historical comparison</strong> — clone now, compare later to detect changes</li>
+<li><strong>Offline analysis</strong> — examine source without repeated server requests</li>
+</ul>
+<h2 id="complementary-tools">Complementary tools<a class="headerlink" href="#complementary-tools" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wget -r</code></td>
+<td>Simpler recursive web download</td>
+</tr>
+<tr>
+<td>Burp Suite</td>
+<td>Intercept/analyze live HTTP traffic</td>
+</tr>
+<tr>
+<td>Wayback Machine Downloader</td>
+<td>Download historical site snapshots</td>
+</tr>
+<tr>
+<td><code>curl</code></td>
+<td>Single-page download with full headers</td>
+</tr>
+</tbody>
+</table>
 
 
 

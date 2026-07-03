@@ -165,7 +165,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#herramienta-wafw00f-en-redes-y-ciberseguridad" class="md-skip">
+        <a href="#wafw00f" class="md-skip">
           Skip to content
         </a>
       
@@ -2698,6 +2698,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -2740,6 +2742,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2748,10 +2752,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#herramienta-wafw00f-en-redes-y-ciberseguridad" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Herramienta WafW00f en Redes y Ciberseguridad
+        Installation
       
     </span>
   </a>
@@ -2759,10 +2763,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#funcionamiento-basico-de-wafw00f" class="md-nav__link">
+  <a href="#basic-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Funcionamiento Básico de WafW00f
+        Basic usage
       
     </span>
   </a>
@@ -2770,10 +2774,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#herramientas-complementarias" class="md-nav__link">
+  <a href="#what-it-detects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Herramientas Complementarias
+        What it detects
       
     </span>
   </a>
@@ -2781,10 +2785,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-adicionales" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recursos Adicionales
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-in-pentesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use in pentesting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complementary-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complementary tools
       
     </span>
   </a>
@@ -2909,6 +2935,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2917,10 +2945,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#herramienta-wafw00f-en-redes-y-ciberseguridad" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Herramienta WafW00f en Redes y Ciberseguridad
+        Installation
       
     </span>
   </a>
@@ -2928,10 +2956,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#funcionamiento-basico-de-wafw00f" class="md-nav__link">
+  <a href="#basic-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Funcionamiento Básico de WafW00f
+        Basic usage
       
     </span>
   </a>
@@ -2939,10 +2967,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#herramientas-complementarias" class="md-nav__link">
+  <a href="#what-it-detects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Herramientas Complementarias
+        What it detects
       
     </span>
   </a>
@@ -2950,10 +2978,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-adicionales" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recursos Adicionales
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-in-pentesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use in pentesting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complementary-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complementary tools
       
     </span>
   </a>
@@ -2980,37 +3030,119 @@
   
 
 
-  <h1>WafW00f</h1>
-
-<h3 id="herramienta-wafw00f-en-redes-y-ciberseguridad">Herramienta WafW00f en Redes y Ciberseguridad<a class="headerlink" href="#herramienta-wafw00f-en-redes-y-ciberseguridad" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/EnableSecurity/wafw00f">WafW00f</a> es una herramienta popular en ciberseguridad, utilizada para detectar firewalls de aplicaciones web (WAF, por sus siglas en inglés) que protegen sitios web. A continuación, exploraremos su funcionamiento, sus principales características y algunas herramientas que pueden complementarla.
-¿Qué es WafW00f?</p>
-<p><a href="https://github.com/EnableSecurity/wafw00f">WafW00f</a> es una herramienta de código abierto que permite identificar y reconocer la presencia de un WAF en un sitio web. Es especialmente útil en auditorías de seguridad, ya que ayuda a los profesionales a saber si un sitio está protegido por un WAF, y qué tipo específico de firewall utiliza. Esto permite ajustar las estrategias de pruebas de penetración y de ataque ético para evitar o gestionar las restricciones impuestas por el WAF.
-Información que WafW00f Puede Obtener:</p>
-<p>Identificación del WAF: Detecta si el sitio está protegido por un WAF.
-Tipo de WAF: Reconoce la marca y versión del WAF.
-Métodos de Protección: Analiza la forma en que el WAF maneja peticiones, permitiendo ajustar la estrategia de pruebas de seguridad.</p>
-<h2 id="funcionamiento-basico-de-wafw00f">Funcionamiento Básico de WafW00f<a class="headerlink" href="#funcionamiento-basico-de-wafw00f" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/EnableSecurity/wafw00f">WafW00f</a> funciona enviando una serie de solicitudes al sitio web objetivo y observando las respuestas para identificar patrones característicos de diferentes WAFs. Si detecta un WAF, también intentará identificar el tipo específico y su versión.
-Ejemplo Básico de Uso</p>
-<p>Para ejecutar WafW00f desde la terminal, puedes usar el siguiente comando:</p>
-<div class="language-text highlight"><pre><span></span><code>wafw00f -u https://ejemplo.com
-</code></pre></div>
-<p>En este ejemplo, WafW00f analizará el sitio https://ejemplo.com para determinar si hay un WAF presente y, si es posible, identificará su tipo.
-Características Principales de WafW00f</p>
-<p>Detección de WAF: WafW00f puede detectar una amplia variedad de WAFs comerciales y de código abierto.
-Reconocimiento de Marca y Versión: Cuando es posible, identifica la marca y la versión específica del WAF.
-Análisis de Métodos de Bloqueo: Observa las respuestas del WAF para determinar cómo bloquea o restringe el tráfico.
-Facilidad de Uso: Permite realizar análisis rápidos y directos desde la terminal con comandos sencillos.</p>
-<h2 id="herramientas-complementarias">Herramientas Complementarias<a class="headerlink" href="#herramientas-complementarias" title="Permanent link">&para;</a></h2>
-<p>Estas herramientas pueden mejorar la efectividad de WafW00f al proporcionar información adicional o al ayudar a evadir los WAFs detectados:</p>
-<p>Nmap: Con el script NSE http-waf-detect, Nmap también permite detectar la presencia de un WAF y es útil en combinación con WafW00f.
-Burp Suite: Herramienta de análisis y pruebas web, que permite enviar peticiones HTTP personalizadas y observar cómo responde el WAF.
-sqlmap: Al integrarse con WafW00f, sqlmap puede ajustar las pruebas de inyección SQL cuando detecta la presencia de un WAF.</p>
-<h2 id="recursos-adicionales">Recursos Adicionales<a class="headerlink" href="#recursos-adicionales" title="Permanent link">&para;</a></h2>
-<p>Página oficial de WafW00f en GitHub: https://github.com/EnableSecurity/wafw00f
-Documentación de WafW00f y lista de WAFs compatibles: WafW00f Documentation</p>
-<p><a href="https://github.com/EnableSecurity/wafw00f">WafW00f</a> es una herramienta esencial para los profesionales de ciberseguridad que necesitan analizar la seguridad perimetral de aplicaciones web. Detectar un WAF y comprender sus mecanismos de bloqueo permite adaptar las estrategias de prueba y realizar evaluaciones de seguridad más efectivas.</p>
+<h1 id="wafw00f">WafW00f<a class="headerlink" href="#wafw00f" title="Permanent link">&para;</a></h1>
+<p>WAF (Web Application Firewall) detection tool. Sends crafted requests to a target and analyzes responses to identify the WAF protecting it.</p>
+<p><strong>GitHub:</strong> https://github.com/EnableSecurity/wafw00f</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>wafw00f
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># or</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wafw00f
+</span></code></pre></div>
+<h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Detect WAF on a target</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>wafw00f<span class="w"> </span>https://example.com
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Test all known WAFs (slower but more thorough)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>wafw00f<span class="w"> </span>-a<span class="w"> </span>https://example.com
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Verbose output</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>wafw00f<span class="w"> </span>-v<span class="w"> </span>https://example.com
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Output in JSON</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>wafw00f<span class="w"> </span>-o<span class="w"> </span>output.json<span class="w"> </span>https://example.com
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Test multiple targets from file</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>wafw00f<span class="w"> </span>-i<span class="w"> </span>targets.txt
+</span></code></pre></div>
+<h2 id="what-it-detects">What it detects<a class="headerlink" href="#what-it-detects" title="Permanent link">&para;</a></h2>
+<p>WafW00f fingerprints 100+ WAFs including:</p>
+<table>
+<thead>
+<tr>
+<th>WAF</th>
+<th>Vendor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloudflare</td>
+<td>Cloudflare</td>
+</tr>
+<tr>
+<td>AWS WAF</td>
+<td>Amazon</td>
+</tr>
+<tr>
+<td>ModSecurity</td>
+<td>Open Source</td>
+</tr>
+<tr>
+<td>Akamai Kona</td>
+<td>Akamai</td>
+</tr>
+<tr>
+<td>Imperva Incapsula</td>
+<td>Imperva</td>
+</tr>
+<tr>
+<td>F5 BIG-IP ASM</td>
+<td>F5</td>
+</tr>
+<tr>
+<td>Barracuda WAF</td>
+<td>Barracuda</td>
+</tr>
+<tr>
+<td>Sucuri</td>
+<td>Sucuri</td>
+</tr>
+</tbody>
+</table>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Example output
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[*] Checking https://example.com
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>[+] The site https://example.com is behind Cloudflare (Cloudflare Inc.) WAF.
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>[~] Number of requests: 7
+</span></code></pre></div>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Sends normal baseline request</li>
+<li>Sends crafted malicious payloads (SQLi, XSS probes)</li>
+<li>Compares response headers, body, and status codes</li>
+<li>Matches patterns against WAF signature database</li>
+</ol>
+<h2 id="use-in-pentesting">Use in pentesting<a class="headerlink" href="#use-in-pentesting" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Before active testing</strong> — know if WAF is present; adjust payloads accordingly</li>
+<li><strong>WAF bypass planning</strong> — identify WAF type → research known bypass techniques</li>
+<li><strong>Scope documentation</strong> — document security controls in pentest report</li>
+</ul>
+<h2 id="complementary-tools">Complementary tools<a class="headerlink" href="#complementary-tools" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nmap --script http-waf-detect</code></td>
+<td>Alternative WAF detection via Nmap NSE</td>
+</tr>
+<tr>
+<td>Burp Suite</td>
+<td>Manual WAF behavior analysis via HTTP proxy</td>
+</tr>
+<tr>
+<td><code>sqlmap --tamper</code></td>
+<td>Tamper scripts to bypass detected WAFs</td>
+</tr>
+<tr>
+<td><code>cloudflair</code></td>
+<td>Find origin IP behind Cloudflare</td>
+</tr>
+</tbody>
+</table>
 
 
 
