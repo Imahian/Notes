@@ -1,7 +1,3 @@
----
-title: Level 0
-date: 2026-07-07
----
 # Level 0
 
 ## Table of Contents
