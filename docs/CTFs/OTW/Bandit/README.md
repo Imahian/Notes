@@ -36,8 +36,3 @@ file <file>
 nc localhost <port>
 openssl s_client -connect localhost:<port>
 ```
-
-## Writeups
-
-- [Level 0](<Level 0/README.md>)
-- [Level 1](<Level 1/README.md>)

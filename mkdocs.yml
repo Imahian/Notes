@@ -105,7 +105,10 @@ nav:
           - Web Service API: "CTFs/HTB/ACADEMY/Bug Bounty Hunter/Web Service & API Attacks/README.md"
     - OverTheWire:
       - Overview: CTFs/OTW/README.md
-      - Bandit: CTFs/OTW/Bandit/README.md
+      - Bandit:
+        - Overview: CTFs/OTW/Bandit/README.md
+        - Level 0: "CTFs/OTW/Bandit/Level 0/README.md"
+        - Level 1: "CTFs/OTW/Bandit/Level 1/README.md"
       - Behemoth: CTFs/OTW/Behemoth/README.md
       - Drifter: CTFs/OTW/Drifter/README.md
       - FormulaOne: CTFs/OTW/FormulaOne/README.md
