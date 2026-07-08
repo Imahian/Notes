@@ -3420,6 +3420,8 @@
         var a   = li.querySelector(':scope > a.md-nav__link');
         var lbl = li.querySelector(':scope > label.md-nav__link');
         var sub = li.querySelector(':scope > .md-nav');
+        // skip the embedded page TOC (headings), it's not navigation
+        if (sub && sub.classList.contains('md-nav--secondary')) sub = null;
         var link = a || lbl;
         if (!link) return;
         var ell = link.querySelector('.md-ellipsis');
@@ -3436,6 +3438,36 @@
 
     function cdPath() {
       return ['~', 'Notes'].concat(stack.map(function (s) { return s.title; })).join('/');
+    }
+
+    function samePage(href) {
+      if (!href) return false;
+      try { return new URL(href).pathname === window.location.pathname; }
+      catch (e) { return false; }
+    }
+
+    /* chain of dirs leading to the current page, so the menu opens "cd'd"
+       into the section the visitor is already reading */
+    function findPath(items) {
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i];
+        if (samePage(it.href)) {
+          return it.children.length
+            ? [{ title: it.text, items: it.children }]
+            : [];
+        }
+        if (it.children.length) {
+          var sub = findPath(it.children);
+          if (sub !== null) {
+            return [{ title: it.text, items: it.children }].concat(sub);
+          }
+        }
+      }
+      return null;
+    }
+
+    function currentStack() {
+      return findPath(rootItems) || [];
     }
 
     function esc(s) {
@@ -3457,7 +3489,6 @@
     function render(panel) {
       var items = stack.length ? stack[stack.length - 1].items : rootItems;
       var depth = stack.length;
-      var loc   = window.location.href;
 
       var html = '<div class="tn-hdr">'
         + '<span class="tn-user">root@notes</span>'
@@ -3478,7 +3509,7 @@
 
       items.forEach(function (item, i) {
         var isDir    = item.children.length > 0;
-        var isActive = !isDir && item.href && item.href === loc;
+        var isActive = !isDir && samePage(item.href);
         var delay    = (i * 0.04 + 0.02).toFixed(2) + 's';
         html += '<li class="tn-item'
           + (isDir    ? ' tn-dir'    : ' tn-file')
@@ -3537,14 +3568,113 @@
       var panel = document.createElement('div');
       panel.id = 'term-nav';
       sw.appendChild(panel);
+      stack = currentStack();
       render(panel);
 
       var drawer = document.getElementById('__drawer');
       if (drawer) {
         drawer.addEventListener('change', function () {
-          if (!this.checked) { stack = []; render(panel); }
+          if (!this.checked) { stack = currentStack(); render(panel); }
         });
       }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      setTimeout(init, 150);
+    }
+  })();
+
+  /* ── Desktop tab dropdowns ───────────────────────────── */
+  (function () {
+    function extractNav(el) {
+      if (!el) return [];
+      var out = [];
+      var lis = el.querySelectorAll(':scope > .md-nav__list > .md-nav__item');
+      lis.forEach(function (li) {
+        if (li.querySelector('.md-source')) return;
+        var a   = li.querySelector(':scope > a.md-nav__link');
+        var lbl = li.querySelector(':scope > label.md-nav__link');
+        var sub = li.querySelector(':scope > .md-nav');
+        // skip the embedded page TOC (headings), it's not navigation
+        if (sub && sub.classList.contains('md-nav--secondary')) sub = null;
+        var link = a || lbl;
+        if (!link) return;
+        var ell = link.querySelector('.md-ellipsis');
+        var text = (ell ? ell.textContent : link.textContent).trim();
+        if (!text || text.indexOf('imahian') >= 0) return;
+        out.push({
+          text: text,
+          href: a ? a.href : null,
+          children: sub ? extractNav(sub) : []
+        });
+      });
+      return out;
+    }
+
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function samePage(href) {
+      if (!href) return false;
+      try { return new URL(href).pathname === window.location.pathname; }
+      catch (e) { return false; }
+    }
+
+    function buildMenu(items) {
+      var html = '<ul class="dd-menu">';
+      items.forEach(function (item) {
+        var kids = item.children.slice();
+        var href = item.href;
+        // a section's Overview page doubles as the section link
+        if (!href && kids.length && kids[0].text === 'Overview') {
+          href = kids[0].href;
+          kids = kids.slice(1);
+        }
+        var isDir = kids.length > 0;
+        html += '<li class="dd-item' + (isDir ? ' dd-dir' : '') + '">';
+        var cls = 'dd-link' + (samePage(href) ? ' dd-active' : '');
+        if (href) {
+          html += '<a class="' + cls + '" href="' + esc(href) + '">'
+            + '<span class="dd-pfx">' + (isDir ? '&gt;' : '-') + '</span>'
+            + esc(item.text) + (isDir ? '/' : '') + '</a>';
+        } else {
+          html += '<span class="' + cls + '">'
+            + '<span class="dd-pfx">&gt;</span>' + esc(item.text) + '/</span>';
+        }
+        if (isDir) html += buildMenu(kids);
+        html += '</li>';
+      });
+      return html + '</ul>';
+    }
+
+    function init() {
+      var tabs = document.querySelectorAll('.md-tabs__item');
+      if (!tabs.length) { setTimeout(init, 250); return; }
+
+      var primary = document.querySelector('.md-sidebar--primary .md-nav--primary');
+      var rootItems = extractNav(primary);
+      if (!rootItems.length) return;
+
+      tabs.forEach(function (tab) {
+        var link = tab.querySelector('.md-tabs__link');
+        if (!link) return;
+        var text = link.textContent.trim();
+        var match = null;
+        rootItems.forEach(function (it) {
+          if (it.text === text && it.children.length) match = it;
+        });
+        if (!match) return;
+        var kids = match.children.slice();
+        if (kids.length && kids[0].text === 'Overview') kids = kids.slice(1);
+        if (!kids.length) return;
+        tab.classList.add('dd-host');
+        tab.insertAdjacentHTML('beforeend', buildMenu(kids));
+      });
     }
 
     if (document.readyState === 'loading') {

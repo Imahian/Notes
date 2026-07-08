@@ -660,3 +660,73 @@ body::after {
   .vtk-label { font-size: 0.58rem; padding: 0 7px; }
   .vtk-text { font-size: 0.58rem; }
 }
+
+/* ── Desktop tab dropdowns ────────────────────────────── */
+@media screen and (min-width: 76.25em) {
+  .md-tabs,
+  .md-tabs__list { overflow: visible; }
+
+  /* Material sets contain: content here, which paint-clips the dropdowns */
+  .md-tabs__list { contain: none; }
+
+  .md-tabs__item.dd-host { position: relative; }
+
+  .dd-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    min-width: 230px;
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    background: #000d01;
+    border: 1px solid rgba(0, 204, 51, 0.28);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 12px rgba(0, 204, 51, 0.12);
+  }
+
+  .md-tabs__item.dd-host:hover > .dd-menu { display: block; }
+
+  .dd-item { position: relative; }
+
+  /* submenus fly out to the right */
+  .dd-item > .dd-menu {
+    top: -7px;
+    left: 100%;
+  }
+
+  .dd-item:hover > .dd-menu { display: block; }
+
+  .dd-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.68rem;
+    color: #7abf7a;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: default;
+  }
+
+  a.dd-link { cursor: pointer; }
+
+  a.dd-link:hover {
+    color: #00ff41;
+    background: rgba(0, 204, 51, 0.08);
+    text-shadow: 0 0 6px rgba(0, 255, 65, 0.4);
+  }
+
+  .dd-link.dd-active { color: #00ff41; }
+
+  .dd-pfx { color: rgba(0, 204, 51, 0.5); }
+
+  .dd-dir > .dd-link::after {
+    content: '\203A';
+    margin-left: auto;
+    padding-left: 12px;
+    color: rgba(0, 204, 51, 0.5);
+  }
+}
