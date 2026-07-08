@@ -1,14 +1,7 @@
 ---
 title: Level 1
-date: 2026-07-07
 ---
 # Level 1
-
-## Table of Contents
-
-- [Level Goal](#level-goal)
-- [Resolution](#resolution)
-- [Flag](#flag)
 
 <div align='center'>
   <img src='img/level1.png' width='400' alt='Image'>
@@ -36,13 +29,3 @@ cat readme
 6y2kwnwK6grgvwvp****************
 ```
 
-<div align='center'>
-  <p>Thanks for reading! Follow me on my socials:</p>
-  <a href='Imahian'><img src='https://www.vectorlogo.zone/logos/x/x-icon.svg' alt='Twitter/X' width='40'></a>
-  <a href='https://discord.gg/ACUNVvdZ8W'><img src='https://www.vectorlogo.zone/logos/discord/discord-icon.svg' alt='Discord' width='40'></a>
-  <a href='https://www.youtube.com/@imahian'><img src='https://www.vectorlogo.zone/logos/youtube/youtube-icon.svg' alt='YouTube' width='40'></a>
-  <a href='https://www.twitch.tv/imahian'><img src='https://www.vectorlogo.zone/logos/twitch/twitch-icon.svg' alt='Twitch' width='40'></a>
-  <a href='https://github.com/Imahian'><img src='https://www.vectorlogo.zone/logos/github/github-icon.svg' alt='GitHub' width='40'></a>
-</div>
-
----
