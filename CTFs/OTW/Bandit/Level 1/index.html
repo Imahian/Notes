@@ -12,7 +12,7 @@
         <meta name="author" content="imahian">
       
       
-        <link rel="canonical" href="https://imahian.github.io/Notes/CTFs/OTW/Bandit/Level%200/">
+        <link rel="canonical" href="https://imahian.github.io/Notes/CTFs/OTW/Bandit/Level%201/">
       
       
       
@@ -25,7 +25,7 @@
     
     
       
-        <title>Level 0 - imahian // notes</title>
+        <title>Level 1 - imahian // notes</title>
       
     
     
@@ -161,7 +161,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#level-0" class="md-skip">
+        <a href="#level-1" class="md-skip">
           Skip to content
         </a>
       
@@ -196,7 +196,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Level 0
+              Level 1
             
           </span>
         </div>
@@ -2842,6 +2842,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flag
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2862,26 +2873,34 @@
   
 
 
-<h1 id="level-0">Level 0<a class="headerlink" href="#level-0" title="Permanent link">&para;</a></h1>
+<h1 id="level-1">Level 1<a class="headerlink" href="#level-1" title="Permanent link">&para;</a></h1>
 <div align='center'>
-  <img src='img/Level0.png' width='400' alt='Image'>
+  <img src='img/level1.png' width='400' alt='Image'>
 </div>
 
 <h2 id="level-goal">Level Goal<a class="headerlink" href="#level-goal" title="Permanent link">&para;</a></h2>
-<p>The goal of this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go to the Level 1 page to find out how to beat Level 1.</p>
+<p>The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.</p>
 <h2 id="resolution">Resolution<a class="headerlink" href="#resolution" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2220</span><span class="w"> </span>bandit.labs.overthewire.org<span class="w"> </span>-l<span class="w"> </span>bandit0
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat<span class="w"> </span>readme
 </span></code></pre></div>
-<p>To connect to the first level, use the command ssh -p 2220 bandit.labs.overthewire.org -l bandit0, which breaks down as follows: ssh initiates the Secure Shell client to establish an encrypted remote connection, -p 2220 specifies the custom network port required by the game server (overriding the default port 22), bandit.labs.overthewire.org is the target domain host, and -l bandit0 declares the username for authentication (with the password for this initial level being bandit0). </p>
 <div align='center'>
-  <img src='img/sshaccess.png' width='600' alt='sshaccess'>
+  <img src='img/Passtolvl1.png' width='1000' alt='Passtolvl1'>
 </div>
 
+<h2 id="flag">Flag<a class="headerlink" href="#flag" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>6y2kwnwK6grgvwvp****************
+</span></code></pre></div>
 
 
 
 
 
+
+
+  
+  
 
 
 
