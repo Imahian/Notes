@@ -1,6 +1,4 @@
----
-title: Level 1
----
+
 # Level 1
 
 <div align='center'>
