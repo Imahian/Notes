@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-# Level 1
+# Level 0
 
 <div align='center'>
   <img src='img/level1.png' width='400' alt='Image'>
@@ -15,8 +11,6 @@ The password for the next level is stored in a file called readme located in the
 ## Resolution
 
 ```bash
-ls
-
 cat readme
 ```
 
