@@ -40,10 +40,10 @@
 
 .unit-card {
   background: rgba(0, 20, 6, 0.9);
-  border: 1px solid rgba(0, 204, 51, 0.2);
+  border: 1px solid rgba(0, 204, 51, 0.25);
   border-radius: 6px;
   padding: 18px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -235,7 +235,6 @@ const valuesList = [
 ];
 
 function DaacsApp() {
-  // Default to Unit 1 active tab (Forces clicking buttons to explore units)
   const [activeTab, setActiveTab] = useState("1");
   const [showRadar, setShowRadar] = useState(true);
   const [activeValue, setActiveValue] = useState(0);
@@ -276,7 +275,7 @@ function DaacsApp() {
         </div>
       </div>
 
-      {/* Navigation Buttons (No "All units" button & No search box) */}
+      {/* Navigation Buttons (Right above the interactive card) */}
       <div style={{ marginBottom: '15px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {[1,2,3,4,5,6,7,8].map(num => (
           <button key={num} class={`daacs-nav-btn ${activeTab === String(num) ? 'active' : ''}`} onClick={() => setActiveTab(String(num))}>
@@ -291,38 +290,42 @@ function DaacsApp() {
         </button>
       </div>
 
-      {/* SRL Growth Radar Gauge */}
-      <div style={{ background: 'rgba(0,18,5,0.9)', border: '1px solid rgba(0,204,51,0.25)', borderRadius: '6px', padding: '16px', marginBottom: '20px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-          <h3 style={{ color: '#00ff41', margin: 0, fontSize: '0.95rem' }}>
-            📊 Self-Regulated Learning (SRL) Growth Gauge: Baseline vs Final Mastery
-          </h3>
-          <button onClick={() => setShowRadar(!showRadar)} class="daacs-nav-btn" style={{ fontSize: '0.7rem' }}>
-            {showRadar ? "Hide Gauge" : "Show Gauge"}
-          </button>
-        </div>
-
-        {showRadar && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
-            {srlMetrics.map((m, idx) => (
-              <div key={idx} style={{ background: 'rgba(0,10,3,0.6)', padding: '10px', borderRadius: '4px', border: '1px solid rgba(0,204,51,0.1)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '4px' }}>
-                  <span style={{ color: '#c8ffc8' }}>{m.name}</span>
-                  <span style={{ color: '#00ff41', fontWeight: 'bold' }}>{m.current}% <span style={{ fontSize: '0.65rem', color: '#7abf7a' }}>(+{(m.current - m.initial)}%)</span></span>
-                </div>
-                <div class="metric-bar-bg">
-                  <div class="metric-bar-fill" style={{ width: `${m.current}%` }}></div>
-                </div>
-                <div style={{ fontSize: '0.65rem', color: 'rgba(0,204,51,0.5)', textAlign: 'right' }}>
-                  Week 1 Baseline: {m.initial}%
-                </div>
+      {/* 🟢 1. INTERACTIVE UNIT CARD / VIEW (Placed IMMEDIATELY under the buttons for instant feedback!) */}
+      {selectedUnitObj && (
+        <div class="unit-card">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+            <div>
+              <span class="unit-badge">UNIT {selectedUnitObj.id}</span>
+              <h3 style={{ color: '#00ff41', margin: '4px 0 6px 0', fontSize: '1.05rem' }}>{selectedUnitObj.title}</h3>
+              <div style={{ fontSize: '0.75rem', color: '#7abf7a', marginBottom: '8px' }}>
+                <strong>Assignment:</strong> {selectedUnitObj.assignment}
               </div>
-            ))}
+            </div>
           </div>
-        )}
-      </div>
 
-      {/* Demo Daily Tracker Tab */}
+          <div style={{ fontSize: '0.84rem', color: '#c8ffc8', lineHeight: '1.6', marginBottom: '12px' }}>
+            {selectedUnitObj.summary}
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px', marginTop: '10px' }}>
+            <div style={{ background: 'rgba(0,10,3,0.6)', padding: '12px', borderRadius: '4px', borderLeft: '3px solid #00cc33' }}>
+              <div style={{ color: '#00ff41', fontSize: '0.78rem', fontWeight: 'bold' }}>💡 What I Learned:</div>
+              <div style={{ fontSize: '0.78rem', color: '#c8ffc8', marginTop: '4px', lineHeight: '1.5' }}>{selectedUnitObj.learned}</div>
+            </div>
+
+            <div style={{ background: 'rgba(0,10,3,0.6)', padding: '12px', borderRadius: '4px', borderLeft: '3px solid #00ff41' }}>
+              <div style={{ color: '#00ff41', fontSize: '0.78rem', fontWeight: 'bold' }}>🚀 How I Will Use It Moving Forward:</div>
+              <div style={{ fontSize: '0.78rem', color: '#c8ffc8', marginTop: '4px', lineHeight: '1.5' }}>{selectedUnitObj.movingForward}</div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '12px', background: 'rgba(0,30,10,0.4)', padding: '10px 14px', borderRadius: '4px', fontSize: '0.78rem', color: '#7abf7a' }}>
+            🛡️ <strong>Cyber Operations Connection:</strong> {selectedUnitObj.cyberLink}
+          </div>
+        </div>
+      )}
+
+      {/* Demo Daily Tracker Tab View */}
       {activeTab === 'tracker' && (
         <div class="interactive-box">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap' }}>
@@ -360,7 +363,7 @@ function DaacsApp() {
         </div>
       )}
 
-      {/* Values & SMART Goals Tab */}
+      {/* Values & SMART Goals Tab View */}
       {activeTab === 'values' && (
         <div class="interactive-box">
           <span class="unit-badge">UNIT 2 HIGHLIGHT</span>
@@ -389,40 +392,36 @@ function DaacsApp() {
         </div>
       )}
 
-      {/* Selected Unit View */}
-      {selectedUnitObj && (
-        <div class="unit-card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-            <div>
-              <span class="unit-badge">UNIT {selectedUnitObj.id}</span>
-              <h3 style={{ color: '#00ff41', margin: '4px 0 6px 0', fontSize: '1.05rem' }}>{selectedUnitObj.title}</h3>
-              <div style={{ fontSize: '0.75rem', color: '#7abf7a', marginBottom: '8px' }}>
-                <strong>Assignment:</strong> {selectedUnitObj.assignment}
-              </div>
-            </div>
-          </div>
-
-          <div style={{ fontSize: '0.84rem', color: '#c8ffc8', lineHeight: '1.6', marginBottom: '12px' }}>
-            {selectedUnitObj.summary}
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px', marginTop: '10px' }}>
-            <div style={{ background: 'rgba(0,10,3,0.6)', padding: '12px', borderRadius: '4px', borderLeft: '3px solid #00cc33' }}>
-              <div style={{ color: '#00ff41', fontSize: '0.78rem', fontWeight: 'bold' }}>💡 What I Learned:</div>
-              <div style={{ fontSize: '0.78rem', color: '#c8ffc8', marginTop: '4px', lineHeight: '1.5' }}>{selectedUnitObj.learned}</div>
-            </div>
-
-            <div style={{ background: 'rgba(0,10,3,0.6)', padding: '12px', borderRadius: '4px', borderLeft: '3px solid #00ff41' }}>
-              <div style={{ color: '#00ff41', fontSize: '0.78rem', fontWeight: 'bold' }}>🚀 How I Will Use It Moving Forward:</div>
-              <div style={{ fontSize: '0.78rem', color: '#c8ffc8', marginTop: '4px', lineHeight: '1.5' }}>{selectedUnitObj.movingForward}</div>
-            </div>
-          </div>
-
-          <div style={{ marginTop: '12px', background: 'rgba(0,30,10,0.4)', padding: '10px 14px', borderRadius: '4px', fontSize: '0.78rem', color: '#7abf7a' }}>
-            🛡️ <strong>Cyber Operations Connection:</strong> {selectedUnitObj.cyberLink}
-          </div>
+      {/* 🟢 2. SRL GROWTH RADAR GAUGE (Placed BELOW the interactive unit card) */}
+      <div style={{ background: 'rgba(0,18,5,0.9)', border: '1px solid rgba(0,204,51,0.25)', borderRadius: '6px', padding: '16px', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+          <h3 style={{ color: '#00ff41', margin: 0, fontSize: '0.95rem' }}>
+            📊 Self-Regulated Learning (SRL) Growth Gauge: Baseline vs Final Mastery
+          </h3>
+          <button onClick={() => setShowRadar(!showRadar)} class="daacs-nav-btn" style={{ fontSize: '0.7rem' }}>
+            {showRadar ? "Hide Gauge" : "Show Gauge"}
+          </button>
         </div>
-      )}
+
+        {showRadar && (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
+            {srlMetrics.map((m, idx) => (
+              <div key={idx} style={{ background: 'rgba(0,10,3,0.6)', padding: '10px', borderRadius: '4px', border: '1px solid rgba(0,204,51,0.1)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '4px' }}>
+                  <span style={{ color: '#c8ffc8' }}>{m.name}</span>
+                  <span style={{ color: '#00ff41', fontWeight: 'bold' }}>{m.current}% <span style={{ fontSize: '0.65rem', color: '#7abf7a' }}>(+{(m.current - m.initial)}%)</span></span>
+                </div>
+                <div class="metric-bar-bg">
+                  <div class="metric-bar-fill" style={{ width: `${m.current}%` }}></div>
+                </div>
+                <div style={{ fontSize: '0.65rem', color: 'rgba(0,204,51,0.5)', textAlign: 'right' }}>
+                  Week 1 Baseline: {m.initial}%
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* AI Use Disclosure Box */}
       <div style={{ marginTop: '25px', paddingTop: '15px', borderTop: '1px dashed rgba(0,204,51,0.3)', textAlign: 'center', fontSize: '0.78rem', color: '#7abf7a' }}>
