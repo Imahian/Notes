@@ -73,7 +73,6 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - DAACS: DAACS/index.md
   - CTFs:
     - Overview: CTFs/README.md
     - HackTheBox:
@@ -148,3 +147,4 @@ nav:
     - WafW00f: Tools/WafW00f.md
   - CVEs:
     - Overview: CVEs/README.md
+  - DAACS: DAACS/index.md

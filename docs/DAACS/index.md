@@ -21,11 +21,11 @@
   background: rgba(0, 40, 12, 0.7);
   color: #7abf7a;
   border: 1px solid rgba(0, 204, 51, 0.25);
-  padding: 8px 14px;
+  padding: 9px 15px;
   border-radius: 6px;
   cursor: pointer;
   font-family: 'Fira Code', monospace;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   transition: all 0.2s ease;
   margin: 3px;
 }
@@ -34,7 +34,7 @@
   background: rgba(0, 204, 51, 0.25);
   color: #00ff41;
   border-color: #00ff41;
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.45);
   transform: translateY(-1px);
 }
 
@@ -108,22 +108,6 @@
   0% { transform: scale(0.95); opacity: 0.7; }
   50% { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(0.95); opacity: 0.7; }
-}
-
-.search-input {
-  width: 100%;
-  background: rgba(0, 15, 5, 0.9);
-  border: 1px solid rgba(0, 204, 51, 0.3);
-  color: #00ff41;
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-family: 'Fira Code', monospace;
-  margin-bottom: 15px;
-  outline: none;
-}
-.search-input:focus {
-  border-color: #00ff41;
-  box-shadow: 0 0 12px rgba(0, 255, 65, 0.3);
 }
 
 .interactive-box {
@@ -251,8 +235,8 @@ const valuesList = [
 ];
 
 function DaacsApp() {
-  const [activeTab, setActiveTab] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
+  // Default to Unit 1 active tab (Forces clicking buttons to explore units)
+  const [activeTab, setActiveTab] = useState("1");
   const [showRadar, setShowRadar] = useState(true);
   const [activeValue, setActiveValue] = useState(0);
 
@@ -273,15 +257,7 @@ function DaacsApp() {
   const completedCount = demoTasks.filter(t => t.done).length;
   const efficiencyScore = Math.round((completedCount / demoTasks.length) * 100);
 
-  const filteredUnits = unitData.filter(u => {
-    if (activeTab !== "all" && u.id !== parseInt(activeTab)) return false;
-    if (searchQuery.trim() === "") return true;
-    const q = searchQuery.toLowerCase();
-    return u.title.toLowerCase().includes(q) || 
-           u.learned.toLowerCase().includes(q) || 
-           u.movingForward.toLowerCase().includes(q) ||
-           u.cyberLink.toLowerCase().includes(q);
-  });
+  const selectedUnitObj = unitData.find(u => u.id === parseInt(activeTab));
 
   return (
     <div class="daacs-container">
@@ -300,20 +276,8 @@ function DaacsApp() {
         </div>
       </div>
 
-      {/* Search Input */}
-      <input 
-        type="text" 
-        class="search-input" 
-        placeholder="🔍 Search units, cyber topics, CTFs, tracker, writing center..." 
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-
-      {/* Navigation Bar */}
+      {/* Navigation Buttons (No "All units" button & No search box) */}
       <div style={{ marginBottom: '15px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-        <button class={`daacs-nav-btn ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>
-          ⚡ All Units (1-8)
-        </button>
         {[1,2,3,4,5,6,7,8].map(num => (
           <button key={num} class={`daacs-nav-btn ${activeTab === String(num) ? 'active' : ''}`} onClick={() => setActiveTab(String(num))}>
             Unit {num}
@@ -425,48 +389,40 @@ function DaacsApp() {
         </div>
       )}
 
-      {/* Unit Cards List */}
-      <div>
-        {filteredUnits.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '20px', color: '#7abf7a' }}>
-            No units match your search query "{searchQuery}".
-          </div>
-        ) : (
-          filteredUnits.map(unit => (
-            <div key={unit.id} class="unit-card">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                <div>
-                  <span class="unit-badge">UNIT {unit.id}</span>
-                  <h3 style={{ color: '#00ff41', margin: '4px 0 6px 0', fontSize: '1rem' }}>{unit.title}</h3>
-                  <div style={{ fontSize: '0.75rem', color: '#7abf7a', marginBottom: '8px' }}>
-                    <strong>Assignment:</strong> {unit.assignment}
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ fontSize: '0.82rem', color: '#c8ffc8', lineHeight: '1.6', marginBottom: '10px' }}>
-                {unit.summary}
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '10px', marginTop: '10px' }}>
-                <div style={{ background: 'rgba(0,10,3,0.6)', padding: '10px', borderRadius: '4px', borderLeft: '3px solid #00cc33' }}>
-                  <div style={{ color: '#00ff41', fontSize: '0.75rem', fontWeight: 'bold' }}>💡 What I Learned:</div>
-                  <div style={{ fontSize: '0.76rem', color: '#c8ffc8', marginTop: '4px' }}>{unit.learned}</div>
-                </div>
-
-                <div style={{ background: 'rgba(0,10,3,0.6)', padding: '10px', borderRadius: '4px', borderLeft: '3px solid #00ff41' }}>
-                  <div style={{ color: '#00ff41', fontSize: '0.75rem', fontWeight: 'bold' }}>🚀 How I Will Use It Moving Forward:</div>
-                  <div style={{ fontSize: '0.76rem', color: '#c8ffc8', marginTop: '4px' }}>{unit.movingForward}</div>
-                </div>
-              </div>
-
-              <div style={{ marginTop: '10px', background: 'rgba(0,30,10,0.4)', padding: '8px 12px', borderRadius: '4px', fontSize: '0.75rem', color: '#7abf7a' }}>
-                🛡️ <strong>Cyber Operations Connection:</strong> {unit.cyberLink}
+      {/* Selected Unit View */}
+      {selectedUnitObj && (
+        <div class="unit-card">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+            <div>
+              <span class="unit-badge">UNIT {selectedUnitObj.id}</span>
+              <h3 style={{ color: '#00ff41', margin: '4px 0 6px 0', fontSize: '1.05rem' }}>{selectedUnitObj.title}</h3>
+              <div style={{ fontSize: '0.75rem', color: '#7abf7a', marginBottom: '8px' }}>
+                <strong>Assignment:</strong> {selectedUnitObj.assignment}
               </div>
             </div>
-          ))
-        )}
-      </div>
+          </div>
+
+          <div style={{ fontSize: '0.84rem', color: '#c8ffc8', lineHeight: '1.6', marginBottom: '12px' }}>
+            {selectedUnitObj.summary}
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px', marginTop: '10px' }}>
+            <div style={{ background: 'rgba(0,10,3,0.6)', padding: '12px', borderRadius: '4px', borderLeft: '3px solid #00cc33' }}>
+              <div style={{ color: '#00ff41', fontSize: '0.78rem', fontWeight: 'bold' }}>💡 What I Learned:</div>
+              <div style={{ fontSize: '0.78rem', color: '#c8ffc8', marginTop: '4px', lineHeight: '1.5' }}>{selectedUnitObj.learned}</div>
+            </div>
+
+            <div style={{ background: 'rgba(0,10,3,0.6)', padding: '12px', borderRadius: '4px', borderLeft: '3px solid #00ff41' }}>
+              <div style={{ color: '#00ff41', fontSize: '0.78rem', fontWeight: 'bold' }}>🚀 How I Will Use It Moving Forward:</div>
+              <div style={{ fontSize: '0.78rem', color: '#c8ffc8', marginTop: '4px', lineHeight: '1.5' }}>{selectedUnitObj.movingForward}</div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '12px', background: 'rgba(0,30,10,0.4)', padding: '10px 14px', borderRadius: '4px', fontSize: '0.78rem', color: '#7abf7a' }}>
+            🛡️ <strong>Cyber Operations Connection:</strong> {selectedUnitObj.cyberLink}
+          </div>
+        </div>
+      )}
 
       {/* AI Use Disclosure Box */}
       <div style={{ marginTop: '25px', paddingTop: '15px', borderTop: '1px dashed rgba(0,204,51,0.3)', textAlign: 'center', fontSize: '0.78rem', color: '#7abf7a' }}>
