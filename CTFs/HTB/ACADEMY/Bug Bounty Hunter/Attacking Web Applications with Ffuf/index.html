@@ -2989,6 +2989,202 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-57155/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-57155
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-95182/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-95182
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-92262/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-92262
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-94169/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-94169
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-89079/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-89079
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-111382/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-111382
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-109588/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-109588
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3118,13 +3314,13 @@
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-recursion<span class="w"> </span>-recursion-depth<span class="w"> </span><span class="m">2</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Subdomain/vhost fuzzing</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Host: FUZZ.target.com&quot;</span><span class="w"> </span>-w<span class="w"> </span>subdomains.txt
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Host: FUZZ.target.com"</span><span class="w"> </span>-w<span class="w"> </span>subdomains.txt
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># GET parameter fuzzing</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>ffuf<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://TARGET/page.php?FUZZ=value&quot;</span><span class="w"> </span>-w<span class="w"> </span>params.txt
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>ffuf<span class="w"> </span>-u<span class="w"> </span><span class="s2">"http://TARGET/page.php?FUZZ=value"</span><span class="w"> </span>-w<span class="w"> </span>params.txt
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># POST data fuzzing</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/login<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;user=admin&amp;pass=FUZZ&quot;</span><span class="w"> </span>-w<span class="w"> </span>passwords.txt<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://TARGET/login<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">"user=admin&amp;pass=FUZZ"</span><span class="w"> </span>-w<span class="w"> </span>passwords.txt<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
 </span></code></pre></div>
 <h2 id="filtering-results">Filtering Results<a class="headerlink" href="#filtering-results" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Filter by response code</span>
@@ -3140,7 +3336,7 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-mc<span class="w"> </span><span class="m">200</span>,301,302
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Filter by regex in response</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-fr<span class="w"> </span><span class="s2">&quot;Not Found&quot;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>ffuf<span class="w"> </span>...<span class="w"> </span>-fr<span class="w"> </span><span class="s2">"Not Found"</span>
 </span></code></pre></div>
 <h2 id="wordlists">Wordlists<a class="headerlink" href="#wordlists" title="Permanent link">&para;</a></h2>
 <table>

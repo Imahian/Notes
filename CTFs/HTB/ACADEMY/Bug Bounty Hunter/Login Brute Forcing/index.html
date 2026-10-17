@@ -3011,6 +3011,202 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-57155/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-57155
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-95182/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-95182
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-92262/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-92262
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-94169/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-94169
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-89079/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-89079
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-111382/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-111382
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CVEs/CVE-2026-109588/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE-2026-109588
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3150,7 +3346,7 @@
 <p>Automated credential testing against login forms, SSH, FTP, and other services using wordlists.</p>
 <h2 id="hydra">Hydra<a class="headerlink" href="#hydra" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># HTTP POST form</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w"> </span>target.com<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">&quot;/login.php:user=^USER^&amp;pass=^PASS^:Invalid credentials&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w"> </span>target.com<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">"/login.php:user=^USER^&amp;pass=^PASS^:Invalid credentials"</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># HTTP Basic Auth</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>target.com<span class="w"> </span>http-get<span class="w"> </span>/admin/
@@ -3162,19 +3358,19 @@
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>ftp://target.com
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Multiple usernames</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>hydra<span class="w"> </span>-L<span class="w"> </span>users.txt<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>target.com<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">&quot;/login:user=^USER^&amp;pass=^PASS^:error&quot;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>hydra<span class="w"> </span>-L<span class="w"> </span>users.txt<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>target.com<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">"/login:user=^USER^&amp;pass=^PASS^:error"</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># Custom port</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>-s<span class="w"> </span><span class="m">8080</span><span class="w"> </span>target.com<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">&quot;/login:u=^USER^&amp;p=^PASS^:fail&quot;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>-s<span class="w"> </span><span class="m">8080</span><span class="w"> </span>target.com<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">"/login:u=^USER^&amp;p=^PASS^:fail"</span>
 </span></code></pre></div>
 <h2 id="medusa">Medusa<a class="headerlink" href="#medusa" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>medusa<span class="w"> </span>-h<span class="w"> </span>target.com<span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>-M<span class="w"> </span>http<span class="w"> </span>-m<span class="w"> </span>DIR:/login.php<span class="w"> </span>-m<span class="w"> </span>FORM:user<span class="o">=</span>^USER^<span class="p">&amp;</span><span class="nv">pass</span><span class="o">=</span>^PASS^<span class="w"> </span>-m<span class="w"> </span>DENY:<span class="s2">&quot;Invalid&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>medusa<span class="w"> </span>-h<span class="w"> </span>target.com<span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>rockyou.txt<span class="w"> </span>-M<span class="w"> </span>http<span class="w"> </span>-m<span class="w"> </span>DIR:/login.php<span class="w"> </span>-m<span class="w"> </span>FORM:user<span class="o">=</span>^USER^<span class="p">&amp;</span><span class="nv">pass</span><span class="o">=</span>^PASS^<span class="w"> </span>-m<span class="w"> </span>DENY:<span class="s2">"Invalid"</span>
 </span></code></pre></div>
 <h2 id="ffuf-for-web-login">Ffuf for Web Login<a class="headerlink" href="#ffuf-for-web-login" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/login<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;user=admin&amp;pass=FUZZ&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">"user=admin&amp;pass=FUZZ"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-w<span class="w"> </span>rockyou.txt<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>-fc<span class="w"> </span><span class="m">302</span><span class="w"> </span>-fs<span class="w"> </span><span class="m">1234</span>
 </span></code></pre></div>
 <h2 id="custom-wordlists">Custom Wordlists<a class="headerlink" href="#custom-wordlists" title="Permanent link">&para;</a></h2>
