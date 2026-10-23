@@ -249,6 +249,10 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-107685/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-107858/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
@@ -314,6 +318,18 @@
     </url>
     <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-110063/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-110264/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-110353/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-110354/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
@@ -421,7 +437,15 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-111830/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-111832-111834/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-111851/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
@@ -509,6 +533,18 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112212/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112241/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112242/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112257/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
@@ -561,6 +597,14 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112312/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112327/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112330/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
@@ -586,6 +630,10 @@
     </url>
     <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112371/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112379/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
@@ -745,6 +793,10 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-112904/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-113351/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
@@ -901,6 +953,78 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114635/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114636/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114637/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114638/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114639/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114640/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114642/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114656/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114658/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114661/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114662/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114663/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114664/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114716/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114720/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114724/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114727/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-114730/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-115324/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
@@ -965,11 +1089,27 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-115723/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-115726/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-115727/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-115812/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-115863/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-15723/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
@@ -1014,6 +1154,10 @@
     </url>
     <url>
          <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-53995/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://imahian.github.io/Notes/CVEs/CVE-2026-56840-group/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
