@@ -146,6 +146,7 @@ nav:
     - Netcraft: Tools/Netcraft.md
     - WafW00f: Tools/WafW00f.md
   - CVEs:
+    - CVE-2026-93518-group: CVEs/CVE-2026-93518-group/README.md
     - CVE-2026-115968: CVEs/CVE-2026-115968/README.md
     - CVE-2026-84999: CVEs/CVE-2026-84999/README.md
     - CVE-2026-118375: CVEs/CVE-2026-118375/README.md
